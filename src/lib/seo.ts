@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { OG_IMAGE_PATH, SITE_NAME, SITE_URL } from "@/lib/site";
 
 type PageSeoInput = {
   title: string;
@@ -18,6 +18,13 @@ export function absoluteUrl(path = "/"): string {
   const withSlash = normalized.endsWith("/") ? normalized : `${normalized}/`;
   return `${SITE_URL}${withSlash}`;
 }
+
+const defaultOgImage = {
+  url: absoluteUrl(OG_IMAGE_PATH),
+  width: 1200,
+  height: 630,
+  alt: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy em português",
+};
 
 export function pageMetadata({
   title,
@@ -43,20 +50,13 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: "pt_PT",
       type,
-      images: [
-        {
-          url: absoluteUrl("/hero-pen.png"),
-          width: 1920,
-          height: 1080,
-          alt: "Caneta injetora semanal ilustrativa — Guia GLP-1",
-        },
-      ],
+      images: [defaultOgImage],
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description,
-      images: [absoluteUrl("/hero-pen.png")],
+      images: [absoluteUrl(OG_IMAGE_PATH)],
     },
   };
 }

@@ -10,7 +10,12 @@ import {
   susPlanoNotesBrazil,
 } from "@/content/prices-br";
 import { pageMetadata } from "@/lib/seo";
-import { CONTENT_REVIEWED_AT, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  CONTENT_REVIEWED_AT,
+  CONTENT_REVIEWED_LABEL,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 const description =
   "Preços aproximados de Mounjaro, Ozempic, Wegovy e Saxenda no Brasil (R$): faixas de farmácia, SUS, planos de saúde e como verificar na ANVISA.";
@@ -48,6 +53,9 @@ export default function BrasilPrecosPage() {
         title="Quanto custam as canetas GLP-1 no Brasil"
         lede="Em reais, com teto CMED, programas de laboratório e pouca presença no SUS. Ordens de grandeza — não cotação."
       >
+        <p className="locale-note" lang="pt-BR">
+          Conteúdo em português do Brasil (pt-BR)
+        </p>
         <div className="callout warning">
           <p>
             <strong>Isto não é tabela oficial.</strong> {pricePageDisclaimerBrazil}{" "}
@@ -58,6 +66,18 @@ export default function BrasilPrecosPage() {
             e no balcão.
           </p>
         </div>
+
+        <p className="price-verify">
+          <strong>Última verificação editorial:</strong>{" "}
+          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>
+          <span>
+            · Confirme de novo na{" "}
+            <a href={anvisaConsultasUrl} target="_blank" rel="noopener noreferrer">
+              ANVISA
+            </a>{" "}
+            e no ticket da farmácia.
+          </span>
+        </p>
 
         <h2>Faixas típicas (R$ / mês)</h2>
         <div className="price-table-wrap">
@@ -89,7 +109,7 @@ export default function BrasilPrecosPage() {
         </div>
         <p>
           Revisão editorial:{" "}
-          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_AT}</time>.
+          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>.
         </p>
 
         <h2>SUS e planos — o essencial</h2>
@@ -126,6 +146,12 @@ export default function BrasilPrecosPage() {
           </li>
           <li>
             <Link href="/precos">Preços em Portugal (€)</Link>
+          </li>
+          <li>
+            <Link href="/comprar-online">Riscos de comprar online</Link>
+          </li>
+          <li>
+            <Link href="/sugerir">Sugerir uma clínica</Link>
           </li>
           <li>
             <Link href="/brasil">Hub Brasil</Link>

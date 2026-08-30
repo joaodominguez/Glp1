@@ -3,6 +3,8 @@ export type FaqItem = {
   question: string;
   answer: string;
   category: FaqCategory;
+  relatedHref?: string;
+  relatedLabel?: string;
 };
 
 export type FaqCategory =
@@ -50,6 +52,8 @@ export const faqItems: FaqItem[] = [
     question: "Mounjaro é o mesmo que Ozempic?",
     answer:
       "Não. Mounjaro é tirzepatida (agonista duplo GIP + GLP-1). Ozempic é semaglutida (agonista de GLP-1). Empresas, doses, canetas e evidência são diferentes. Comparações de «qual emagrece mais» na internet não substituem a escolha clínica com base no seu diagnóstico e na bula local.",
+    relatedHref: "/mounjaro-vs-ozempic",
+    relatedLabel: "Comparação Mounjaro vs Ozempic",
   },
   {
     id: "glp1-ou-gip",
@@ -127,6 +131,8 @@ export const faqItems: FaqItem[] = [
     question: "E se eu esquecer uma dose?",
     answer:
       "O RCM europeu e a bula de vários países dizem, em traços gerais: se passaram 4 dias ou menos, tome assim que lembrar e retome o calendário; se passaram mais de 4 dias, salte essa dose e espere pelo dia habitual. Deve haver pelo menos 3 dias entre duas injeções. Se tiver dúvidas, pergunte a quem o acompanha — não invente uma dose extra «para compensar».",
+    relatedHref: "/dose-esquecida",
+    relatedLabel: "Página: dose esquecida",
   },
   {
     id: "guardar",
@@ -141,6 +147,8 @@ export const faqItems: FaqItem[] = [
     question: "As náuseas são normais?",
     answer:
       "São o efeito mais falado: náusea, menos fome, prisão de ventre ou diarreia, azia, enfartamento. Costumam ser mais fortes ao subir a dose e tendem a aliviar. Estratégias que muita gente usa (sempre com o acordo do profissional): refeições mais pequenas, comer devagar, menos gordura e álcool, hidratação. Vómitos intensos, desidratação ou dor forte já não são «o normal da adaptação».",
+    relatedHref: "/nauseas",
+    relatedLabel: "Página: náuseas com GLP-1",
   },
   {
     id: "quando-ligar",
@@ -176,6 +184,8 @@ export const faqItems: FaqItem[] = [
     question: "Afeta a pílula?",
     answer:
       "Como o estômago esvazia mais devagar, a absorção de alguns comprimidos pode mudar, sobretudo ao subir a dose. A informação oficial da tirzepatida alerta para este ponto em contraceptivos orais. Não mude o método sozinho: fale com quem prescreve. Gravidez sob este medicamento não é o cenário desejado.",
+    relatedHref: "/pilula",
+    relatedLabel: "Página: GLP-1 e a pílula",
   },
   {
     id: "paragem",
@@ -197,6 +207,8 @@ export const faqItems: FaqItem[] = [
     question: "E gravidez ou amamentação?",
     answer:
       "Em geral estes medicamentos não se usam na gravidez. Quem puder engravidar precisa de um plano contraceptivo claro. Se houver gravidez, contacte o médico; não ajuste doses pela internet. Amamentação também exige orientação individual — a bula local é o ponto de partida.",
+    relatedHref: "/gravidez",
+    relatedLabel: "Página: gravidez e amamentação",
   },
   {
     id: "outras-doencas",
@@ -211,6 +223,8 @@ export const faqItems: FaqItem[] = [
     question: "Posso comprar mais barato na internet?",
     answer:
       "Canetas sem cadeia de frio, sem receita e sem farmácia identificada são um risco clássico: falsificações, doses erradas, infeção. Preço baixo não é critério clínico. Se o custo é o obstáculo, isso é assunto para o médico, o seguro ou o sistema de saúde — não para um anúncio.",
+    relatedHref: "/comprar-online",
+    relatedLabel: "Página: riscos de comprar online",
   },
   {
     id: "quanto-mais-melhor",

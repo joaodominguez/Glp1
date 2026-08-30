@@ -84,6 +84,28 @@ export default function Page() {
         mais repetidas — incluindo mitos de compra online e de «quanto mais
         dose, melhor».
       </p>
+
+      <h2>Páginas dedicadas</h2>
+      <ul>
+        <li>
+          <Link href="/nauseas">Náuseas com GLP-1</Link>
+        </li>
+        <li>
+          <Link href="/dose-esquecida">Dose esquecida</Link>
+        </li>
+        <li>
+          <Link href="/gravidez">Gravidez e amamentação</Link>
+        </li>
+        <li>
+          <Link href="/pilula">Pílula e absorção</Link>
+        </li>
+        <li>
+          <Link href="/comprar-online">Riscos de comprar online</Link>
+        </li>
+        <li>
+          <Link href="/checklist">Checklist para a consulta</Link>
+        </li>
+      </ul>
     </Article>
   );
 }

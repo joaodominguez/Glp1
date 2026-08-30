@@ -8,7 +8,12 @@ import {
   pricePageDisclaimer,
 } from "@/content/prices";
 import { pageMetadata } from "@/lib/seo";
-import { CONTENT_REVIEWED_AT, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  CONTENT_REVIEWED_AT,
+  CONTENT_REVIEWED_LABEL,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 const description =
   "Quanto custam Mounjaro, Wegovy, Ozempic e outros GLP-1 em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que verificar na Infomed e na farmácia.";
@@ -66,6 +71,22 @@ export default function PrecosPage() {
           </p>
         </div>
 
+        <p className="price-verify">
+          <strong>Última verificação editorial:</strong>{" "}
+          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>
+          <span>
+            · Verifique de novo na{" "}
+            <a
+              href="https://extranet.infarmed.pt/INFOMED-fo/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Infomed
+            </a>{" "}
+            antes de decidir.
+          </span>
+        </p>
+
         <h2>Ordens de grandeza (PVP / mês)</h2>
         <div className="price-table-wrap">
           <table className="price-table">
@@ -96,7 +117,7 @@ export default function PrecosPage() {
         </div>
         <p>
           Revisão editorial desta página:{" "}
-          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_AT}</time>.
+          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>.
         </p>
 
         <h2>Comparticipação SNS — o que saber agora</h2>
@@ -146,6 +167,12 @@ export default function PrecosPage() {
           </li>
           <li>
             <Link href="/medicamentos">Levantamento de medicamentos</Link>
+          </li>
+          <li>
+            <Link href="/brasil/precos">Preços no Brasil (R$)</Link>
+          </li>
+          <li>
+            <Link href="/comprar-online">Riscos de comprar online</Link>
           </li>
           <li>
             <Link href="/checklist">Checklist para a consulta</Link>

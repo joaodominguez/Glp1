@@ -48,7 +48,11 @@ export default function Page() {
       </ul>
       <p>
         As <Link href="/fontes">fontes</Link> estão listadas. Se encontrar um
-        erro factual, o repositório é o sítio certo para o assinalar.
+        erro factual, contacte-nos via <Link href="/sobre">Sobre</Link> ou{" "}
+        <Link href="/sugerir">Sugerir clínica</Link>.
+      </p>
+      <p>
+        Também: <Link href="/privacidade">Privacidade e cookies</Link>.
       </p>
     </Article>
   );

@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { aboutLinks, brasilLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
+import {
+  aboutLinks,
+  brasilLinks,
+  intentLinks,
+  learnLinks,
+  portugalLinks,
+  toolLinks,
+} from "@/content/nav";
 
 export function SiteFooter() {
   return (
@@ -49,6 +56,11 @@ export function SiteFooter() {
                 <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
+            {intentLinks.slice(0, 3).map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
             {aboutLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
@@ -60,7 +72,11 @@ export function SiteFooter() {
       <p className="footer-note">
         Não substitui consulta, diagnóstico nem prescrição. Conteúdo educativo,
         revisto para clareza — não é um folheto oficial de nenhum medicamento.{" "}
-        <Link href="/aviso">Ler o aviso completo</Link>.
+        <Link href="/aviso">Aviso</Link>
+        {" · "}
+        <Link href="/sobre">Sobre</Link>
+        {" · "}
+        <Link href="/privacidade">Privacidade</Link>.
       </p>
     </footer>
   );

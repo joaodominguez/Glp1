@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieNotice } from "@/components/CookieNotice";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -23,12 +24,15 @@ export function PageShell({ children }: { children: React.ReactNode }) {
             <strong>Aviso médico:</strong> Este conteúdo é informativo e não
             substitui orientação médica individualizada. Consulte sempre um
             profissional de saúde.{" "}
-            <Link href="/aviso">Ler o aviso completo</Link>.
+            <Link href="/aviso">Ler o aviso completo</Link>
+            {" · "}
+            <Link href="/sobre">Quem somos</Link>.
           </span>
         </p>
       </div>
       <main id="conteudo">{children}</main>
       <SiteFooter />
+      <CookieNotice />
     </div>
   );
 }

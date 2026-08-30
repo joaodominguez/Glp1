@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { faqCategories, faqItems, type FaqCategory } from "@/content/faq";
 import { matchesQuery } from "@/lib/search";
@@ -70,6 +71,13 @@ export function FaqExplorer() {
                 <span>{item.question}</span>
               </summary>
               <p className="faq-answer">{item.answer}</p>
+              {item.relatedHref ? (
+                <p className="faq-related">
+                  <Link href={item.relatedHref}>
+                    {item.relatedLabel ?? "Ler mais →"}
+                  </Link>
+                </p>
+              ) : null}
             </details>
           </li>
         ))}

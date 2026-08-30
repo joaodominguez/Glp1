@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { absoluteUrl } from "@/lib/seo";
 import {
   CONTENT_REVIEWED_AT,
+  OG_IMAGE_PATH,
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
@@ -68,10 +69,10 @@ export const metadata: Metadata = {
     description: SITE_TAGLINE,
     images: [
       {
-        url: absoluteUrl("/hero-pen.png"),
-        width: 1920,
-        height: 1080,
-        alt: "Caneta injetora semanal ilustrativa — Guia GLP-1",
+        url: absoluteUrl(OG_IMAGE_PATH),
+        width: 1200,
+        height: 630,
+        alt: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy em português",
       },
     ],
   },
@@ -79,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy e a classe GLP-1",
     description: SITE_TAGLINE,
-    images: [absoluteUrl("/hero-pen.png")],
+    images: [absoluteUrl(OG_IMAGE_PATH)],
   },
   icons: {
     icon: [

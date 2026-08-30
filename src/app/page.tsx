@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
 import { HomeSearch } from "@/components/HomeSearch";
@@ -30,23 +29,17 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Confirmed mockup: cinematic pen photo is a full-bleed hero background, not a boxed/cutout panel. */}
-      <section className="hero hero-bleed">
-        <div className="hero-media">
-          <Image
-            src="/hero-pen.png"
-            alt="Caneta injetora semanal ilustrativa sobre pedra escura, sem marca comercial"
-            fill
-            priority
-            className="hero-bg"
-            sizes="100vw"
-          />
+      <section className="hero hero-atmosphere">
+        <div className="hero-atmosphere-bg" aria-hidden="true">
+          <div className="hero-mesh" />
+          <div className="hero-orb hero-orb-a" />
+          <div className="hero-orb hero-orb-b" />
+          <div className="hero-grid-fade" />
         </div>
-        <div className="hero-scrim" aria-hidden="true" />
-        <div className="hero-inner">
+        <div className="hero-inner hero-atmosphere-layout">
           <div className="hero-copy">
             <div className="hero-brand">
-              <BrandMark className="brand-mark" />
+              <BrandMark className="brand-mark hero-brand-mark" />
               <strong>Guia GLP-1</strong>
             </div>
             <h1>
@@ -65,6 +58,9 @@ export default function HomePage() {
                 Perguntas
               </Link>
             </div>
+          </div>
+          <div className="hero-visual" aria-hidden="true">
+            <BrandMark className="hero-loops" title="" />
           </div>
         </div>
       </section>

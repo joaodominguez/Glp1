@@ -164,10 +164,24 @@ export default async function MedicationPage({ params }: Props) {
             <Link href="/medicamentos">Todos os medicamentos do levantamento</Link>
           </li>
           <li>
+            <Link href="/mounjaro-vs-ozempic">Mounjaro vs Ozempic</Link>
+          </li>
+          <li>
             <Link href="/como-funciona">Como estes fármacos atuam no corpo</Link>
           </li>
           <li>
             <Link href="/efeitos">Efeitos secundários e sinais de alerta</Link>
+          </li>
+          <li>
+            <Link href="/nauseas">Náuseas (página dedicada)</Link>
+          </li>
+          <li>
+            <Link href="/precos">Preços em Portugal</Link>
+            {" · "}
+            <Link href="/brasil/precos">Preços no Brasil</Link>
+          </li>
+          <li>
+            <Link href="/checklist">Checklist para a consulta</Link>
           </li>
           <li>
             <Link href="/faq">Perguntas frequentes</Link>

@@ -147,6 +147,11 @@ export const toolLinks: NavItem[] = [
 
 export const aboutLinks: NavItem[] = [
   {
+    href: "/sobre",
+    label: "Sobre",
+    description: "Quem somos, revisão editorial e limites",
+  },
+  {
     href: "/fontes",
     label: "Fontes",
     description: "Documentos oficiais e reguladores",
@@ -156,6 +161,50 @@ export const aboutLinks: NavItem[] = [
     label: "Aviso médico",
     description: "O que este site é — e o que não é",
   },
+  {
+    href: "/privacidade",
+    label: "Privacidade",
+    description: "Analytics GA4 e cookies",
+  },
+  {
+    href: "/sugerir",
+    label: "Sugerir clínica",
+    description: "Enviar uma sugestão por email",
+  },
+];
+
+/** Intent / FAQ landing pages for search + sitemap. */
+export const intentLinks: NavItem[] = [
+  {
+    href: "/nauseas",
+    label: "Náuseas",
+    description: "Efeitos digestivos frequentes e sinais de alerta",
+  },
+  {
+    href: "/dose-esquecida",
+    label: "Dose esquecida",
+    description: "Regras gerais das bulas — sem inventar dose extra",
+  },
+  {
+    href: "/gravidez",
+    label: "Gravidez",
+    description: "GLP-1, gravidez e amamentação",
+  },
+  {
+    href: "/pilula",
+    label: "Pílula",
+    description: "Contraceptivo oral e absorção",
+  },
+  {
+    href: "/comprar-online",
+    label: "Comprar online",
+    description: "Riscos de canetas fora do circuito legal",
+  },
+  {
+    href: "/mounjaro-vs-ozempic",
+    label: "Mounjaro vs Ozempic",
+    description: "Diferenças entre tirzepatida e semaglutida",
+  },
 ];
 
 export const allNavLinks = [
@@ -164,4 +213,5 @@ export const allNavLinks = [
   ...brasilLinks,
   ...toolLinks,
   ...aboutLinks,
+  ...intentLinks,
 ];
