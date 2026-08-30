@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandMark } from "@/components/BrandMark";
 import { HomeSearch } from "@/components/HomeSearch";
 import { learnLinks, toolLinks } from "@/content/nav";
 
@@ -6,44 +7,60 @@ export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-copy">
+        <div className="hero-inner">
+          <div className="hero-brand">
+            <BrandMark className="brand-mark" />
+            <div>
+              <strong>Guia GLP-1</strong>
+              <span>Mounjaro em português claro</span>
+            </div>
+          </div>
           <p className="kicker">Informação, não marketing</p>
-          <h1>Mounjaro e GLP-1 em português que se percebe.</h1>
+          <h1>Mounjaro em português que se percebe.</h1>
           <p>
-            Quem começa um tratamento destes costuma encontrar o mesmo: grupos
-            barulhentos, traduções más, doses copiadas de outra pessoa e pouca
-            distinção entre facto, opinião e anúncio. Este guia junta o
-            essencial num sítio só — e diz com clareza o que não pode responder.
+            O essencial sobre tirzepatida e GLP-1, sem fóruns barulhentos nem
+            doses copiadas de outra pessoa.
           </p>
-          <HomeSearch />
+          <div className="cta-row">
+            <Link className="button button-primary" href="/o-que-e">
+              Começar
+            </Link>
+            <Link className="button button-secondary" href="/faq">
+              Perguntas
+            </Link>
+          </div>
         </div>
-        <aside className="callout">
-          <p>
-            <strong>Isto não é uma consulta.</strong> Não diz se o medicamento é
-            para si, não calcula a sua dose e não vende canetas. Serve para
-            chegar ao profissional de saúde com perguntas melhores — e para não
-            ficar refém da pior página que o motor de busca mostrou.
-          </p>
-        </aside>
       </section>
 
       <section className="home-body">
-        <h2>Começar por aqui</h2>
-        <div className="card-grid">
-          {learnLinks.map((item) => (
-            <Link className="card" href={item.href} key={item.href}>
-              <span>Guia</span>
-              <strong>{item.label}</strong>
-              <p>{item.description}</p>
-            </Link>
-          ))}
+        <div className="section-head">
+          <h2>Procurar no guia</h2>
+          <p>
+            Náuseas, dose esquecida, tiroide, checklist — escreva uma palavra.
+          </p>
         </div>
+        <HomeSearch />
 
-        <h2>Ferramentas leves</h2>
-        <p>
-          Sem contas, sem anúncios, sem «comunidade». A checklist fica neste
-          browser, se quiser marcar o que já preparou.
-        </p>
+        <div className="section-head">
+          <h2>Começar por aqui</h2>
+        </div>
+        <ul className="link-list">
+          {learnLinks.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href}>
+                <strong>{item.label}</strong>
+                <span>{item.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="section-head">
+          <h2>Ferramentas</h2>
+          <p>
+            Sem contas e sem anúncios. A checklist fica só neste browser.
+          </p>
+        </div>
         <div className="card-grid">
           {toolLinks.map((item) => (
             <Link className="card" href={item.href} key={item.href}>
@@ -53,6 +70,14 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+
+        <aside className="callout" style={{ marginTop: "2rem" }}>
+          <p>
+            <strong>Isto não é uma consulta.</strong> Não diz se o medicamento é
+            para si, não calcula a sua dose e não vende canetas. Serve para
+            chegar ao profissional de saúde com perguntas melhores.
+          </p>
+        </aside>
       </section>
     </>
   );

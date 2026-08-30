@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandMark } from "@/components/BrandMark";
 import { aboutLinks, toolLinks } from "@/content/nav";
 
 export function SiteFooter() {
@@ -6,7 +7,12 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-grid">
         <div>
-          <p className="footer-brand">Guia GLP-1</p>
+          <div className="hero-brand" style={{ marginBottom: "0.75rem" }}>
+            <BrandMark className="brand-mark" style={{ width: 40, height: 40 }} />
+            <div>
+              <p className="footer-brand">Guia GLP-1</p>
+            </div>
+          </div>
           <p>
             Um sítio para quem procura informação em português sem ter de
             atravessar fóruns, anúncios e meias verdades.
