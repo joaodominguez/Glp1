@@ -519,7 +519,7 @@ h1 {
 }
 
 .article-hero h1 {
-  max-width: 22ch;
+  max-width: 28ch;
   font-size: clamp(2.1rem, 4.2vw, 3.25rem);
 }
 
@@ -541,7 +541,7 @@ h1 {
 }
 
 .article-hero .lede {
-  max-width: 48rem;
+  max-width: 58rem;
 }
 
 .cta-row {
@@ -684,11 +684,15 @@ select {
   margin: 2rem 0 0.7rem;
 }
 
-/* Comfortable reading measure (~832px) inside the wider 1240px shell */
+/* Comfortable reading measure (~928px) inside the 1240px shell */
+.article-hero h1,
+.article-hero .lede,
+.prose > h2,
+.prose > h3,
 .prose > p,
 .prose > ul > li,
 .article > p {
-  max-width: 52rem;
+  max-width: 58rem;
 }
 
 .prose ul {
@@ -700,7 +704,9 @@ select {
 .prose .med-list li,
 .prose .price-table-wrap,
 .prose .card-grid,
-.prose .link-list {
+.prose .link-list,
+.prose .faq-list,
+.prose .glossary-list {
   max-width: none;
 }
 
@@ -709,7 +715,7 @@ select {
   border-left: 3px solid var(--accent);
   padding: 1rem 1.1rem;
   border-radius: 0 14px 14px 0;
-  max-width: 52rem;
+  max-width: 58rem;
 }
 
 .warning {
