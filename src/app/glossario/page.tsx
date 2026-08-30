@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { GlossaryExplorer } from "@/components/GlossaryExplorer";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Glossário",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Glossário GLP-1",
+  description:
+    "Glossário em português: GLP-1, GIP, tirzepatida, semaglutida, titulação, IMC, MEN2, bula/RCM e outros termos das bulas explicados sem jargão.",
+  path: "/glossario",
+});
 
 export default function Page() {
   return (

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Article } from "@/components/Article";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Efeitos e sinais de alerta",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Efeitos secundários dos GLP-1",
+  description:
+    "Efeitos secundários comuns dos agonistas de GLP-1 (náuseas, vómitos, diarreia) e sinais de alerta: pancreatite, vesícula, alergia. Quando procurar ajuda.",
+  path: "/efeitos",
+});
 
 export default function Page() {
   return (

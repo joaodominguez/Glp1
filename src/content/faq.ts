@@ -28,7 +28,28 @@ export const faqItems: FaqItem[] = [
     category: "basico",
     question: "O que é o Mounjaro?",
     answer:
-      "Mounjaro é o nome comercial da tirzepatida, um medicamento injetável semanal da Lilly. Atua em dois recetores intestinais (GIP e GLP-1). As indicações oficiais — diabetes tipo 2, excesso de peso, ou ambos — dependem do país e da bula local. Este site explica o conceito; não diz se o medicamento é para si.",
+      "Mounjaro é o nome comercial da tirzepatida, um medicamento injetável semanal da Lilly. Atua em dois recetores intestinais (GIP e GLP-1). As indicações oficiais — diabetes tipo 2, excesso de peso, ou ambos — dependem do país e da bula local. Este site explica o conceito; não diz se o medicamento é para si. Ver também a página do Mounjaro no levantamento de medicamentos.",
+  },
+  {
+    id: "quais-medicamentos",
+    category: "basico",
+    question: "Que medicamentos entram nesta família?",
+    answer:
+      "Além do Mounjaro (tirzepatida), entram agonistas de GLP-1 como Ozempic e Wegovy e Rybelsus (semaglutida), Saxenda e Victoza (liraglutida), Trulicity (dulaglutida), Byetta/Bydureon (exenatida) e Lyxumia (lixisenatida). Nalguns mercados a tirzepatida para peso chama-se Zepbound. O levantamento completo está em /medicamentos.",
+  },
+  {
+    id: "ozempic-vs-wegovy",
+    category: "basico",
+    question: "Ozempic e Wegovy são a mesma coisa?",
+    answer:
+      "Partilham a substância (semaglutida), mas não são a mesma caneta nem a mesma indicação. Ozempic está tipicamente autorizado para diabetes tipo 2; Wegovy para gestão de peso, com doses e critérios próprios. Trocar um pelo outro sem indicação médica é um erro comum e arriscado.",
+  },
+  {
+    id: "mounjaro-vs-ozempic",
+    category: "basico",
+    question: "Mounjaro é o mesmo que Ozempic?",
+    answer:
+      "Não. Mounjaro é tirzepatida (agonista duplo GIP + GLP-1). Ozempic é semaglutida (agonista de GLP-1). Empresas, doses, canetas e evidência são diferentes. Comparações de «qual emagrece mais» na internet não substituem a escolha clínica com base no seu diagnóstico e na bula local.",
   },
   {
     id: "glp1-ou-gip",

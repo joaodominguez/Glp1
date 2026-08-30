@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Article } from "@/components/Article";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Como funciona",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Como funcionam os medicamentos GLP-1",
+  description:
+    "Como atuam tirzepatida, semaglutida e outros agonistas de GLP-1 / GIP: fome, estômago e açúcar no sangue — em português claro, sem jargão.",
+  path: "/como-funciona",
+});
 
 export default function Page() {
   return (
     <Article
       kicker="Mecanismo, em linguagem simples"
-      title="O que a tirzepatida faz no corpo"
-      lede="Não precisa de um doutoramento em endocrinologia. Precisa de um mapa: fome, estômago, açúcar no sangue."
+      title="O que estes medicamentos fazem no corpo"
+      lede="Não precisa de um doutoramento em endocrinologia. Precisa de um mapa: fome, estômago, açúcar no sangue — comum a Mounjaro, Ozempic, Wegovy e ao resto da classe."
     >
       <h2>Hormonas que o intestino já conhece</h2>
       <p>
@@ -21,10 +25,13 @@ export default function Page() {
         a saída da comida do estômago e aumentam a saciedade no cérebro.
       </p>
       <p>
-        A tirzepatida imita parte destes sinais, de forma prolongada, com uma
-        injeção semanal. Por isso muita gente descreve a mesma tríade:{" "}
+        Os agonistas de GLP-1 (semaglutida, liraglutida, dulaglutida…) e o
+        agonista duplo tirzepatida imitam parte destes sinais de forma
+        prolongada. Por isso muita gente descreve a mesma tríade:{" "}
         <strong>menos ruído de fome</strong>, <strong>enfarta mais cedo</strong>{" "}
         e, se tiver diabetes tipo 2, <strong>análises de açúcar melhores</strong>.
+        As doses, canetas e indicações{" "}
+        <Link href="/medicamentos">não são intercambiáveis</Link>.
       </p>
 
       <h2>Porque o efeito não é «mágica»</h2>

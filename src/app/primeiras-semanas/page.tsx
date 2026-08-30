@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Article } from "@/components/Article";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "As primeiras semanas",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "As primeiras semanas com GLP-1",
+  description:
+    "O que muita gente sente no início do tratamento com agonistas de GLP-1: náuseas, apetite, hábitos alimentares e o que preparar antes da consulta.",
+  path: "/primeiras-semanas",
+});
 
 export default function Page() {
   return (

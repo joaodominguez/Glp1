@@ -7,9 +7,14 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { href: "/", label: "Início", description: "Página inicial" },
   {
+    href: "/medicamentos",
+    label: "Medicamentos",
+    description: "Mounjaro, Ozempic, Wegovy e toda a classe",
+  },
+  {
     href: "/o-que-e",
     label: "Sobre",
-    description: "O que é o Mounjaro e o GLP-1",
+    description: "O que é a família GLP-1",
   },
   {
     href: "/como-funciona",
@@ -18,41 +23,41 @@ export const primaryNav: NavItem[] = [
   },
   {
     href: "/efeitos",
-    label: "Efeitos e resultados",
-    description: "Efeitos secundários e o que esperar",
-  },
-  {
-    href: "/aviso",
-    label: "Segurança",
-    description: "Avisos, limites e quando procurar ajuda",
+    label: "Efeitos",
+    description: "Efeitos secundários e sinais de alerta",
   },
   {
     href: "/primeiras-semanas",
-    label: "Alimentação",
-    description: "Hábitos nas primeiras semanas",
-  },
-  {
-    href: "/fontes",
-    label: "Recursos",
-    description: "Fontes oficiais e reguladores",
+    label: "Primeiras semanas",
+    description: "O que muita gente sente no início",
   },
   {
     href: "/faq",
-    label: "Blog",
-    description: "Perguntas e respostas em linguagem simples",
+    label: "Perguntas",
+    description: "FAQ em linguagem simples",
   },
   {
-    href: "/checklist",
-    label: "Contato",
-    description: "Checklist e preparação para a consulta",
+    href: "/glossario",
+    label: "Glossário",
+    description: "Termos médicos sem jargão",
+  },
+  {
+    href: "/fontes",
+    label: "Fontes",
+    description: "Reguladores e documentos oficiais",
   },
 ];
 
 export const learnLinks: NavItem[] = [
   {
+    href: "/medicamentos",
+    label: "Medicamentos",
+    description: "Levantamento: Mounjaro, Ozempic, Wegovy, Saxenda e outros",
+  },
+  {
     href: "/o-que-e",
     label: "O que é",
-    description: "Mounjaro, tirzepatida e medicamentos GLP-1",
+    description: "Família GLP-1, substâncias e nomes comerciais",
   },
   {
     href: "/como-funciona",

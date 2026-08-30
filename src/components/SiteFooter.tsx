@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { aboutLinks, toolLinks } from "@/content/nav";
+import { aboutLinks, learnLinks, toolLinks } from "@/content/nav";
 
 export function SiteFooter() {
   return (
@@ -14,14 +14,14 @@ export function SiteFooter() {
             </div>
           </div>
           <p>
-            Um sítio para quem procura informação em português sem ter de
-            atravessar fóruns, anúncios e meias verdades.
+            Informação em português sobre Mounjaro, Ozempic, Wegovy, Saxenda e
+            o resto da classe GLP-1 — sem fóruns, anúncios nem meias verdades.
           </p>
         </div>
         <div>
-          <p>Ferramentas</p>
+          <p>Aprender</p>
           <ul>
-            {toolLinks.map((item) => (
+            {learnLinks.slice(0, 5).map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
               </li>
@@ -29,8 +29,13 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p>Responsabilidade</p>
+          <p>Ferramentas e aviso</p>
           <ul>
+            {toolLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
             {aboutLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
@@ -41,7 +46,8 @@ export function SiteFooter() {
       </div>
       <p className="footer-note">
         Não substitui consulta, diagnóstico nem prescrição. Conteúdo educativo,
-        revisto para clareza — não é um folheto oficial do medicamento.
+        revisto para clareza — não é um folheto oficial de nenhum medicamento.{" "}
+        <Link href="/aviso">Ler o aviso completo</Link>.
       </p>
     </footer>
   );

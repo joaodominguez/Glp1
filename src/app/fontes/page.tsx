@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { sources, sourceShortNote } from "@/content/sources";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Fontes",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Fontes oficiais (EMA, INFARMED, FDA)",
+  description:
+    "Fontes oficiais usadas no Guia GLP-1: EMA, INFARMED, ANVISA, FDA e OMS. Links para bulas e informação regulatória sobre tirzepatida, semaglutida e a classe.",
+  path: "/fontes",
+});
 
 export default function Page() {
   return (

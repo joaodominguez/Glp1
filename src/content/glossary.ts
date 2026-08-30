@@ -118,7 +118,56 @@ export const glossary: GlossaryTerm[] = [
     id: "mounjaro",
     term: "Mounjaro",
     definition:
-      "Nome comercial da tirzepatida da Lilly. Em alguns países está autorizado para diabetes tipo 2; noutros também para excesso de peso, segundo regras locais. Não é um nome genérico.",
+      "Nome comercial da tirzepatida da Lilly. Em alguns países está autorizado para diabetes tipo 2; noutros também para excesso de peso, segundo regras locais. Não é um nome genérico. Ver página dedicada em /medicamentos/mounjaro.",
+  },
+  {
+    id: "ozempic",
+    term: "Ozempic",
+    also: ["semaglutida para diabetes"],
+    definition:
+      "Nome comercial da semaglutida (Novo Nordisk) tipicamente autorizado para diabetes tipo 2. Não é o mesmo que Wegovy, apesar da mesma substância. Ver /medicamentos/ozempic.",
+  },
+  {
+    id: "wegovy",
+    term: "Wegovy",
+    also: ["semaglutida para peso"],
+    definition:
+      "Nome comercial da semaglutida orientado para gestão de peso. Partilha a substância com Ozempic, mas doses e indicação são diferentes. Ver /medicamentos/wegovy.",
+  },
+  {
+    id: "saxenda",
+    term: "Saxenda",
+    also: ["liraglutida para peso"],
+    definition:
+      "Liraglutida em injeção diária para gestão de peso. A Victoza usa a mesma substância noutro contexto (diabetes tipo 2). Ver /medicamentos/saxenda.",
+  },
+  {
+    id: "trulicity",
+    term: "Trulicity",
+    also: ["dulaglutida"],
+    definition:
+      "Nome comercial da dulaglutida, agonista de GLP-1 semanal para diabetes tipo 2. Não é tirzepatida (Mounjaro). Ver /medicamentos/trulicity.",
+  },
+  {
+    id: "liraglutida",
+    term: "Liraglutida",
+    also: ["Victoza", "Saxenda"],
+    definition:
+      "Agonista de GLP-1 de administração diária. Victoza (diabetes tipo 2) e Saxenda (peso) usam esta substância com doses e bulas diferentes.",
+  },
+  {
+    id: "dulaglutida",
+    term: "Dulaglutida",
+    also: ["Trulicity"],
+    definition:
+      "Agonista de GLP-1 semanal. Nome comercial habitual: Trulicity. Não é intercambiável com semaglutida nem tirzepatida.",
+  },
+  {
+    id: "exenatida",
+    term: "Exenatida",
+    also: ["Byetta", "Bydureon"],
+    definition:
+      "Um dos agonistas de GLP-1 mais antigos. Byetta (várias vezes ao dia) e Bydureon (formulação prolongada, tipicamente semanal) usam esta substância.",
   },
   {
     id: "off-label",

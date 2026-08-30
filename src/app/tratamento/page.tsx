@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Article } from "@/components/Article";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "O tratamento",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Como costuma ser o tratamento GLP-1",
+  description:
+    "Injeção semanal ou diária, titulação de dose, dose esquecida e conservação da caneta. Informação geral sobre o tratamento com agonistas de GLP-1 — não substitui o médico.",
+  path: "/tratamento",
+});
 
 export default function Page() {
   return (
@@ -21,12 +25,15 @@ export default function Page() {
         </p>
       </div>
 
-      <h2>Uma vez por semana</h2>
+      <h2>Semanal, diário — ou oral</h2>
       <p>
-        A tirzepatida do Mounjaro é uma injeção subcutânea semanal. Pode ser
-        feita a qualquer hora, com ou sem comida. O que os folhetos pedem é
-        regularidade: o mesmo dia, sítios de injeção rotativos (abdómen, coxa
-        ou parte de trás do braço), técnica correta da caneta.
+        Muitos da classe (Mounjaro / tirzepatida, Ozempic, Wegovy, Trulicity…)
+        são injeção subcutânea <strong>semanal</strong>. Outros são{" "}
+        <strong>diários</strong> (Saxenda, Victoza, Lyxumia) ou{" "}
+        <strong>orais</strong> (Rybelsus). O que os folhetos pedem é
+        regularidade: o mesmo dia ou a mesma rotina, sítios de injeção
+        rotativos quando aplicável (abdómen, coxa ou parte de trás do braço),
+        técnica correta da caneta ou das instruções do comprimido.
       </p>
       <p>
         Vale a pena pedir uma demonstração na farmácia ou na consulta. A

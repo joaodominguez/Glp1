@@ -852,6 +852,66 @@ details[open] .faq-question::after {
   color: var(--ink-soft);
 }
 
+.med-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.med-list a {
+  display: grid;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.med-list a:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.med-list strong {
+  font-size: 1.05rem;
+}
+
+.med-meta {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.med-list a > span:last-child {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.med-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.5rem;
+}
+
+.med-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   background: var(--footer-bg);

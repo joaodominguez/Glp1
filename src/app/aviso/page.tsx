@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Article } from "@/components/Article";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Aviso médico",
-};
+  description:
+    "O Guia GLP-1 é informativo e não substitui consulta, diagnóstico nem prescrição. Limites do conteúdo, conflitos de interesse e responsabilidade.",
+  path: "/aviso",
+});
 
 export default function Page() {
   return (
