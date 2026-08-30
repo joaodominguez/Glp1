@@ -510,8 +510,17 @@ h1 {
   line-height: 1.04;
   margin: 0 0 1rem;
   font-weight: 500;
-  max-width: 11ch;
   letter-spacing: -0.035em;
+}
+
+/* Hero display measure only — article titles use the content shell width */
+.hero-copy h1 {
+  max-width: 11ch;
+}
+
+.article-hero h1 {
+  max-width: 22ch;
+  font-size: clamp(2.1rem, 4.2vw, 3.25rem);
 }
 
 .accent-word {
@@ -524,8 +533,15 @@ h1 {
 .hero-copy > p {
   font-size: 1.05rem;
   color: var(--ink-soft);
-  max-width: 30rem;
   margin: 0 0 1.5rem;
+}
+
+.hero-copy > p {
+  max-width: 30rem;
+}
+
+.article-hero .lede {
+  max-width: 48rem;
 }
 
 .cta-row {
@@ -565,7 +581,7 @@ h1 {
 .article,
 .home-body,
 .tool-page {
-  max-width: 1240px;
+  max-width: 1240px; /* align with header/disclaimer */
   margin: 0 auto;
   padding: 2.5rem 1.25rem 4rem;
 }
@@ -668,14 +684,24 @@ select {
   margin: 2rem 0 0.7rem;
 }
 
-.prose p,
-.prose li,
-.article p {
-  max-width: 42rem;
+/* Comfortable reading measure (~832px) inside the wider 1240px shell */
+.prose > p,
+.prose > ul > li,
+.article > p {
+  max-width: 52rem;
 }
 
 .prose ul {
   padding-left: 1.2rem;
+}
+
+/* Lists/tables/tools should use the full content shell, not the reading measure */
+.prose .med-list,
+.prose .med-list li,
+.prose .price-table-wrap,
+.prose .card-grid,
+.prose .link-list {
+  max-width: none;
 }
 
 .callout {
@@ -683,7 +709,7 @@ select {
   border-left: 3px solid var(--accent);
   padding: 1rem 1.1rem;
   border-radius: 0 14px 14px 0;
-  max-width: 42rem;
+  max-width: 52rem;
 }
 
 .warning {
@@ -998,7 +1024,7 @@ details[open] .faq-question::after {
 }
 
 .footer-grid {
-  max-width: 1120px;
+  max-width: 1240px;
   margin: 0 auto;
   display: grid;
   gap: 1.5rem;
@@ -1014,7 +1040,7 @@ details[open] .faq-question::after {
 }
 
 .footer-note {
-  max-width: 1120px;
+  max-width: 1240px;
   margin: 1.5rem auto 0;
   font-size: 0.88rem;
   color: #8eaaa2;
