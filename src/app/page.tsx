@@ -7,18 +7,7 @@ import { learnLinks, toolLinks } from "@/content/nav";
 export default function HomePage() {
   return (
     <>
-      <section className="hero hero-bleed">
-        <div className="hero-media">
-          <Image
-            src="/hero-pen.png"
-            alt="Caneta injetora semanal ilustrativa sobre pedra escura, sem marca comercial"
-            fill
-            priority
-            className="hero-bg"
-            sizes="100vw"
-          />
-        </div>
-        <div className="hero-scrim" aria-hidden="true" />
+      <section className="hero hero-with-pen">
         <div className="hero-inner">
           <div className="hero-copy">
             <div className="hero-brand">
@@ -41,6 +30,19 @@ export default function HomePage() {
                 Perguntas
               </Link>
             </div>
+          </div>
+
+          <div className="hero-visual">
+            <Image
+              src="/hero-pen-float.png"
+              alt="Caneta injetora semanal ilustrativa, sem marca comercial"
+              width={1025}
+              height={902}
+              priority
+              unoptimized
+              className="hero-pen"
+              sizes="(max-width: 840px) 92vw, 560px"
+            />
           </div>
         </div>
       </section>
