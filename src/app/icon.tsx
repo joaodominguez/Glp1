@@ -15,34 +15,43 @@ export default function Icon() {
           justifyContent: "center",
           background: "#0F766E",
           borderRadius: 16,
-          position: "relative",
         }}
       >
         <div
           style={{
             display: "flex",
-            color: "#F4FFFC",
-            fontSize: 38,
-            fontWeight: 700,
-            fontFamily: "Arial",
-            lineHeight: 1,
-            marginLeft: 2,
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          G
+          <div
+            style={{
+              width: 10,
+              height: 28,
+              borderRadius: 999,
+              background: "#F4FFFC",
+            }}
+          />
+          <div
+            style={{
+              width: 0,
+              height: 0,
+              borderLeft: "5px solid transparent",
+              borderRight: "5px solid transparent",
+              borderTop: "10px solid #F4FFFC",
+              marginTop: -1,
+            }}
+          />
+          <div
+            style={{
+              width: 4,
+              height: 6,
+              borderRadius: 999,
+              background: "#5EEAD4",
+              marginTop: 1,
+            }}
+          />
         </div>
-        <div
-          style={{
-            position: "absolute",
-            left: 14,
-            bottom: 14,
-            width: 22,
-            height: 3,
-            background: "#5EEAD4",
-            borderRadius: 999,
-            transform: "rotate(-28deg)",
-          }}
-        />
       </div>
     ),
     { ...size },

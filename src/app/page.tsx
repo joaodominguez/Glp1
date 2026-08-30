@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
 import { HomeSearch } from "@/components/HomeSearch";
@@ -6,28 +7,41 @@ import { learnLinks, toolLinks } from "@/content/nav";
 export default function HomePage() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-with-pen">
         <div className="hero-inner">
-          <div className="hero-brand">
-            <BrandMark className="brand-mark" />
-            <div>
-              <strong>Guia GLP-1</strong>
-              <span>Mounjaro em português claro</span>
+          <div className="hero-copy">
+            <div className="hero-brand">
+              <BrandMark className="brand-mark" />
+              <div>
+                <strong>Guia GLP-1</strong>
+                <span>Mounjaro em português claro</span>
+              </div>
+            </div>
+            <p className="kicker">Informação, não marketing</p>
+            <h1>Mounjaro em português que se percebe.</h1>
+            <p>
+              O essencial sobre tirzepatida e GLP-1, sem fóruns barulhentos nem
+              doses copiadas de outra pessoa.
+            </p>
+            <div className="cta-row">
+              <Link className="button button-primary" href="/o-que-e">
+                Começar
+              </Link>
+              <Link className="button button-secondary" href="/faq">
+                Perguntas
+              </Link>
             </div>
           </div>
-          <p className="kicker">Informação, não marketing</p>
-          <h1>Mounjaro em português que se percebe.</h1>
-          <p>
-            O essencial sobre tirzepatida e GLP-1, sem fóruns barulhentos nem
-            doses copiadas de outra pessoa.
-          </p>
-          <div className="cta-row">
-            <Link className="button button-primary" href="/o-que-e">
-              Começar
-            </Link>
-            <Link className="button button-secondary" href="/faq">
-              Perguntas
-            </Link>
+
+          <div className="hero-visual" aria-hidden="true">
+            <Image
+              src="/hero-pen.png"
+              alt=""
+              width={900}
+              height={1200}
+              priority
+              className="hero-pen"
+            />
           </div>
         </div>
       </section>
@@ -57,9 +71,7 @@ export default function HomePage() {
 
         <div className="section-head">
           <h2>Ferramentas</h2>
-          <p>
-            Sem contas e sem anúncios. A checklist fica só neste browser.
-          </p>
+          <p>Sem contas e sem anúncios. A checklist fica só neste browser.</p>
         </div>
         <div className="card-grid">
           {toolLinks.map((item) => (

@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-/** Hybrid of logo 1 (teal G mark) and logo 2 (minimal accent stroke). */
+/** Geometric injection-pen mark — modern, no lettermark. */
 export function BrandMark({
   className,
   title = "Guia GLP-1",
@@ -15,24 +15,37 @@ export function BrandMark({
     >
       <title>{title}</title>
       <rect width="64" height="64" rx="16" fill="currentColor" />
-      <text
-        x="32"
-        y="42"
-        textAnchor="middle"
+      {/* Pen body */}
+      <rect
+        x="28"
+        y="12"
+        width="8"
+        height="28"
+        rx="4"
         fill="var(--brand-on-mark)"
-        fontSize="30"
-        fontWeight="700"
-        fontFamily="var(--font-display), system-ui, sans-serif"
-        letterSpacing="-0.04em"
-      >
-        G
-      </text>
+      />
+      {/* Dose window */}
+      <rect
+        x="29.5"
+        y="18"
+        width="5"
+        height="8"
+        rx="1.5"
+        fill="var(--brand-accent-on-mark)"
+        opacity="0.9"
+      />
+      {/* Tip / needle housing */}
       <path
-        d="M16.5 46c8.2-2.4 14.8-8.2 18-15.5"
-        fill="none"
-        stroke="var(--brand-accent-on-mark)"
-        strokeWidth="2.8"
-        strokeLinecap="round"
+        d="M28 40h8l-2.2 6.2a2 2 0 0 1-3.6 0L28 40Z"
+        fill="var(--brand-on-mark)"
+      />
+      <rect
+        x="30.5"
+        y="46.5"
+        width="3"
+        height="5.5"
+        rx="1.5"
+        fill="var(--brand-accent-on-mark)"
       />
     </svg>
   );

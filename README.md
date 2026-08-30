@@ -28,4 +28,4 @@ npm run build
 
 ## Stack
 
-Next.js (App Router), TypeScript, Tailwind CSS. Sem backend e sem contas de utilizador nesta versão.
+**Next.js** (App Router), TypeScript, Tailwind CSS. Sem backend e sem contas de utilizador nesta versão.
