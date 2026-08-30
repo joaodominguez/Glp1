@@ -519,7 +519,6 @@ h1 {
 }
 
 .article-hero h1 {
-  max-width: 28ch;
   font-size: clamp(2.1rem, 4.2vw, 3.25rem);
 }
 
@@ -538,10 +537,6 @@ h1 {
 
 .hero-copy > p {
   max-width: 30rem;
-}
-
-.article-hero .lede {
-  max-width: 58rem;
 }
 
 .cta-row {
