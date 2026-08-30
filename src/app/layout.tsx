@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Bodoni, Manrope } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/PageShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -152,6 +153,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
       <body className="min-h-full">
+        <Analytics />
         <JsonLd data={organizationLd} />
         <ThemeProvider>
           <PageShell>{children}</PageShell>

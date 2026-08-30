@@ -8,3 +8,6 @@ export const SITE_TAGLINE =
 
 /** ISO date of the last editorial medical review of the guide. */
 export const CONTENT_REVIEWED_AT = "2026-08-30";
+
+/** Google Analytics 4 measurement ID. */
+export const GA_MEASUREMENT_ID = "G-NQVW713D8K";
