@@ -80,7 +80,7 @@ html[data-theme="light"] {
   --pen-band: #1e403a;
   --pen-label: #ffffff;
   --pen-label-ink: #1a2e2a;
-  --pen-dial: #e8f2ef;
+  --pen-dial: #d7e8e3;
   --pen-dose: #10201c;
   --pen-dose-rim: #3f7f74;
   --pen-dose-mark: #3f7f74;
@@ -89,8 +89,8 @@ html[data-theme="light"] {
   --pen-button: #2f675e;
   --pen-plunger: #7eb8ad;
   --pen-cap: #243834;
-  --pen-metal: #c5d8d2;
-  --pen-metal-hi: #f4faf8;
+  --pen-metal: #9ebdb5;
+  --pen-metal-hi: #d5e8e2;
   --pen-sheen: #ffffff;
   --pen-shadow: rgba(16, 20, 23, 0.18);
 }
