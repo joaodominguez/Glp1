@@ -41,9 +41,10 @@ export function FaqExplorer() {
           <span>Tema</span>
           <select
             value={category}
-            onChange={(event) =>
-              setCategory(event.target.value as FaqCategory | "todas")
-            }
+            onChange={(event) => {
+              setCategory(event.target.value as FaqCategory | "todas");
+              setQuery("");
+            }}
           >
             <option value="todas">Todas</option>
             {faqCategories.map((item) => (

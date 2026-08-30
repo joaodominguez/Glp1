@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { faqItems } from "@/content/faq";
 import { glossary } from "@/content/glossary";
 import { allNavLinks } from "@/content/nav";
-import { matchesQuery } from "@/lib/search";
+import { searchScore } from "@/lib/search";
 
 export function HomeSearch() {
   const [query, setQuery] = useState("");
@@ -14,37 +14,42 @@ export function HomeSearch() {
     if (!query.trim()) return [];
 
     const pages = allNavLinks
-      .filter((item) => matchesQuery(query, item.label, item.description))
       .map((item) => ({
         href: item.href,
         title: item.label,
         detail: item.description,
         kind: "Página",
-      }));
+        score: searchScore(query, [item.label, item.description]),
+      }))
+      .filter((item) => item.score > 0);
 
     const faqs = faqItems
-      .filter((item) => matchesQuery(query, item.question, item.answer))
-      .slice(0, 5)
       .map((item) => ({
         href: `/faq#${item.id}`,
         title: item.question,
         detail: item.answer,
         kind: "Pergunta",
-      }));
+        score: searchScore(query, [item.question, item.answer]),
+      }))
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
 
     const terms = glossary
-      .filter((item) =>
-        matchesQuery(query, item.term, item.definition, ...(item.also ?? [])),
-      )
-      .slice(0, 5)
       .map((item) => ({
         href: `/glossario#${item.id}`,
         title: item.term,
         detail: item.definition,
         kind: "Glossário",
-      }));
+        score: searchScore(query, [item.term, ...(item.also ?? []), item.definition]),
+      }))
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
 
-    return [...pages, ...faqs, ...terms].slice(0, 8);
+    return [...pages, ...faqs, ...terms]
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
   }, [query]);
 
   return (

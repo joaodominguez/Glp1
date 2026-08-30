@@ -7,8 +7,20 @@ export function normalizeSearch(value: string): string {
 }
 
 export function matchesQuery(query: string, ...fields: Array<string | undefined>): boolean {
+  return searchScore(query, fields.filter((field): field is string => Boolean(field))) > 0;
+}
+
+/** Higher scores prefer matches in earlier fields (title before body). */
+export function searchScore(query: string, fields: string[]): number {
   const needle = normalizeSearch(query);
-  if (!needle) return true;
-  const haystack = normalizeSearch(fields.filter(Boolean).join(" "));
-  return haystack.includes(needle);
+  if (!needle) return 1;
+  let best = 0;
+  fields.forEach((field, index) => {
+    const haystack = normalizeSearch(field);
+    if (!haystack.includes(needle)) return;
+    const weight = Math.max(1, (fields.length - index) * 2);
+    const bonus = haystack.startsWith(needle) ? 2 : 0;
+    best = Math.max(best, weight + bonus);
+  });
+  return best;
 }
