@@ -36,10 +36,11 @@ export default function HomePage() {
             <Image
               src="/hero-pen.png"
               alt="Caneta injetora semanal ilustrativa, sem marca comercial"
-              fill
+              width={1536}
+              height={1024}
               priority
               className="hero-pen"
-              sizes="(max-width: 840px) 100vw, 55vw"
+              sizes="(max-width: 840px) 92vw, 560px"
             />
           </div>
         </div>
