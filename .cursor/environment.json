@@ -1,0 +1,4 @@
+{
+  "name": "Guia GLP-1",
+  "install": "npm ci"
+}
