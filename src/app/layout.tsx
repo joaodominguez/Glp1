@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Manrope } from "next/font/google";
+import { Libre_Bodoni, Manrope } from "next/font/google";
 import { PageShell } from "@/components/PageShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const display = Instrument_Serif({
+const display = Libre_Bodoni({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const body = Manrope({
