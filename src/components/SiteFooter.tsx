@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { aboutLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
+import { aboutLinks, brasilLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
 
 export function SiteFooter() {
   return (
@@ -15,19 +15,11 @@ export function SiteFooter() {
           </div>
           <p>
             Informação em português sobre Mounjaro, Ozempic, Wegovy, Saxenda e
-            o resto da classe GLP-1 — sem fóruns, anúncios nem meias verdades.
+            o resto da classe GLP-1 — Portugal e Brasil, sem meias verdades.
           </p>
         </div>
         <div>
-          <p>Aprender</p>
-          <ul>
-            {learnLinks.slice(0, 4).map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-          <p style={{ marginTop: "1rem" }}>Em Portugal</p>
+          <p>Portugal</p>
           <ul>
             {portugalLinks.map((item) => (
               <li key={item.href}>
@@ -35,10 +27,23 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+          <p style={{ marginTop: "1rem" }}>Brasil</p>
+          <ul>
+            {brasilLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
-          <p>Ferramentas e aviso</p>
+          <p>Aprender e ferramentas</p>
           <ul>
+            {learnLinks.slice(0, 3).map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
             {toolLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>

@@ -17,6 +17,16 @@ export const primaryNav: NavItem[] = [
     description: "PVP e comparticipação em Portugal",
   },
   {
+    href: "/brasil",
+    label: "Brasil",
+    description: "Preços, médicos e clínicas no Brasil",
+  },
+  {
+    href: "/apps",
+    label: "Apps",
+    description: "Tracking de dose, peso e hábitos",
+  },
+  {
     href: "/medicos",
     label: "Médicos",
     description: "Quem acompanha e sinais de alerta",
@@ -27,19 +37,9 @@ export const primaryNav: NavItem[] = [
     description: "Centros e hospitais — orientação",
   },
   {
-    href: "/efeitos",
-    label: "Efeitos",
-    description: "Efeitos secundários e sinais de alerta",
-  },
-  {
     href: "/faq",
     label: "Perguntas",
     description: "FAQ em linguagem simples",
-  },
-  {
-    href: "/glossario",
-    label: "Glossário",
-    description: "Termos médicos sem jargão",
   },
   {
     href: "/fontes",
@@ -84,22 +84,50 @@ export const learnLinks: NavItem[] = [
 export const portugalLinks: NavItem[] = [
   {
     href: "/precos",
-    label: "Preços",
+    label: "Preços (Portugal)",
     description: "Ordens de grandeza de PVP e comparticipação SNS",
   },
   {
     href: "/medicos",
-    label: "Médicos",
+    label: "Médicos (Portugal)",
     description: "Especialidades aconselháveis e sinais de alerta",
   },
   {
     href: "/clinicas",
-    label: "Clínicas",
+    label: "Clínicas (Portugal)",
     description: "Exemplos de centros e o que verificar antes de marcar",
   },
 ];
 
+export const brasilLinks: NavItem[] = [
+  {
+    href: "/brasil",
+    label: "Hub Brasil",
+    description: "Mapa do mercado brasileiro (pt-BR)",
+  },
+  {
+    href: "/brasil/precos",
+    label: "Preços (Brasil)",
+    description: "Faixas em R$, SUS, planos e ANVISA",
+  },
+  {
+    href: "/brasil/medicos",
+    label: "Médicos (Brasil)",
+    description: "Endocrino, nutrologia, CRM e red flags",
+  },
+  {
+    href: "/brasil/clinicas",
+    label: "Clínicas (Brasil)",
+    description: "Einstein, Sírio, SUS e outras — orientação",
+  },
+];
+
 export const toolLinks: NavItem[] = [
+  {
+    href: "/apps",
+    label: "Apps",
+    description: "Tracking de dose, peso, proteína e efeitos",
+  },
   {
     href: "/faq",
     label: "Perguntas",
@@ -133,6 +161,7 @@ export const aboutLinks: NavItem[] = [
 export const allNavLinks = [
   ...learnLinks,
   ...portugalLinks,
+  ...brasilLinks,
   ...toolLinks,
   ...aboutLinks,
 ];

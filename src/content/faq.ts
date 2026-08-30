@@ -91,7 +91,14 @@ export const faqItems: FaqItem[] = [
     category: "basico",
     question: "Que médico devo procurar?",
     answer:
-      "Endocrinologia ou uma consulta de obesidade multidisciplinar são perfis frequentes; o médico de família é o ponto de entrada no SNS. Confirme cédula na Ordem dos Médicos. Evite quem receita sem história clínica ou vende a caneta no mesmo sítio. Ver /medicos e /clinicas.",
+      "Endocrinologia ou uma consulta de obesidade multidisciplinar são perfis frequentes; o médico de família é o ponto de entrada no SNS. Confirme cédula na Ordem dos Médicos. Evite quem receita sem história clínica ou vende a caneta no mesmo sítio. Ver /medicos e /clinicas. No Brasil: endocrino/nutrologia e CRM no CFM — ver /brasil/medicos.",
+  },
+  {
+    id: "apps-tracking",
+    category: "vida",
+    question: "Há apps para lembrar a dose e o peso?",
+    answer:
+      "Sim. Trackers como Shotsy, Titra ou Pep ajudam com lembretes de caneta, peso e efeitos — mas não substituem o médico nem a bula. Evite apps que vendem medicamento ou «sobe a dose» sozinhas. Ver /apps.",
   },
   {
     id: "como-se-toma",

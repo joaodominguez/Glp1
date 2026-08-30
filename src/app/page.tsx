@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
 import { HomeSearch } from "@/components/HomeSearch";
-import { learnLinks, portugalLinks, toolLinks } from "@/content/nav";
+import { brasilLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
 import { medicationsSorted } from "@/content/medications";
 import { pageMetadata } from "@/lib/seo";
 
@@ -108,6 +108,21 @@ export default function HomePage() {
         </div>
         <ul className="link-list">
           {portugalLinks.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href}>
+                <strong>{item.label}</strong>
+                <span>{item.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="section-head">
+          <h2>No Brasil</h2>
+          <p>Mesmo mapa, outras regras: ANVISA, SUS, preços em R$.</p>
+        </div>
+        <ul className="link-list">
+          {brasilLinks.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
                 <strong>{item.label}</strong>
