@@ -34,11 +34,12 @@ export default function HomePage() {
 
           <div className="hero-visual">
             <Image
-              src="/hero-pen.png"
+              src="/hero-pen-float.png"
               alt="Caneta injetora semanal ilustrativa, sem marca comercial"
-              width={1536}
-              height={1024}
+              width={1025}
+              height={902}
               priority
+              unoptimized
               className="hero-pen"
               sizes="(max-width: 840px) 92vw, 560px"
             />
