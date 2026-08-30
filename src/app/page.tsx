@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
+import { HeroPen } from "@/components/HeroPen";
 import { HomeSearch } from "@/components/HomeSearch";
 import { brasilLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
 import { medicationsSorted } from "@/content/medications";
@@ -61,6 +62,7 @@ export default function HomePage() {
           </div>
           <div className="hero-visual" aria-hidden="true">
             <BrandMark className="hero-loops" title="" />
+            <HeroPen className="hero-pen" />
           </div>
         </div>
       </section>
