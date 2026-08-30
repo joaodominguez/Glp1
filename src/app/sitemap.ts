@@ -11,6 +11,9 @@ const staticRoutes: Array<{
 }> = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/medicamentos/", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/precos/", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/medicos/", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/clinicas/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/o-que-e/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/como-funciona/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/tratamento/", changeFrequency: "monthly", priority: 0.75 },

@@ -80,6 +80,20 @@ export const faqItems: FaqItem[] = [
       "Só um profissional de saúde pode responder no seu caso. Em geral avalia-se o diagnóstico (diabetes tipo 2 e/ou excesso de peso com critérios), outras doenças, outros medicamentos, gravidez, e contraindicações como história pessoal ou familiar de carcinoma medular da tiroide ou MEN2. Comprar sem receita ou partilhar canetas é inseguro e, em muitos sítios, ilegal.",
   },
   {
+    id: "quanto-custa",
+    category: "basico",
+    question: "Quanto custa em Portugal?",
+    answer:
+      "Ordens de grandeza típicas de PVP: Mounjaro cerca de 180–430 €/mês conforme a dose; Wegovy cerca de 150–200 €/mês; Ozempic muitas vezes na casa dos 100–140 €/mês. Para obesidade, Mounjaro/Wegovy/Saxenda têm sido pagos a 100% pelo utente. Ozempic pode ter comparticipação em diabetes tipo 2 dentro de critérios. Confirme sempre Infomed e a farmácia — ver página /precos.",
+  },
+  {
+    id: "que-medico",
+    category: "basico",
+    question: "Que médico devo procurar?",
+    answer:
+      "Endocrinologia ou uma consulta de obesidade multidisciplinar são perfis frequentes; o médico de família é o ponto de entrada no SNS. Confirme cédula na Ordem dos Médicos. Evite quem receita sem história clínica ou vende a caneta no mesmo sítio. Ver /medicos e /clinicas.",
+  },
+  {
     id: "como-se-toma",
     category: "uso",
     question: "Como se toma?",

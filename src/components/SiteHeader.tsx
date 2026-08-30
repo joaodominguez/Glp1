@@ -5,10 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { aboutLinks, learnLinks, primaryNav, toolLinks } from "@/content/nav";
+import { aboutLinks, learnLinks, portugalLinks, primaryNav, toolLinks } from "@/content/nav";
 
 const groups = [
   { label: "Aprender", items: learnLinks },
+  { label: "Em Portugal", items: portugalLinks },
   { label: "Ferramentas", items: toolLinks },
   { label: "Sobre", items: aboutLinks },
 ];

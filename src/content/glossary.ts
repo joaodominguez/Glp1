@@ -26,6 +26,20 @@ export const glossary: GlossaryTerm[] = [
       "Documento oficial do medicamento. A bula (ou folheto) é para o paciente; o RCM é a versão técnica para profissionais. É a fonte mais fiável sobre dose, riscos e contraindicações no seu país.",
   },
   {
+    id: "comparticipacao",
+    term: "Comparticipação",
+    also: ["SNS", "comparticipação do Estado"],
+    definition:
+      "Percentagem do preço do medicamento que o Estado (SNS) paga. Em Portugal, muitos agonistas usados para obesidade têm sido pagos a 100% pelo utente; alguns antidiabéticos (ex.: Ozempic em critérios específicos) podem ter comparticipação. Confirme sempre na Infomed e na farmácia.",
+  },
+  {
+    id: "pvp",
+    term: "PVP",
+    also: ["preço de venda ao público"],
+    definition:
+      "Preço de venda ao público na farmácia. É a referência oficial; o valor no ticket pode depender da apresentação (dosagem) e de alterações publicadas pelo INFARMED.",
+  },
+  {
     id: "contraindicacao",
     term: "Contraindicação",
     definition:

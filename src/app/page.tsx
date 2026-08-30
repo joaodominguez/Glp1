@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
 import { HomeSearch } from "@/components/HomeSearch";
-import { learnLinks, toolLinks } from "@/content/nav";
+import { learnLinks, portugalLinks, toolLinks } from "@/content/nav";
 import { medicationsSorted } from "@/content/medications";
 import { pageMetadata } from "@/lib/seo";
 
@@ -101,6 +101,21 @@ export default function HomePage() {
         <p>
           <Link href="/medicamentos">Ver o levantamento completo →</Link>
         </p>
+
+        <div className="section-head">
+          <h2>Em Portugal</h2>
+          <p>Preços, quem acompanha e onde começar a procurar clínica.</p>
+        </div>
+        <ul className="link-list">
+          {portugalLinks.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href}>
+                <strong>{item.label}</strong>
+                <span>{item.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         <div className="section-head">
           <h2>Começar por aqui</h2>

@@ -23,10 +23,31 @@ export const sources: Source[] = [
   },
   {
     id: "infarmed",
-    title: "Infomed — infarmed",
+    title: "Infomed — INFARMED",
     publisher: "INFARMED (Portugal)",
     href: "https://extranet.infarmed.pt/INFOMED-fo/",
-    note: "Base portuguesa de medicamentos autorizados. Procure por «Mounjaro» ou «tirzepatida».",
+    note: "Base portuguesa de medicamentos autorizados, apresentações e informação de preço/comparticipação. Procure por nome comercial ou substância.",
+  },
+  {
+    id: "infarmed-preco",
+    title: "Pesquisa do medicamento / preço",
+    publisher: "INFARMED (Portugal)",
+    href: "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento",
+    note: "Serviço online do INFARMED para consultar informação de medicamentos, incluindo preço quando disponível.",
+  },
+  {
+    id: "ordem-medicos",
+    title: "Pesquisa de médicos",
+    publisher: "Ordem dos Médicos",
+    href: "https://ordemdosmedicos.pt/pesquisa-de-medicos/",
+    note: "Confirme cédula profissional e especialidade antes de confiar numa consulta online ou num anúncio.",
+  },
+  {
+    id: "sns24",
+    title: "SNS 24",
+    publisher: "Serviço Nacional de Saúde",
+    href: "https://www.sns24.gov.pt/",
+    note: "Orientação do SNS (incluindo linha 808 24 24 24) para contactos e triagem não emergente.",
   },
   {
     id: "anvisa",

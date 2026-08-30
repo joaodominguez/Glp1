@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
-import { aboutLinks, learnLinks, toolLinks } from "@/content/nav";
+import { aboutLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
 
 export function SiteFooter() {
   return (
@@ -21,7 +21,15 @@ export function SiteFooter() {
         <div>
           <p>Aprender</p>
           <ul>
-            {learnLinks.slice(0, 5).map((item) => (
+            {learnLinks.slice(0, 4).map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
+          <p style={{ marginTop: "1rem" }}>Em Portugal</p>
+          <ul>
+            {portugalLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
               </li>

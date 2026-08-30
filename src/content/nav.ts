@@ -12,24 +12,24 @@ export const primaryNav: NavItem[] = [
     description: "Mounjaro, Ozempic, Wegovy e toda a classe",
   },
   {
-    href: "/o-que-e",
-    label: "Sobre",
-    description: "O que é a família GLP-1",
+    href: "/precos",
+    label: "Preços",
+    description: "PVP e comparticipação em Portugal",
   },
   {
-    href: "/como-funciona",
-    label: "Como funciona",
-    description: "O que estes medicamentos fazem no corpo",
+    href: "/medicos",
+    label: "Médicos",
+    description: "Quem acompanha e sinais de alerta",
+  },
+  {
+    href: "/clinicas",
+    label: "Clínicas",
+    description: "Centros e hospitais — orientação",
   },
   {
     href: "/efeitos",
     label: "Efeitos",
     description: "Efeitos secundários e sinais de alerta",
-  },
-  {
-    href: "/primeiras-semanas",
-    label: "Primeiras semanas",
-    description: "O que muita gente sente no início",
   },
   {
     href: "/faq",
@@ -81,6 +81,24 @@ export const learnLinks: NavItem[] = [
   },
 ];
 
+export const portugalLinks: NavItem[] = [
+  {
+    href: "/precos",
+    label: "Preços",
+    description: "Ordens de grandeza de PVP e comparticipação SNS",
+  },
+  {
+    href: "/medicos",
+    label: "Médicos",
+    description: "Especialidades aconselháveis e sinais de alerta",
+  },
+  {
+    href: "/clinicas",
+    label: "Clínicas",
+    description: "Exemplos de centros e o que verificar antes de marcar",
+  },
+];
+
 export const toolLinks: NavItem[] = [
   {
     href: "/faq",
@@ -112,4 +130,9 @@ export const aboutLinks: NavItem[] = [
   },
 ];
 
-export const allNavLinks = [...learnLinks, ...toolLinks, ...aboutLinks];
+export const allNavLinks = [
+  ...learnLinks,
+  ...portugalLinks,
+  ...toolLinks,
+  ...aboutLinks,
+];
