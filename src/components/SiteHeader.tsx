@@ -5,14 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { aboutLinks, learnLinks, toolLinks } from "@/content/nav";
-
-const primaryLinks = [
-  ...learnLinks.slice(0, 3),
-  toolLinks[0],
-  toolLinks[2],
-  aboutLinks[1],
-];
+import { aboutLinks, learnLinks, primaryNav, toolLinks } from "@/content/nav";
 
 const groups = [
   { label: "Aprender", items: learnLinks },
@@ -29,23 +22,26 @@ export function SiteHeader() {
       <div className="header-inner">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
           <BrandMark className="brand-mark" />
-          <span>
-            <strong>Guia GLP-1</strong>
-            <em>Mounjaro em português claro</em>
-          </span>
+          <strong>Guia GLP-1</strong>
         </Link>
 
         <nav className="desktop-nav" aria-label="Secções principais">
-          {primaryLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="nav-link"
-              aria-current={pathname === item.href ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {primaryNav.map((item) => {
+            const current =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={`${item.href}-${item.label}`}
+                href={item.href}
+                className="nav-link"
+                aria-current={current ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="header-actions">
@@ -64,6 +60,15 @@ export function SiteHeader() {
 
       {open ? (
         <nav id="menu-mobile" className="mobile-nav" aria-label="Menu">
+          <ul className="mobile-primary">
+            {primaryNav.map((item) => (
+              <li key={`${item.href}-${item.label}`}>
+                <Link href={item.href} onClick={() => setOpen(false)}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
           {groups.map((group) => (
             <div key={group.label}>
               <p>{group.label}</p>

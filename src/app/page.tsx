@@ -12,16 +12,15 @@ export default function HomePage() {
           <div className="hero-copy">
             <div className="hero-brand">
               <BrandMark className="brand-mark" />
-              <div>
-                <strong>Guia GLP-1</strong>
-                <span>Mounjaro em português claro</span>
-              </div>
+              <strong>Guia GLP-1</strong>
             </div>
-            <p className="kicker">Informação, não marketing</p>
-            <h1>Mounjaro em português que se percebe.</h1>
+            <h1>
+              Mounjaro em português que{" "}
+              <em className="accent-word">se percebe.</em>
+            </h1>
             <p>
-              O essencial sobre tirzepatida e GLP-1, sem fóruns barulhentos nem
-              doses copiadas de outra pessoa.
+              Informação clara, prática e atualizada para tomar decisões com
+              segurança.
             </p>
             <div className="cta-row">
               <Link className="button button-primary" href="/o-que-e">
@@ -33,12 +32,12 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-hidden="true">
+          <div className="hero-visual">
             <Image
               src="/hero-pen.png"
-              alt=""
-              width={900}
-              height={1200}
+              alt="Caneta injetora semanal ilustrativa, sem marca comercial"
+              width={1200}
+              height={1040}
               priority
               className="hero-pen"
             />
@@ -82,14 +81,6 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
-
-        <aside className="callout" style={{ marginTop: "2rem" }}>
-          <p>
-            <strong>Isto não é uma consulta.</strong> Não diz se o medicamento é
-            para si, não calcula a sua dose e não vende canetas. Serve para
-            chegar ao profissional de saúde com perguntas melhores.
-          </p>
-        </aside>
       </section>
     </>
   );

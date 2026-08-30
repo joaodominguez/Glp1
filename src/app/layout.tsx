@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Instrument_Serif, Manrope } from "next/font/google";
 import { PageShell } from "@/components/PageShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const display = Space_Grotesk({
+const display = Instrument_Serif({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "400",
 });
 
 const body = Manrope({

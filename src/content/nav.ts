@@ -4,6 +4,50 @@ export type NavItem = {
   description: string;
 };
 
+export const primaryNav: NavItem[] = [
+  { href: "/", label: "Início", description: "Página inicial" },
+  {
+    href: "/o-que-e",
+    label: "Sobre",
+    description: "O que é o Mounjaro e o GLP-1",
+  },
+  {
+    href: "/como-funciona",
+    label: "Como funciona",
+    description: "O que estes medicamentos fazem no corpo",
+  },
+  {
+    href: "/efeitos",
+    label: "Efeitos e resultados",
+    description: "Efeitos secundários e o que esperar",
+  },
+  {
+    href: "/aviso",
+    label: "Segurança",
+    description: "Avisos, limites e quando procurar ajuda",
+  },
+  {
+    href: "/primeiras-semanas",
+    label: "Alimentação",
+    description: "Hábitos nas primeiras semanas",
+  },
+  {
+    href: "/fontes",
+    label: "Recursos",
+    description: "Fontes oficiais e reguladores",
+  },
+  {
+    href: "/faq",
+    label: "Blog",
+    description: "Perguntas e respostas em linguagem simples",
+  },
+  {
+    href: "/checklist",
+    label: "Contato",
+    description: "Checklist e preparação para a consulta",
+  },
+];
+
 export const learnLinks: NavItem[] = [
   {
     href: "/o-que-e",

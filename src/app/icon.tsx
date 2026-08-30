@@ -13,45 +13,32 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0F766E",
+          background: "#0B0E10",
           borderRadius: 16,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              width: 10,
-              height: 28,
-              borderRadius: 999,
-              background: "#F4FFFC",
-            }}
+        <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+          <path
+            d="M14 28c0-7.5 5.2-12 10.5-12S34 20.5 34 26.5 29.5 38 23.5 38 14 33.5 14 28Z"
+            stroke="#7EB8AD"
+            strokeWidth="2.8"
+            strokeLinecap="round"
           />
-          <div
-            style={{
-              width: 0,
-              height: 0,
-              borderLeft: "5px solid transparent",
-              borderRight: "5px solid transparent",
-              borderTop: "10px solid #F4FFFC",
-              marginTop: -1,
-            }}
+          <path
+            d="M10 22c0-7 4.8-11.5 10-11.5S30 15 30 21.5 25.5 33 19.5 33 10 28.5 10 22Z"
+            stroke="#7EB8AD"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            opacity="0.85"
           />
-          <div
-            style={{
-              width: 4,
-              height: 6,
-              borderRadius: 999,
-              background: "#5EEAD4",
-              marginTop: 1,
-            }}
+          <path
+            d="M18 24c0-7.2 5-12 10.8-12S40 16.8 40 23.5 34.8 36 28.5 36 18 31 18 24Z"
+            stroke="#7EB8AD"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            opacity="0.7"
           />
-        </div>
+        </svg>
       </div>
     ),
     { ...size },
