@@ -810,6 +810,7 @@ select {
 .prose > h3,
 .prose > p,
 .prose > .callout,
+.prose > .price-verify,
 .prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li,
 .article > p {
   max-width: 58rem;
@@ -1232,6 +1233,10 @@ details[open] .faq-question::after {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--surface);
+}
+
+.callout + .price-verify {
+  margin-top: 1rem;
 }
 
 .price-verify {
