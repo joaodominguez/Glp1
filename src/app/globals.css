@@ -809,24 +809,27 @@ select {
 .prose > h2,
 .prose > h3,
 .prose > p,
-.prose > ul > li,
+.prose > .callout,
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li,
 .article > p {
   max-width: 58rem;
 }
 
-.prose ul {
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
   padding-left: 1.2rem;
 }
 
-/* Lists/tables/tools should use the full content shell, not the reading measure */
+/* Lists/tables/tools use the full content shell and share the prose left edge */
 .prose .med-list,
 .prose .med-list li,
 .prose .price-table-wrap,
 .prose .card-grid,
 .prose .link-list,
 .prose .faq-list,
-.prose .glossary-list {
+.prose .glossary-list,
+.prose .search-results {
   max-width: none;
+  padding-left: 0;
 }
 
 .callout {
@@ -834,7 +837,7 @@ select {
   border-left: 3px solid var(--accent);
   padding: 1rem 1.1rem;
   border-radius: 0 14px 14px 0;
-  max-width: 58rem;
+  margin: 0;
 }
 
 .warning {
