@@ -46,7 +46,7 @@ export function MedicationMedia({
                 alt={image.alt}
                 width={1200}
                 height={800}
-                sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 560px"
+                sizes="(max-width: 640px) 168px, 184px"
                 className="med-gallery-img"
               />
             </div>

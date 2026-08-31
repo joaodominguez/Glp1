@@ -976,12 +976,18 @@ select {
 .prose > .price-verify,
 .prose > .med-chip-row,
 .prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
-.prose > .med-list {
+.prose > .med-list,
+.prose > .med-media {
   margin-inline-start: var(--prose-inset);
 }
 
-.prose > .med-list {
+.prose > .med-list,
+.prose > .med-media {
   max-width: none;
+}
+
+.prose > .med-media {
+  max-width: min(100%, 26rem);
 }
 
 .prose > h2,
@@ -996,16 +1002,20 @@ select {
   max-width: calc(58rem - var(--prose-inset));
 }
 
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
-  padding-inline-start: 1.2rem;
+/* Bullets hang in the line — text aligns with headings, not shifted right */
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
+.prose > ol:not(.link-list) {
+  padding-inline-start: 0;
+  list-style-position: inside;
 }
 
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li {
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li,
+.prose > ol:not(.link-list) > li {
   max-width: none;
+  padding-inline-start: 0;
 }
 
 /* Full-width blocks inside the prose shell */
-.prose > .med-media,
 .prose > .price-table-wrap,
 .prose > .card-grid,
 .prose > .link-list,
@@ -1364,7 +1374,7 @@ details[open] .faq-question::after {
 
 .med-media {
   margin: 0 0 2rem;
-  padding: 1.25rem;
+  padding: 1rem;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--bg-elevated);
@@ -1375,9 +1385,9 @@ details[open] .faq-question::after {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem 1.5rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1419,28 +1429,29 @@ html[data-theme="dark"] .med-manufacturer-logo {
 
 .med-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .med-gallery--single {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 11.5rem);
 }
 
 .med-gallery-item {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.45rem;
   min-width: 0;
 }
 
 .med-gallery-frame {
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--line);
   background: #0c0c0c;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
+  max-height: 11.5rem;
   display: flex;
 }
 
@@ -1481,7 +1492,7 @@ html[data-theme="dark"] .med-manufacturer-logo {
 
 @media (max-width: 640px) {
   .med-media {
-    padding: 1rem;
+    padding: 0.85rem;
   }
 
   .med-media-header {
@@ -1492,6 +1503,18 @@ html[data-theme="dark"] .med-manufacturer-logo {
   .med-manufacturer-logo {
     height: 1.65rem;
     max-width: 6.5rem;
+  }
+
+  .med-gallery:not(.med-gallery--single) {
+    grid-template-columns: 1fr;
+  }
+
+  .med-gallery--single {
+    grid-template-columns: minmax(0, 10.5rem);
+  }
+
+  .med-gallery-frame {
+    max-height: 10.5rem;
   }
 }
 
