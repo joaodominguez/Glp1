@@ -21,12 +21,15 @@ export function MedicationMedia({
 
   if (!images.length) return null;
 
+  const galleryClass =
+    images.length === 1 ? "med-gallery--1" : "med-gallery--2";
+
   return (
     <section
       className="med-media"
       aria-label={`Imagens de ${brandName}`}
     >
-      <div className="med-media-header">
+      <div className="med-media-meta">
         <ManufacturerBadge manufacturer={manufacturer} />
         <p className="med-media-note">
           Fotografias reais do medicamento ou dispositivo. O aspeto comercial pode
@@ -35,19 +38,25 @@ export function MedicationMedia({
         </p>
       </div>
 
-      <div
-        className={`med-gallery${images.length === 1 ? " med-gallery--single" : ""}`}
-      >
-        {images.map((image) => (
-          <figure key={image.src} className="med-gallery-item">
+      <div className={`med-gallery ${galleryClass}`}>
+        {images.map((image, index) => (
+          <figure
+            key={image.src}
+            className={`med-gallery-item${index === 0 ? " med-gallery-item--lead" : ""}`}
+          >
             <div className="med-gallery-frame">
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={1200}
                 height={800}
-                sizes="(max-width: 640px) 168px, 184px"
+                sizes={
+                  images.length === 1
+                    ? "(max-width: 640px) 100vw, 928px"
+                    : "(max-width: 640px) 100vw, (max-width: 960px) 50vw, 460px"
+                }
                 className="med-gallery-img"
+                priority={index === 0}
               />
             </div>
             <figcaption className="med-gallery-caption">
