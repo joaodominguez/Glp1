@@ -27,6 +27,7 @@ html[data-theme="dark"] {
   --surface: rgba(255, 255, 255, 0.04);
   --shadow: none;
   --button-radius: 10px;
+  --prose-inset: 1.25rem;
   /* Stylized hero pen (generic weekly injector silhouette) */
   --pen-body: #5f9a8f;
   --pen-mid: #8ec4b8;
@@ -74,6 +75,7 @@ html[data-theme="light"] {
   --surface: #ffffff;
   --shadow: 0 12px 40px rgba(16, 20, 23, 0.06);
   --button-radius: 10px;
+  --prose-inset: 1.25rem;
   --pen-body: #3f7f74;
   --pen-mid: #5a9a8e;
   --pen-deep: #2a5a52;
@@ -960,21 +962,61 @@ select {
 /* Comfortable reading measure (~928px) inside the 1240px shell */
 .article-hero h1,
 .article-hero .lede,
-.prose > h2,
-.prose > h3,
-.prose > p,
-.prose > .callout,
-.prose > .price-verify,
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li,
 .article > p {
   max-width: 58rem;
 }
 
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
-  padding-left: 1.2rem;
+/* Site-wide content inset: headings, paragraphs and lists share the same left edge */
+.prose > h2,
+.prose > h3,
+.prose > p,
+.prose > ol,
+.prose > dl,
+.prose > .callout,
+.prose > .price-verify,
+.prose > .med-chip-row,
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
+.prose > .med-list {
+  margin-inline-start: var(--prose-inset);
 }
 
-/* Lists/tables/tools use the full content shell and share the prose left edge */
+.prose > .med-list {
+  max-width: none;
+}
+
+.prose > h2,
+.prose > h3,
+.prose > p,
+.prose > ol,
+.prose > dl,
+.prose > .callout,
+.prose > .price-verify,
+.prose > .med-chip-row,
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
+  max-width: calc(58rem - var(--prose-inset));
+}
+
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
+  padding-inline-start: 1.2rem;
+}
+
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li {
+  max-width: none;
+}
+
+/* Full-width blocks inside the prose shell */
+.prose > .med-media,
+.prose > .price-table-wrap,
+.prose > .card-grid,
+.prose > .link-list,
+.prose > .faq-list,
+.prose > .glossary-list,
+.prose > .search-results,
+.prose > .tool-panel {
+  margin-inline-start: 0;
+  max-width: none;
+}
+
 .prose .med-list,
 .prose .med-list li,
 .prose .price-table-wrap,
@@ -983,8 +1025,29 @@ select {
 .prose .faq-list,
 .prose .glossary-list,
 .prose .search-results {
+  padding-inline-start: 0;
+}
+
+/* Homepage and tool pages use the same inset rhythm */
+.home-body .section-head,
+.home-body > p,
+.home-body > ul,
+.home-body > .site-search,
+.tool-page > .kicker,
+.tool-page > h1,
+.tool-page > .lede,
+.tool-page > .tool-panel {
+  margin-inline-start: var(--prose-inset);
+  max-width: calc(58rem - var(--prose-inset));
+}
+
+.home-body > ul,
+.tool-page > .tool-panel {
   max-width: none;
-  padding-left: 0;
+}
+
+.home-body > .site-search {
+  max-width: min(36rem, calc(58rem - var(--prose-inset)));
 }
 
 .callout {
@@ -1361,7 +1424,7 @@ html[data-theme="dark"] .med-manufacturer-logo {
 }
 
 .med-gallery--single {
-  grid-template-columns: minmax(0, 28rem);
+  grid-template-columns: 1fr;
 }
 
 .med-gallery-item {
@@ -1369,21 +1432,23 @@ html[data-theme="dark"] .med-manufacturer-logo {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+  min-width: 0;
 }
 
 .med-gallery-frame {
   overflow: hidden;
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: var(--bg-soft);
+  background: #0c0c0c;
   aspect-ratio: 4 / 3;
+  display: flex;
 }
 
 .med-gallery-img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -1394,6 +1459,7 @@ html[data-theme="dark"] .med-manufacturer-logo {
   font-size: 0.8rem;
   color: var(--ink-soft);
   line-height: 1.45;
+  padding-inline-start: 0.15rem;
 }
 
 .med-gallery-tag {
