@@ -3,6 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Article } from "@/components/Article";
 import { JsonLd } from "@/components/JsonLd";
+import { MedicationMedia } from "@/components/MedicationMedia";
+import {
+  getMedicationImages,
+  getManufacturer,
+  manufacturerIdForCompany,
+} from "@/content/medication-media";
 import {
   getMedication,
   medications,
@@ -46,6 +52,8 @@ export default async function MedicationPage({ params }: Props) {
 
   const related = relatedMedications(med);
   const url = `${SITE_URL}/medicamentos/${med.slug}/`;
+  const images = getMedicationImages(med.slug);
+  const manufacturer = getManufacturer(manufacturerIdForCompany(med.company));
 
   const jsonLd = [
     {
@@ -59,8 +67,18 @@ export default async function MedicationPage({ params }: Props) {
       nonProprietaryName: med.substance,
       manufacturer: {
         "@type": "Organization",
-        name: med.company,
+        name: manufacturer.name,
+        logo: `${SITE_URL}${manufacturer.logo}`,
       },
+      ...(images.length
+        ? {
+            image: images.map((img) => ({
+              "@type": "ImageObject",
+              url: `${SITE_URL}${img.src}`,
+              caption: img.alt,
+            })),
+          }
+        : {}),
       administrationRoute: med.route,
       inLanguage: "pt-PT",
     },
@@ -113,8 +131,14 @@ export default async function MedicationPage({ params }: Props) {
           <span className="med-chip">{med.mechanismLabel}</span>
           <span className="med-chip">{med.route}</span>
           <span className="med-chip">{med.frequency}</span>
-          <span className="med-chip">{med.company}</span>
+          <span className="med-chip">{manufacturer.name}</span>
         </p>
+
+        <MedicationMedia
+          company={med.company}
+          brandName={med.brandName}
+          images={images}
+        />
 
         <h2>O que é</h2>
         <ul>

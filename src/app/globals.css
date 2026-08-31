@@ -1299,6 +1299,136 @@ details[open] .faq-question::after {
   letter-spacing: 0.01em;
 }
 
+.med-media {
+  margin: 0 0 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-elevated);
+}
+
+.med-media-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.med-manufacturer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.med-manufacturer-logo {
+  height: 2rem;
+  width: auto;
+  max-width: 8rem;
+  object-fit: contain;
+  opacity: 0.88;
+  filter: grayscale(0.15);
+}
+
+html[data-theme="dark"] .med-manufacturer-logo {
+  filter: grayscale(0.15) brightness(1.15);
+}
+
+.med-manufacturer-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.med-media-note {
+  margin: 0;
+  flex: 1 1 14rem;
+  max-width: 36rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.med-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+
+.med-gallery--single {
+  grid-template-columns: minmax(0, 28rem);
+}
+
+.med-gallery-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.med-gallery-frame {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  aspect-ratio: 4 / 3;
+}
+
+.med-gallery-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.med-gallery-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.med-gallery-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--alert-bg);
+  color: var(--alert);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.med-gallery-credit {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .med-media {
+    padding: 1rem;
+  }
+
+  .med-media-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .med-manufacturer-logo {
+    height: 1.65rem;
+    max-width: 6.5rem;
+  }
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   background: var(--footer-bg);
