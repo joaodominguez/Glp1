@@ -27,7 +27,6 @@ html[data-theme="dark"] {
   --surface: rgba(255, 255, 255, 0.04);
   --shadow: none;
   --button-radius: 10px;
-  --prose-inset: 1.25rem;
   /* Stylized hero pen (generic weekly injector silhouette) */
   --pen-body: #5f9a8f;
   --pen-mid: #8ec4b8;
@@ -75,7 +74,6 @@ html[data-theme="light"] {
   --surface: #ffffff;
   --shadow: 0 12px 40px rgba(16, 20, 23, 0.06);
   --button-radius: 10px;
-  --prose-inset: 1.25rem;
   --pen-body: #3f7f74;
   --pen-mid: #5a9a8e;
   --pen-deep: #2a5a52;
@@ -960,17 +958,9 @@ select {
 }
 
 /* Comfortable reading measure (~928px) inside the 1240px shell */
+.article-hero .kicker,
 .article-hero h1,
 .article-hero .lede,
-.article > p {
-  max-width: 58rem;
-}
-
-/* One inset on the container — no extra padding-inline-start on lists */
-.prose {
-  padding-inline-start: var(--prose-inset);
-}
-
 .prose > h2,
 .prose > h3,
 .prose > p,
@@ -979,9 +969,9 @@ select {
 .prose > .callout,
 .prose > .price-verify,
 .prose > .med-chip-row,
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
-  max-width: calc(58rem - var(--prose-inset));
-  margin-inline-start: 0;
+.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
+.article > p {
+  max-width: 58rem;
 }
 
 .prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
@@ -991,15 +981,7 @@ select {
 }
 
 .prose > .med-list,
-.prose > .med-media {
-  margin-inline-start: 0;
-  max-width: none;
-}
-
-.prose > .med-media {
-  max-width: min(100%, 26rem);
-}
-
+.prose > .med-media,
 .prose > .price-table-wrap,
 .prose > .card-grid,
 .prose > .link-list,
@@ -1007,10 +989,11 @@ select {
 .prose > .glossary-list,
 .prose > .search-results,
 .prose > .tool-panel {
-  margin-inline-start: calc(-1 * var(--prose-inset));
-  width: calc(100% + var(--prose-inset));
   max-width: none;
-  padding-inline-start: 0;
+}
+
+.prose > .med-media {
+  max-width: min(100%, 26rem);
 }
 
 .prose .med-list,
@@ -1022,37 +1005,6 @@ select {
 .prose .glossary-list,
 .prose .search-results {
   padding-inline-start: 0;
-}
-
-.home-body,
-.tool-page {
-  padding-inline-start: var(--prose-inset);
-}
-
-.home-body .section-head,
-.home-body > p,
-.home-body > ul,
-.home-body > .site-search,
-.tool-page > .kicker,
-.tool-page > h1,
-.tool-page > .lede,
-.tool-page > .tool-panel {
-  margin-inline-start: 0;
-  max-width: calc(58rem - var(--prose-inset));
-}
-
-.home-body > ul,
-.tool-page > .tool-panel {
-  max-width: none;
-}
-
-.tool-page > .tool-panel {
-  margin-inline-start: calc(-1 * var(--prose-inset));
-  width: calc(100% + var(--prose-inset));
-}
-
-.home-body > .site-search {
-  max-width: min(36rem, calc(58rem - var(--prose-inset)));
 }
 
 .callout {
