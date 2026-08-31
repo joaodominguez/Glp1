@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandMark } from "@/components/BrandMark";
 import { HeroPen } from "@/components/HeroPen";
-import { HomeSearch } from "@/components/HomeSearch";
+import { SiteSearch } from "@/components/SiteSearch";
 import { brasilLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
 import { medicationsSorted } from "@/content/medications";
 import { pageMetadata } from "@/lib/seo";
@@ -74,7 +74,7 @@ export default function HomePage() {
             Náuseas, Ozempic, dose esquecida, tiroide — escreva uma palavra.
           </p>
         </div>
-        <HomeSearch />
+        <SiteSearch variant="home" id="pesquisa-inicio" />
 
         <div className="section-head">
           <h2>Medicamentos do levantamento</h2>

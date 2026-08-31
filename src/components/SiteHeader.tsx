@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { SiteSearch } from "@/components/SiteSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { aboutLinks, brasilLinks, learnLinks, portugalLinks, primaryNav, toolLinks } from "@/content/nav";
 
@@ -46,6 +47,13 @@ export function SiteHeader() {
           })}
         </nav>
 
+        <SiteSearch
+          variant="header"
+          id="pesquisa-header"
+          hideLabel
+          placeholder="Procurar…"
+        />
+
         <div className="header-actions">
           <ThemeToggle />
           <button
@@ -62,6 +70,12 @@ export function SiteHeader() {
 
       {open ? (
         <nav id="menu-mobile" className="mobile-nav" aria-label="Menu">
+          <SiteSearch
+            variant="inline"
+            id="pesquisa-mobile"
+            label="Procurar no guia"
+            placeholder="Ozempic, náuseas…"
+          />
           <ul className="mobile-primary">
             {primaryNav.map((item) => (
               <li key={`${item.href}-${item.label}`}>

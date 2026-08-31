@@ -1,8 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { SearchChips } from "@/components/SearchChips";
 import { glossary } from "@/content/glossary";
 import { matchesQuery } from "@/lib/search";
+
+const glossarySuggestions = ["titulação", "GIP", "bula", "HbA1c", "semaglutida", "tirzepatida"];
 
 export function GlossaryExplorer() {
   const [query, setQuery] = useState("");
@@ -25,6 +28,14 @@ export function GlossaryExplorer() {
           autoComplete="off"
         />
       </label>
+
+      {!query.trim() ? (
+        <SearchChips
+          items={glossarySuggestions}
+          label="Sugestões de pesquisa"
+          onSelect={setQuery}
+        />
+      ) : null}
 
       <p className="result-count" aria-live="polite">
         {results.length === 0

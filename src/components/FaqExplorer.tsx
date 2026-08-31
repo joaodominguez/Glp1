@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { SearchChips } from "@/components/SearchChips";
 import { faqCategories, faqItems, type FaqCategory } from "@/content/faq";
 import { matchesQuery } from "@/lib/search";
+
+const faqSuggestions = ["náuseas", "dose", "gravidez", "pílula", "tiroide", "titulação"];
 
 export function FaqExplorer() {
   const [query, setQuery] = useState("");
@@ -56,6 +59,14 @@ export function FaqExplorer() {
           </select>
         </label>
       </div>
+
+      {!query.trim() ? (
+        <SearchChips
+          items={faqSuggestions}
+          label="Sugestões de pesquisa"
+          onSelect={setQuery}
+        />
+      ) : null}
 
       <p className="result-count" aria-live="polite">
         {results.length === 0
