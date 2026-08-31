@@ -966,28 +966,9 @@ select {
   max-width: 58rem;
 }
 
-/* Site-wide content inset: headings, paragraphs and lists share the same left edge */
-.prose > h2,
-.prose > h3,
-.prose > p,
-.prose > ol,
-.prose > dl,
-.prose > .callout,
-.prose > .price-verify,
-.prose > .med-chip-row,
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
-.prose > .med-list,
-.prose > .med-media {
-  margin-inline-start: var(--prose-inset);
-}
-
-.prose > .med-list,
-.prose > .med-media {
-  max-width: none;
-}
-
-.prose > .med-media {
-  max-width: min(100%, 26rem);
+/* One inset on the container — no extra padding-inline-start on lists */
+.prose {
+  padding-inline-start: var(--prose-inset);
 }
 
 .prose > h2,
@@ -1000,22 +981,25 @@ select {
 .prose > .med-chip-row,
 .prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) {
   max-width: calc(58rem - var(--prose-inset));
+  margin-inline-start: 0;
 }
 
-/* Bullets hang in the line — text aligns with headings, not shifted right */
 .prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results),
 .prose > ol:not(.link-list) {
   padding-inline-start: 0;
-  list-style-position: inside;
+  list-style-position: outside;
 }
 
-.prose > ul:not(.med-list):not(.link-list):not(.card-grid):not(.faq-list):not(.glossary-list):not(.search-results) > li,
-.prose > ol:not(.link-list) > li {
+.prose > .med-list,
+.prose > .med-media {
+  margin-inline-start: 0;
   max-width: none;
-  padding-inline-start: 0;
 }
 
-/* Full-width blocks inside the prose shell */
+.prose > .med-media {
+  max-width: min(100%, 26rem);
+}
+
 .prose > .price-table-wrap,
 .prose > .card-grid,
 .prose > .link-list,
@@ -1023,8 +1007,10 @@ select {
 .prose > .glossary-list,
 .prose > .search-results,
 .prose > .tool-panel {
-  margin-inline-start: 0;
+  margin-inline-start: calc(-1 * var(--prose-inset));
+  width: calc(100% + var(--prose-inset));
   max-width: none;
+  padding-inline-start: 0;
 }
 
 .prose .med-list,
@@ -1038,7 +1024,11 @@ select {
   padding-inline-start: 0;
 }
 
-/* Homepage and tool pages use the same inset rhythm */
+.home-body,
+.tool-page {
+  padding-inline-start: var(--prose-inset);
+}
+
 .home-body .section-head,
 .home-body > p,
 .home-body > ul,
@@ -1047,13 +1037,18 @@ select {
 .tool-page > h1,
 .tool-page > .lede,
 .tool-page > .tool-panel {
-  margin-inline-start: var(--prose-inset);
+  margin-inline-start: 0;
   max-width: calc(58rem - var(--prose-inset));
 }
 
 .home-body > ul,
 .tool-page > .tool-panel {
   max-width: none;
+}
+
+.tool-page > .tool-panel {
+  margin-inline-start: calc(-1 * var(--prose-inset));
+  width: calc(100% + var(--prose-inset));
 }
 
 .home-body > .site-search {
@@ -1470,7 +1465,6 @@ html[data-theme="dark"] .med-manufacturer-logo {
   font-size: 0.8rem;
   color: var(--ink-soft);
   line-height: 1.45;
-  padding-inline-start: 0.15rem;
 }
 
 .med-gallery-tag {
