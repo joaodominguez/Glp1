@@ -1,0 +1,19 @@
+# Gerado por gerar.py — nao editar a mao, as alteracoes desaparecem.
+
+ErrorDocument 404 /404.html
+
+# HTML revalida sempre: o conteudo muda e o nome nao tem impressao digital
+<FilesMatch "\.html$">
+  Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>
+
+# o CSS leva o sha no nome — pode ficar em cache indefinidamente
+<FilesMatch "^base\.[a-f0-9]{10}\.css$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# imagens NAO tem impressao digital: 30 dias, nao um ano, senao
+# substituir uma imagem pelo mesmo nome fica presa na cache
+<FilesMatch "\.(webp|png|svg|jpg|woff2)$">
+  Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
