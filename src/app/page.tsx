@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BrandMark } from "@/components/BrandMark";
-import { HeroPen } from "@/components/HeroPen";
 import { SiteSearch } from "@/components/SiteSearch";
-import { brasilLinks, learnLinks, portugalLinks, toolLinks } from "@/content/nav";
+import { brasilLinks, intentLinks, portugalLinks } from "@/content/nav";
 import { medicationsSorted } from "@/content/medications";
 import { pageMetadata } from "@/lib/seo";
 
@@ -29,59 +27,21 @@ export default function HomePage() {
   const featuredMeds = medicationsSorted().slice(0, 6);
 
   return (
-    <>
-      <section className="hero hero-atmosphere">
-        <div className="hero-atmosphere-bg" aria-hidden="true">
-          <div className="hero-mesh" />
-          <div className="hero-orb hero-orb-a" />
-          <div className="hero-orb hero-orb-b" />
-          <div className="hero-grid-fade" />
-        </div>
-        <div className="hero-inner hero-atmosphere-layout">
-          <div className="hero-copy">
-            <div className="hero-brand">
-              <BrandMark className="brand-mark hero-brand-mark" />
-              <strong>Guia GLP-1</strong>
-            </div>
-            <h1>
-              GLP-1 em português que{" "}
-              <em className="accent-word">se percebe.</em>
-            </h1>
-            <p>
-              Mounjaro, Ozempic, Wegovy, Saxenda e o resto da classe — informação
-              clara para decidir com o seu médico, não com o algoritmo.
-            </p>
-            <div className="cta-row">
-              <Link className="button button-primary" href="/medicamentos">
-                Ver medicamentos
-              </Link>
-              <Link className="button button-secondary" href="/faq">
-                Perguntas
-              </Link>
-            </div>
-          </div>
-          <div className="hero-visual" aria-hidden="true">
-            <BrandMark className="hero-loops" title="" />
-            <HeroPen className="hero-pen" />
-          </div>
-        </div>
-      </section>
-
-      <section className="home-body">
-        <div className="section-head">
-          <h2>Procurar no guia</h2>
-          <p>
-            Náuseas, Ozempic, dose esquecida, tiroide — escreva uma palavra.
-          </p>
-        </div>
+    <div className="home">
+      <header className="home-intro">
+        <p className="kicker">Guia em português</p>
+        <h1>Mounjaro, Ozempic, Wegovy — o que a bula não explica em linguagem simples.</h1>
+        <p className="lede">
+          Um mapa da classe GLP-1 para Portugal e Brasil. Sem ranking, sem
+          milagres, sem substituir o médico.
+        </p>
         <SiteSearch variant="home" id="pesquisa-inicio" />
+      </header>
 
+      <section className="home-section" aria-labelledby="home-meds">
         <div className="section-head">
-          <h2>Medicamentos do levantamento</h2>
-          <p>
-            Não é só Mounjaro. Cada página separa nome comercial, substância e
-            indicação.
-          </p>
+          <h2 id="home-meds">Medicamentos</h2>
+          <p>Nome comercial, substância e o que muda de país para país.</p>
         </div>
         <ul className="med-list">
           {featuredMeds.map((med) => (
@@ -96,68 +56,49 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
-        <p>
-          <Link href="/medicamentos">Ver o levantamento completo →</Link>
+        <p className="home-more">
+          <Link href="/medicamentos">Todos os medicamentos</Link>
         </p>
+      </section>
 
-        <div className="section-head">
-          <h2>Em Portugal</h2>
-          <p>Preços, quem acompanha e onde começar a procurar clínica.</p>
+      <section className="home-split" aria-label="Por país">
+        <div>
+          <h2>Portugal</h2>
+          <ul className="plain-links">
+            {portugalLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="link-list">
-          {portugalLinks.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href}>
-                <strong>{item.label}</strong>
-                <span>{item.description}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="section-head">
-          <h2>No Brasil</h2>
-          <p>Mesmo mapa, outras regras: ANVISA, SUS, preços em R$.</p>
-        </div>
-        <ul className="link-list">
-          {brasilLinks.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href}>
-                <strong>{item.label}</strong>
-                <span>{item.description}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="section-head">
-          <h2>Começar por aqui</h2>
-        </div>
-        <ul className="link-list">
-          {learnLinks.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href}>
-                <strong>{item.label}</strong>
-                <span>{item.description}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="section-head">
-          <h2>Ferramentas</h2>
-          <p>Sem contas e sem anúncios. A checklist fica só neste browser.</p>
-        </div>
-        <div className="card-grid">
-          {toolLinks.map((item) => (
-            <Link className="card" href={item.href} key={item.href}>
-              <span>Ferramenta</span>
-              <strong>{item.label}</strong>
-              <p>{item.description}</p>
-            </Link>
-          ))}
+        <div>
+          <h2>Brasil</h2>
+          <ul className="plain-links">
+            {brasilLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
-    </>
+
+      <section className="home-section" aria-labelledby="home-intent">
+        <div className="section-head">
+          <h2 id="home-intent">Perguntas que mais se misturam</h2>
+        </div>
+        <ul className="plain-links">
+          {intentLinks.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href}>
+                {item.label}
+                <span> — {item.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
   );
 }

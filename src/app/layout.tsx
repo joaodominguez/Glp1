@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Libre_Bodoni, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { PageShell } from "@/components/PageShell";
@@ -14,17 +14,10 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-const display = Libre_Bodoni({
-  variable: "--font-display",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
 const body = Manrope({
   variable: "--font-body",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -97,10 +90,10 @@ const themeBootScript = `
     var stored = localStorage.getItem(key);
     var theme = stored === "light" || stored === "dark"
       ? stored
-      : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     document.documentElement.dataset.theme = theme;
   } catch (e) {
-    document.documentElement.dataset.theme = "dark";
+    document.documentElement.dataset.theme = "light";
   }
 })();
 `;
@@ -146,8 +139,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-PT"
-      data-theme="dark"
-      className={`${display.variable} ${body.variable} h-full antialiased`}
+      data-theme="light"
+      className={`${body.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

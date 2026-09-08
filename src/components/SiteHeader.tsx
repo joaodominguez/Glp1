@@ -6,7 +6,14 @@ import { useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { SiteSearch } from "@/components/SiteSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { aboutLinks, brasilLinks, learnLinks, portugalLinks, primaryNav, toolLinks } from "@/content/nav";
+import {
+  aboutLinks,
+  brasilLinks,
+  headerNav,
+  learnLinks,
+  portugalLinks,
+  toolLinks,
+} from "@/content/nav";
 
 const groups = [
   { label: "Aprender", items: learnLinks },
@@ -29,11 +36,9 @@ export function SiteHeader() {
         </Link>
 
         <nav className="desktop-nav" aria-label="Secções principais">
-          {primaryNav.map((item) => {
+          {headerNav.map((item) => {
             const current =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={`${item.href}-${item.label}`}
@@ -77,7 +82,7 @@ export function SiteHeader() {
             placeholder="Ozempic, náuseas…"
           />
           <ul className="mobile-primary">
-            {primaryNav.map((item) => (
+            {headerNav.map((item) => (
               <li key={`${item.href}-${item.label}`}>
                 <Link href={item.href} onClick={() => setOpen(false)}>
                   {item.label}
@@ -96,8 +101,7 @@ export function SiteHeader() {
                       aria-current={pathname === item.href ? "page" : undefined}
                       onClick={() => setOpen(false)}
                     >
-                      <strong>{item.label}</strong>
-                      <span>{item.description}</span>
+                      {item.label}
                     </Link>
                   </li>
                 ))}

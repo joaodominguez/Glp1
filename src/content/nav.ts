@@ -4,8 +4,8 @@ export type NavItem = {
   description: string;
 };
 
-export const primaryNav: NavItem[] = [
-  { href: "/", label: "Início", description: "Página inicial" },
+/** Compact bar — everything else lives in the menu / footer. */
+export const headerNav: NavItem[] = [
   {
     href: "/medicamentos",
     label: "Medicamentos",
@@ -22,10 +22,16 @@ export const primaryNav: NavItem[] = [
     description: "Preços, médicos e clínicas no Brasil",
   },
   {
-    href: "/apps",
-    label: "Apps",
-    description: "Tracking de dose, peso e hábitos",
+    href: "/faq",
+    label: "Perguntas",
+    description: "FAQ em linguagem simples",
   },
+];
+
+/** Kept for sitemap / older references; header uses `headerNav`. */
+export const primaryNav: NavItem[] = [
+  { href: "/", label: "Início", description: "Página inicial" },
+  ...headerNav,
   {
     href: "/medicos",
     label: "Médicos",
@@ -37,9 +43,9 @@ export const primaryNav: NavItem[] = [
     description: "Centros e hospitais — orientação",
   },
   {
-    href: "/faq",
-    label: "Perguntas",
-    description: "FAQ em linguagem simples",
+    href: "/apps",
+    label: "Apps",
+    description: "Tracking de dose, peso e hábitos",
   },
   {
     href: "/fontes",

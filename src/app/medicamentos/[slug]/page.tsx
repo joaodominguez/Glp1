@@ -127,11 +127,9 @@ export default async function MedicationPage({ params }: Props) {
         title={`${med.brandName} — ${med.substance}`}
         lede={med.lede}
       >
-        <p className="med-chip-row" aria-label="Resumo rápido">
-          <span className="med-chip">{med.mechanismLabel}</span>
-          <span className="med-chip">{med.route}</span>
-          <span className="med-chip">{med.frequency}</span>
-          <span className="med-chip">{manufacturer.name}</span>
+        <p className="med-facts">
+          {med.mechanismLabel} · {med.route} · {med.frequency} ·{" "}
+          {manufacturer.name}
         </p>
 
         <MedicationMedia
