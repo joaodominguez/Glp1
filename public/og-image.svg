@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+  <title>Guia GLP-1</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0e10"/>
+      <stop offset="45%" stop-color="#10161a"/>
+      <stop offset="100%" stop-color="#0d1514"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#7eb8ad" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#7eb8ad" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7eb8ad" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="18%" cy="78%" r="42%">
+      <stop offset="0%" stop-color="#3f7f74" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3f7f74" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <g transform="translate(780 140)" fill="none" stroke="#7eb8ad" stroke-width="10" stroke-linecap="round">
+    <path d="M56 168c0-60 41.6-96 84-96s76 36 76 84-36 92-84 92-76-36-76-80Z" opacity="0.95"/>
+    <path d="M24 120c0-56 38.4-92 80-92s80 36 80 88-36 92-84 92-76-44-76-88Z" opacity="0.75"/>
+    <path d="M88 136c0-57.6 40-96 86.4-96S320 78.4 320 132 278.4 240 228 240 88 200 88 136Z" opacity="0.55"/>
+  </g>
+  <text x="88" y="250" fill="#f3f6f5" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="600">Guia GLP-1</text>
+  <text x="88" y="330" fill="#a7b3ae" font-family="system-ui, sans-serif" font-size="34">Mounjaro, Ozempic, Wegovy - em portugues que se percebe</text>
+  <text x="88" y="520" fill="#7eb8ad" font-family="system-ui, sans-serif" font-size="28" font-weight="600">www.meuglp1.pt</text>
+</svg>
