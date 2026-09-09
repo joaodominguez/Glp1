@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
 import { PenIllustration } from "@/components/PenIllustration";
 import { getFicha } from "@/content/ficha";
 import {
@@ -8,7 +9,13 @@ import {
   medications,
   relatedMedications,
 } from "@/content/medications";
-import { CONTENT_REVIEWED_LABEL } from "@/lib/site";
+import {
+  absoluteUrl,
+  breadcrumbLd,
+  pageMetadata,
+  webPageLd,
+} from "@/lib/seo";
+import { CONTENT_REVIEWED_LABEL, SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -20,10 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const med = getMedication(slug);
   if (!med) return { title: "Medicamento" };
-  return {
+  return pageMetadata({
     title: `${med.brandName} (${med.substance})`,
     description: med.summary,
-  };
+    path: `/medicamentos/${med.slug}`,
+    keywords: [med.brandName, med.substance, "GLP-1", ...(med.alsoKnownAs ?? [])],
+  });
 }
 
 export default async function MedicationPage({ params }: Props) {
@@ -33,9 +42,46 @@ export default async function MedicationPage({ params }: Props) {
 
   const ficha = getFicha(slug);
   const related = relatedMedications(med);
+  const url = absoluteUrl(`/medicamentos/${med.slug}/`);
+
+  const schemas = [
+    webPageLd({
+      name: `${med.brandName} (${med.substance})`,
+      description: med.summary,
+      path: `/medicamentos/${med.slug}`,
+      type: "MedicalWebPage",
+    }),
+    {
+      "@context": "https://schema.org",
+      "@type": "Drug",
+      name: med.brandName,
+      alternateName: [med.substance, ...(med.alsoKnownAs ?? [])],
+      description: med.summary,
+      url,
+      proprietaryName: med.brandName,
+      nonProprietaryName: med.substance,
+      manufacturer: {
+        "@type": "Organization",
+        name: med.company,
+      },
+      administrationRoute: med.route,
+      inLanguage: "pt-PT",
+      isPartOf: {
+        "@type": "WebSite",
+        name: "Guia GLP-1",
+        url: `${SITE_URL}/`,
+      },
+    },
+    breadcrumbLd([
+      { name: "Início", path: "/" },
+      { name: "Medicamentos", path: "/medicamentos" },
+      { name: med.brandName, path: `/medicamentos/${med.slug}` },
+    ]),
+  ];
 
   return (
     <div className="shell">
+      <JsonLd data={schemas} />
       <nav className="crumbs" aria-label="Trilho">
         <Link href="/">Início</Link>
         {" / "}

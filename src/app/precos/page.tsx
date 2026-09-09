@@ -1,21 +1,67 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import {
   comparticipacaoNotes,
   priceBands,
   pricePageDisclaimer,
 } from "@/content/prices";
+import {
+  absoluteUrl,
+  breadcrumbLd,
+  pageMetadata,
+  webPageLd,
+} from "@/lib/seo";
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
-export const metadata: Metadata = {
+const description =
+  "Quanto custam Mounjaro, Wegovy, Ozempic e outros GLP-1 em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que verificar na Infomed.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Preços Mounjaro, Ozempic e Wegovy em Portugal",
-  description:
-    "Quanto custam Mounjaro, Wegovy, Ozempic e outros GLP-1 em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que verificar na Infomed.",
-};
+  description,
+  path: "/precos",
+  keywords: [
+    "preço Mounjaro Portugal",
+    "preço Wegovy",
+    "Ozempic comparticipação",
+    "GLP-1 preço",
+    "INFARMED",
+  ],
+});
 
 export default function PrecosPage() {
   return (
     <div className="shell page-simple page-wide">
+      <JsonLd
+        data={[
+          webPageLd({
+            name: "Preços GLP-1 em Portugal",
+            description,
+            path: "/precos",
+            type: "MedicalWebPage",
+          }),
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Preços", path: "/precos" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Ordens de grandeza de PVP GLP-1 em Portugal",
+            itemListElement: priceBands.map((row, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Drug",
+                name: row.brandName,
+                nonProprietaryName: row.substance,
+                url: absoluteUrl(`/medicamentos/${row.slug}/`),
+              },
+            })),
+          },
+        ]}
+      />
       <p className="eyebrow">Portugal · dinheiro</p>
       <h1>Preços dos medicamentos GLP-1</h1>
       <p className="lede">

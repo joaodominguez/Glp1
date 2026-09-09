@@ -1,17 +1,51 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { faqCategories, faqItems } from "@/content/faq";
+import {
+  absoluteUrl,
+  breadcrumbLd,
+  pageMetadata,
+} from "@/lib/seo";
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
-export const metadata: Metadata = {
+const description =
+  "FAQ em português: o que é o Mounjaro, quanto custa, que médico procurar, náuseas, dose esquecida e riscos de comprar online.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Perguntas frequentes sobre GLP-1",
-  description:
-    "FAQ em português: o que é o Mounjaro, quanto custa, que médico procurar, náuseas, dose esquecida e riscos de comprar online.",
-};
+  description,
+  path: "/perguntas",
+  keywords: ["FAQ GLP-1", "Mounjaro perguntas", "Ozempic dúvidas", "Wegovy"],
+});
 
 export default function PerguntasPage() {
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    url: absoluteUrl("/perguntas/"),
+    inLanguage: "pt-PT",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <div className="shell page-simple">
+      <JsonLd
+        data={[
+          faqLd,
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Perguntas", path: "/perguntas" },
+          ]),
+        ]}
+      />
       <p className="eyebrow">FAQ</p>
       <h1>Perguntas frequentes</h1>
       <p className="lede">

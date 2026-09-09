@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { checklistSections } from "@/content/checklist";
 import {
   careRedFlags,
@@ -7,17 +8,42 @@ import {
   ordemMedicosUrl,
   specialistProfiles,
 } from "@/content/doctors";
+import { breadcrumbLd, pageMetadata, webPageLd } from "@/lib/seo";
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
-export const metadata: Metadata = {
+const description =
+  "Que médicos fazem sentido para GLP-1: endocrinologia, consulta de obesidade, médico de família, sinais de alerta e checklist para a consulta.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Médicos para GLP-1 em Portugal",
-  description:
-    "Que médicos fazem sentido para GLP-1: endocrinologia, consulta de obesidade, médico de família, sinais de alerta e checklist para a consulta.",
-};
+  description,
+  path: "/medicos",
+  keywords: [
+    "médico Mounjaro",
+    "endocrinologia Portugal",
+    "consulta obesidade",
+    "prescrição Wegovy",
+    "Ordem dos Médicos",
+  ],
+});
 
 export default function MedicosPage() {
   return (
     <div className="shell page-simple page-wide">
+      <JsonLd
+        data={[
+          webPageLd({
+            name: "Médicos aconselháveis para GLP-1",
+            description,
+            path: "/medicos",
+            type: "MedicalWebPage",
+          }),
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Médicos", path: "/medicos" },
+          ]),
+        ]}
+      />
       <p className="eyebrow">Portugal · quem acompanha</p>
       <h1>Médicos — o critério, não um ranking</h1>
       <p className="lede">

@@ -1,19 +1,47 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import { PenCluster } from "@/components/PenIllustration";
 import { medicationsSorted } from "@/content/medications";
+import { absoluteUrl, pageMetadata, webPageLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy e a classe GLP-1`,
   description: SITE_TAGLINE,
-};
+  path: "/",
+  type: "website",
+  absoluteTitle: true,
+});
 
 export default function HomePage() {
   const meds = medicationsSorted();
 
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Medicamentos GLP-1 e afins",
+    itemListElement: meds.map((med, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: med.brandName,
+      url: absoluteUrl(`/medicamentos/${med.slug}/`),
+    })),
+  };
+
   return (
     <>
+      <JsonLd
+        data={[
+          webPageLd({
+            name: SITE_NAME,
+            description: SITE_TAGLINE,
+            path: "/",
+            type: "MedicalWebPage",
+          }),
+          itemListLd,
+        ]}
+      />
       <section className="hero shell">
         <div className="hero-grid">
           <div>

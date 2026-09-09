@@ -1,21 +1,46 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/JsonLd";
 import {
   buyRedFlags,
   buyRisks,
   buySaferPaths,
 } from "@/content/buy-online";
+import { breadcrumbLd, pageMetadata, webPageLd } from "@/lib/seo";
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
-export const metadata: Metadata = {
+const description =
+  "Porque comprar Mounjaro, Ozempic ou Wegovy sem receita e sem farmácia identificada é inseguro. Sinais de alerta e o caminho legal em Portugal.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Onde comprar GLP-1 com segurança",
-  description:
-    "Porque comprar Mounjaro, Ozempic ou Wegovy sem receita e sem farmácia identificada é inseguro. Sinais de alerta e o caminho legal em Portugal.",
-};
+  description,
+  path: "/onde-comprar",
+  keywords: [
+    "comprar Mounjaro online",
+    "Ozempic falsificado",
+    "caneta ilegal",
+    "GLP-1 farmácia",
+  ],
+});
 
 export default function OndeComprarPage() {
   return (
     <div className="shell page-simple">
+      <JsonLd
+        data={[
+          webPageLd({
+            name: "Onde comprar GLP-1 com segurança",
+            description,
+            path: "/onde-comprar",
+            type: "MedicalWebPage",
+          }),
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Onde comprar", path: "/onde-comprar" },
+          ]),
+        ]}
+      />
       <p className="eyebrow">Segurança</p>
       <h1>Onde comprar — e onde não</h1>
       <p className="lede">
