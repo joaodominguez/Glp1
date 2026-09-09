@@ -246,12 +246,11 @@ img {
   margin: 0;
 }
 
-.hero-photo img {
+.hero-photo > :first-child {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
   border-radius: var(--radius);
-  background: #dfe4e8;
+  background: linear-gradient(180deg, #f5f7f9 0%, #dde5ea 100%);
 }
 
 .hero-photo figcaption {
@@ -440,18 +439,49 @@ img {
   margin: 0;
 }
 
-.med-photo img {
+.med-photo > :first-child {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
   border-radius: var(--radius);
-  background: #111;
+  background: linear-gradient(180deg, #f5f7f9 0%, #dde5ea 100%);
 }
 
 .med-photo figcaption {
   margin-top: 0.55rem;
   font-size: 0.8rem;
   color: var(--ink-faint);
+}
+
+.pen-cluster {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: radial-gradient(circle at top, #f9fbfc 0%, #e7edf1 55%, #d8e0e5 100%);
+}
+
+.pen-cluster > div {
+  position: absolute;
+  inset: 0;
+}
+
+.pen-cluster svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pen-cluster-back {
+  transform: translate(-24%, -2%) rotate(-18deg) scale(0.82);
+  opacity: 0.78;
+}
+
+.pen-cluster-mid {
+  transform: translate(0, 4%) scale(0.96);
+}
+
+.pen-cluster-front {
+  transform: translate(24%, 12%) rotate(16deg) scale(0.82);
+  opacity: 0.9;
 }
 
 .ficha {

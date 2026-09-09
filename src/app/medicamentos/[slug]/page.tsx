@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PenIllustration } from "@/components/PenIllustration";
 import { getFicha } from "@/content/ficha";
 import {
   getMedication,
   medications,
   relatedMedications,
 } from "@/content/medications";
-import { getMedicationImages } from "@/content/medication-media";
 import { CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -33,8 +32,6 @@ export default async function MedicationPage({ params }: Props) {
   if (!med) notFound();
 
   const ficha = getFicha(slug);
-  const images = getMedicationImages(slug);
-  const lead = images[0];
   const related = relatedMedications(med);
 
   return (
@@ -55,21 +52,13 @@ export default async function MedicationPage({ params }: Props) {
           </p>
           <p className="lede">{med.lede}</p>
         </div>
-        {lead ? (
-          <figure className="med-photo">
-            <Image
-              src={lead.src}
-              alt={lead.alt}
-              width={1200}
-              height={900}
-              priority
-            />
-            <figcaption>
-              {lead.illustrative ? "Imagem ilustrativa · " : null}
-              {lead.attribution}
-            </figcaption>
-          </figure>
-        ) : null}
+        <figure className="med-photo">
+          <PenIllustration
+            mechanism={med.mechanism}
+            title={`Ilustração editorial da caneta de ${med.brandName}`}
+          />
+          <figcaption>Ilustração editorial — não representa uma embalagem específica.</figcaption>
+        </figure>
       </header>
 
       {ficha ? (

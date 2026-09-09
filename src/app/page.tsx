@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { PenCluster } from "@/components/PenIllustration";
 import { medicationsSorted } from "@/content/medications";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
@@ -33,14 +33,11 @@ export default function HomePage() {
             </div>
           </div>
           <figure className="hero-photo">
-            <Image
-              src="/medications/mounjaro/pen-1.jpg"
-              alt="Caneta Mounjaro KwikPen com tirzepatida"
-              width={1200}
-              height={900}
-              priority
+            <PenCluster
+              mechanism="gip-glp1"
+              title="Ilustração de três canetas injectáveis da classe GLP-1"
             />
-            <figcaption>Caneta Mounjaro (tirzepatida)</figcaption>
+            <figcaption>Ilustração editorial da classe GLP-1</figcaption>
           </figure>
         </div>
       </section>
