@@ -9,5 +9,5 @@ export const navLinks = [
   { href: "/medicamentos/", label: "Medicamentos" },
   { href: "/precos/", label: "Preços" },
   { href: "/medicos/", label: "Médicos" },
-  { href: "/perguntas/", label: "Perguntas" },
+  { href: "/onde-comprar/", label: "Onde comprar" },
 ] as const;

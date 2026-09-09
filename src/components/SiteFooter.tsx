@@ -16,6 +16,7 @@ export function SiteFooter() {
           <Link href="/medicamentos/">Medicamentos</Link>
           <Link href="/precos/">Preços</Link>
           <Link href="/medicos/">Médicos</Link>
+          <Link href="/onde-comprar/">Onde comprar</Link>
           <Link href="/perguntas/">Perguntas</Link>
         </nav>
       </div>

@@ -45,9 +45,9 @@ export default function HomePage() {
       <section className="section shell">
         <div className="section-head">
           <h2>Por onde começar</h2>
-          <p>Três caminhos. Sem menu infinito.</p>
+          <p>Quatro caminhos. Sem menu infinito.</p>
         </div>
-        <ul className="path-grid">
+        <ul className="path-grid path-grid-4">
           <li>
             <Link className="path-card" href="/medicamentos/mounjaro/">
               <strong>O medicamento</strong>
@@ -64,6 +64,12 @@ export default function HomePage() {
             <Link className="path-card" href="/medicos/">
               <strong>O médico</strong>
               <span>Que especialidade e o que levar à consulta.</span>
+            </Link>
+          </li>
+          <li>
+            <Link className="path-card" href="/onde-comprar/">
+              <strong>Onde comprar</strong>
+              <span>Farmácia legal — sem atalhos perigosos.</span>
             </Link>
           </li>
         </ul>

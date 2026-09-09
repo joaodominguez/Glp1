@@ -352,6 +352,16 @@ img {
   .path-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .path-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .path-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .path-card {
@@ -659,6 +669,10 @@ img {
   max-width: var(--read);
 }
 
+.page-simple.page-wide {
+  max-width: var(--shell);
+}
+
 .page-simple h1 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 2.8rem);
@@ -668,6 +682,300 @@ img {
 
 .page-simple .lede {
   margin-top: 0.9rem;
+  max-width: var(--read);
+}
+
+.page-simple .eyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.content-block {
+  margin-top: 2rem;
+}
+
+.content-block.article {
+  max-width: var(--read);
+}
+
+.soft-note {
+  margin: 1.2rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.plain-list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+}
+
+.plain-list.numbered {
+  list-style: decimal;
+}
+
+.plain-list li {
+  margin: 0.35rem 0;
+}
+
+.ink {
+  color: var(--ink);
+}
+
+.price-table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.price-table th,
+.price-table td {
+  padding: 1rem 1.1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.price-table thead th {
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  background: color-mix(in srgb, var(--ground) 70%, var(--paper));
+}
+
+.price-table tbody tr:last-child th,
+.price-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.price-table tbody th {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.price-table tbody th a {
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.price-table tbody th a:hover {
+  color: var(--accent);
+}
+
+.price-sub {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 450;
+  color: var(--ink-soft);
+}
+
+.profile-list {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.profile-list > li {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+
+.profile-list strong {
+  display: block;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
+}
+
+.profile-list p {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.profile-list .ask-label {
+  margin-top: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.profile-list ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.find-block h3 {
+  margin: 1.4rem 0 0.4rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.find-block p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.checklist-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .checklist-stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.checklist-block {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.25rem 1.35rem;
+}
+
+.checklist-block h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.checklist-block > p {
+  margin: 0.45rem 0 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.checklist li {
+  display: grid;
+  grid-template-columns: 1.1rem 1fr;
+  gap: 0.7rem;
+  align-items: start;
+}
+
+.check-box {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.2rem;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+  border-radius: 4px;
+  background: var(--accent-soft);
+}
+
+.checklist strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.checklist .hint {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.faq-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 1.4rem 0 0.4rem;
+}
+
+.faq-toc a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.faq-toc a:hover {
+  color: var(--accent);
+}
+
+.faq-section {
+  margin-top: 2rem;
+}
+
+.faq-section h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  letter-spacing: -0.03em;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.faq-item {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.15rem 1rem 0.15rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.9rem 0;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item[open] summary {
+  color: var(--accent);
+}
+
+.faq-item p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.faq-related {
+  margin-top: -0.4rem !important;
+}
+
+.faq-related a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 550;
 }
 
 .verified {
