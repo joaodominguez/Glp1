@@ -1,0 +1,5 @@
+ErrorDocument 404 /404.html
+
+<FilesMatch "\.html$">
+  Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>
