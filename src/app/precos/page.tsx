@@ -32,7 +32,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function PrecosPage() {
   return (
-    <div className="shell page-simple page-wide">
+    <div className="shell page-simple">
       <JsonLd
         data={[
           webPageLd({

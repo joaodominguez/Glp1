@@ -29,7 +29,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function MedicosPage() {
   return (
-    <div className="shell page-simple page-wide">
+    <div className="shell page-simple">
       <JsonLd
         data={[
           webPageLd({

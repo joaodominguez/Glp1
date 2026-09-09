@@ -12,8 +12,8 @@
   --accent-soft: #e6f2f3;
   --radius: 16px;
   --radius-sm: 10px;
-  --shell: 1120px;
-  --read: 40rem;
+  --shell: 1180px;
+  --read: 42rem;
   --header-h: 3.5rem;
   --font: "Outfit", system-ui, sans-serif;
 }
@@ -539,8 +539,15 @@ img {
 }
 
 .article {
-  max-width: var(--read);
+  max-width: none;
   padding-bottom: clamp(2rem, 5vh, 3.2rem);
+}
+
+.article > p,
+.article > .lede,
+.article > .soft-note,
+.article > .disclaimer {
+  max-width: 42rem;
 }
 
 .article h2 {
@@ -559,14 +566,20 @@ img {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.55rem;
+}
+
+@media (min-width: 800px) {
+  .points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .points li {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 0.85rem 1rem;
+  padding: 0.95rem 1.05rem;
   color: var(--ink-soft);
 }
 
@@ -666,10 +679,6 @@ img {
 
 .page-simple {
   padding-block: clamp(2rem, 5vh, 3.5rem) clamp(3rem, 7vh, 5rem);
-  max-width: var(--read);
-}
-
-.page-simple.page-wide {
   max-width: var(--shell);
 }
 
@@ -678,11 +687,12 @@ img {
   font-size: clamp(2rem, 4vw, 2.8rem);
   letter-spacing: -0.035em;
   line-height: 1.08;
+  max-width: 22ch;
 }
 
 .page-simple .lede {
   margin-top: 0.9rem;
-  max-width: var(--read);
+  max-width: 42rem;
 }
 
 .page-simple .eyebrow {
@@ -694,12 +704,16 @@ img {
   color: var(--accent);
 }
 
+.page-simple > .disclaimer {
+  max-width: 42rem;
+}
+
 .content-block {
   margin-top: 2rem;
 }
 
 .content-block.article {
-  max-width: var(--read);
+  max-width: none;
 }
 
 .soft-note {
@@ -790,6 +804,12 @@ img {
   padding: 0;
   display: grid;
   gap: 0.75rem;
+}
+
+@media (min-width: 800px) {
+  .profile-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .profile-list > li {
@@ -937,6 +957,13 @@ img {
 .faq-list {
   display: grid;
   gap: 0.55rem;
+}
+
+@media (min-width: 800px) {
+  .faq-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
 }
 
 .faq-item {
