@@ -12,7 +12,7 @@
   --accent-soft: #e6f2f3;
   --radius: 16px;
   --radius-sm: 10px;
-  --shell: 1180px;
+  --shell: 1360px;
   --read: 42rem;
   --header-h: 3.5rem;
   --font: "Outfit", system-ui, sans-serif;
@@ -575,6 +575,16 @@ img {
   }
 }
 
+@media (min-width: 1100px) {
+  .points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .points.points-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .points li {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -679,7 +689,6 @@ img {
 
 .page-simple {
   padding-block: clamp(2rem, 5vh, 3.5rem) clamp(3rem, 7vh, 5rem);
-  max-width: var(--shell);
 }
 
 .page-simple h1 {
