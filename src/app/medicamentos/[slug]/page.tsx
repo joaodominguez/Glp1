@@ -101,9 +101,15 @@ export default async function MedicationPage({ params }: Props) {
         <figure className="med-photo">
           <PenIllustration
             mechanism={med.mechanism}
+            brandName={med.brandName}
+            substance={med.substance}
             title={`Ilustração editorial da caneta de ${med.brandName}`}
+            priority
           />
-          <figcaption>Ilustração editorial — não representa uma embalagem específica.</figcaption>
+          <figcaption>
+            Ilustração editorial de {med.brandName} — não representa uma
+            embalagem específica.
+          </figcaption>
         </figure>
       </header>
 

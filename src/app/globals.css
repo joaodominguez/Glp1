@@ -483,12 +483,54 @@ img {
   object-position: center;
 }
 
+.pen-shot-label {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: grid;
+  gap: 0.15rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.7rem 0.9rem 0.8rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 28px rgba(14, 26, 36, 0.08);
+}
+
+.pen-shot-label strong {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.pen-shot-label span {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+}
+
 .pen-shot[data-tone="slate"] {
   background: linear-gradient(160deg, #f2f5f8 0%, #dbe4ea 100%);
 }
 
+.pen-shot[data-tone="slate"] .pen-shot-label {
+  border-color: color-mix(in srgb, #516574 22%, var(--line));
+}
+
 .pen-shot[data-tone="sand"] {
   background: linear-gradient(160deg, #f7f4ef 0%, #e8e0d4 100%);
+}
+
+.pen-shot[data-tone="sand"] .pen-shot-label {
+  border-color: color-mix(in srgb, #8e765d 22%, var(--line));
+}
+
+.pen-shot[data-tone="teal"] .pen-shot-label strong {
+  color: var(--accent-h);
 }
 
 .article-grid {

@@ -18,26 +18,41 @@ function toneFilter(tone: Tone) {
 
 export function PenIllustration({
   mechanism,
-  title = "Ilustração editorial de uma caneta injectável",
+  brandName,
+  substance,
+  title,
   className,
+  priority = false,
 }: {
   mechanism: MedicationMechanism;
+  brandName: string;
+  substance?: string;
   title?: string;
   className?: string;
+  priority?: boolean;
 }) {
   const tone = toneForMechanism(mechanism);
+  const alt =
+    title ??
+    `Ilustração editorial da caneta de ${brandName}${
+      substance ? ` (${substance})` : ""
+    }`;
 
   return (
     <div className={`pen-shot ${className ?? ""}`} data-tone={tone}>
       <Image
         src="/illustrations/hero-pen.png"
-        alt={title}
+        alt={alt}
         width={1536}
         height={1024}
         className="pen-shot-img"
         style={{ filter: toneFilter(tone) }}
-        priority={false}
+        priority={priority}
       />
+      <div className="pen-shot-label">
+        <strong>{brandName}</strong>
+        {substance ? <span>{substance}</span> : null}
+      </div>
     </div>
   );
 }
@@ -58,6 +73,10 @@ export function PenCluster({
         className="pen-cluster-img"
         priority
       />
+      <div className="pen-shot-label">
+        <strong>Classe GLP-1</strong>
+        <span>Canetas genéricas · sem marca</span>
+      </div>
     </div>
   );
 }

@@ -65,9 +65,12 @@ export default function HomePage() {
           <figure className="hero-photo">
             <PenIllustration
               mechanism="gip-glp1"
-              title="Ilustração editorial de uma caneta injectável da classe GLP-1"
+              brandName="Mounjaro"
+              substance="tirzepatida"
+              title="Ilustração editorial da caneta de Mounjaro"
+              priority
             />
-            <figcaption>Ilustração editorial — caneta genérica, sem marca</figcaption>
+            <figcaption>Ilustração editorial — caneta genérica identificada</figcaption>
           </figure>
         </div>
       </section>
