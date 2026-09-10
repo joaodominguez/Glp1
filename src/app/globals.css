@@ -485,15 +485,16 @@ img {
 .pen-onbody {
   position: absolute;
   left: 51%;
-  top: 51.5%;
+  top: 54%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.05rem;
+  justify-content: flex-start;
+  gap: 0.08rem;
   width: 34%;
-  transform: translate(-50%, -50%) rotate(-30.5deg);
+  /* Bias so the brand line sits on the barrel midline, not the whole block */
+  transform: translate(-50%, -38%) rotate(-30.5deg);
   transform-origin: center;
   pointer-events: none;
   text-align: center;
