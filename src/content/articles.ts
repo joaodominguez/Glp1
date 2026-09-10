@@ -11,6 +11,7 @@ export type Article = {
     brandName: string;
     substance: string;
     mechanism: "glp1" | "gip-glp1" | "outro";
+    slug: string;
   };
   sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
   whenToCall: string[];
@@ -32,6 +33,7 @@ export const articles: Article[] = [
       brandName: "Mounjaro",
       substance: "tirzepatida",
       mechanism: "gip-glp1",
+      slug: "mounjaro",
     },
     sections: [
       {
@@ -100,6 +102,7 @@ export const articles: Article[] = [
       brandName: "Ozempic",
       substance: "semaglutida",
       mechanism: "glp1",
+      slug: "ozempic",
     },
     sections: [
       {
@@ -167,6 +170,7 @@ export const articles: Article[] = [
       brandName: "Wegovy",
       substance: "semaglutida",
       mechanism: "glp1",
+      slug: "wegovy",
     },
     sections: [
       {
@@ -231,6 +235,7 @@ export const articles: Article[] = [
       brandName: "Mounjaro",
       substance: "tirzepatida",
       mechanism: "gip-glp1",
+      slug: "mounjaro",
     },
     sections: [
       {

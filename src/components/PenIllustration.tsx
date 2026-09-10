@@ -9,17 +9,30 @@ function toneForMechanism(mechanism: MedicationMechanism): Tone {
   return "sand";
 }
 
-/** Soft colour grading so each mechanism feels distinct without brand packaging. */
-function toneFilter(tone: Tone) {
-  if (tone === "slate") return "hue-rotate(198deg) saturate(0.72) brightness(1.02)";
-  if (tone === "sand") return "hue-rotate(28deg) saturate(0.78) brightness(1.04)";
-  return "none";
+const PEN_SLUGS = new Set([
+  "mounjaro",
+  "zepbound",
+  "ozempic",
+  "wegovy",
+  "rybelsus",
+  "saxenda",
+  "victoza",
+  "trulicity",
+  "byetta",
+  "bydureon",
+  "lyxumia",
+]);
+
+function penSrc(slug?: string) {
+  if (slug && PEN_SLUGS.has(slug)) return `/illustrations/pens/${slug}.png`;
+  return "/illustrations/pens/mounjaro.png";
 }
 
 export function PenIllustration({
   mechanism,
   brandName,
   substance,
+  slug,
   title,
   className,
   priority = false,
@@ -27,6 +40,8 @@ export function PenIllustration({
   mechanism: MedicationMechanism;
   brandName: string;
   substance?: string;
+  /** Medication slug — selects the baked-in labeled render */
+  slug?: string;
   title?: string;
   className?: string;
   priority?: boolean;
@@ -41,21 +56,13 @@ export function PenIllustration({
   return (
     <div className={`pen-shot ${className ?? ""}`} data-tone={tone}>
       <Image
-        src="/illustrations/hero-pen-v2.png"
+        src={penSrc(slug)}
         alt={alt}
-        width={1152}
-        height={864}
+        width={1376}
+        height={768}
         className="pen-shot-img"
-        style={{ filter: toneFilter(tone) }}
         priority={priority}
       />
-      {/* Printed on the white barrel — matches the pen’s diagonal */}
-      <div className="pen-onbody" aria-hidden>
-        <strong className={brandName.length > 10 ? "is-long" : undefined}>
-          {brandName}
-        </strong>
-        {substance ? <span>{substance}</span> : null}
-      </div>
     </div>
   );
 }
@@ -69,8 +76,9 @@ export function PenCluster({
   return (
     <PenIllustration
       mechanism="gip-glp1"
-      brandName="GLP-1"
-      substance="classe injectável"
+      brandName="Mounjaro"
+      substance="tirzepatida"
+      slug="mounjaro"
       title={title}
       priority
     />

@@ -481,59 +481,12 @@ img {
   object-position: center;
 }
 
-/* Name printed on the realistic pen barrel */
-.pen-onbody {
-  position: absolute;
-  left: 51%;
-  top: 54%;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.08rem;
-  width: 34%;
-  /* Bias so the brand line sits on the barrel midline, not the whole block */
-  transform: translate(-50%, -38%) rotate(-30.5deg);
-  transform-origin: center;
-  pointer-events: none;
-  text-align: center;
-  color: #0f1a22;
-  text-shadow:
-    0 0.5px 0 rgba(255, 255, 255, 0.85),
-    0 0 8px rgba(255, 255, 255, 0.55);
-}
-
-.pen-onbody strong {
-  font-size: clamp(0.95rem, 2.2vw, 1.35rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.pen-onbody strong.is-long {
-  font-size: clamp(0.8rem, 1.7vw, 1.05rem);
-}
-
-.pen-onbody span {
-  font-size: clamp(0.62rem, 1.1vw, 0.78rem);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: rgba(15, 26, 34, 0.55);
-  white-space: nowrap;
-}
-
 .pen-shot[data-tone="slate"] {
   background: linear-gradient(160deg, #f2f5f8 0%, #dbe4ea 100%);
 }
 
 .pen-shot[data-tone="sand"] {
   background: linear-gradient(160deg, #f7f4ef 0%, #e8e0d4 100%);
-}
-
-.pen-shot[data-tone="teal"] .pen-onbody strong {
-  color: #0a4f55;
 }
 
 .article-hero {

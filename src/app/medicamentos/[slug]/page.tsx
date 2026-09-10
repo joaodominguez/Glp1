@@ -103,6 +103,7 @@ export default async function MedicationPage({ params }: Props) {
             mechanism={med.mechanism}
             brandName={med.brandName}
             substance={med.substance}
+            slug={med.slug}
             title={`Ilustração editorial da caneta de ${med.brandName}`}
             priority
           />

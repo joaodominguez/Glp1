@@ -95,6 +95,7 @@ export default async function ArticlePage({ params }: Props) {
             mechanism={illo.mechanism}
             brandName={illo.brandName}
             substance={illo.substance}
+            slug={illo.slug}
             title={`Ilustração editorial — ${illo.brandName}`}
           />
           <figcaption>

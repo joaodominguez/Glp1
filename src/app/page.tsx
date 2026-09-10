@@ -67,6 +67,7 @@ export default function HomePage() {
               mechanism="gip-glp1"
               brandName="Mounjaro"
               substance="tirzepatida"
+              slug="mounjaro"
               title="Ilustração editorial da caneta de Mounjaro"
               priority
             />
