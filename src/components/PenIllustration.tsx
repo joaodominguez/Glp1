@@ -41,7 +41,7 @@ export function PenIllustration({
   return (
     <div className={`pen-shot ${className ?? ""}`} data-tone={tone}>
       <Image
-        src="/illustrations/hero-pen.png"
+        src="/illustrations/hero-pen-v2.png"
         alt={alt}
         width={1152}
         height={864}
