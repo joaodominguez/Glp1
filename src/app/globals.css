@@ -473,10 +473,52 @@ img {
     linear-gradient(160deg, #f4f7f9 0%, #e3ebef 55%, #d5e0e5 100%);
 }
 
-.pen-shot-svg {
-  display: block;
+.pen-shot-img,
+.pen-cluster-img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Name printed on the realistic pen barrel */
+.pen-onbody {
+  position: absolute;
+  left: 52%;
+  top: 42%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+  transform: translate(-50%, -50%) rotate(-33deg);
+  transform-origin: center;
+  pointer-events: none;
+  text-align: center;
+  color: #141c24;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.45);
+}
+
+.pen-onbody strong {
+  font-size: clamp(1.05rem, 2.6vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pen-onbody strong.is-long {
+  font-size: clamp(0.9rem, 2.1vw, 1.2rem);
+}
+
+.pen-onbody span {
+  font-size: clamp(0.68rem, 1.3vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(18, 24, 32, 0.62);
+  white-space: nowrap;
 }
 
 .pen-shot[data-tone="slate"] {
@@ -485,6 +527,10 @@ img {
 
 .pen-shot[data-tone="sand"] {
   background: linear-gradient(160deg, #f7f4ef 0%, #e8e0d4 100%);
+}
+
+.pen-shot[data-tone="teal"] .pen-onbody strong {
+  color: #084a50;
 }
 
 .article-hero {
