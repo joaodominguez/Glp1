@@ -14,6 +14,7 @@ export function SiteFooter() {
         </div>
         <nav className="footer-links" aria-label="Rodapé">
           <Link href="/medicamentos/">Medicamentos</Link>
+          <Link href="/artigos/">Artigos</Link>
           <Link href="/precos/">Preços</Link>
           <Link href="/medicos/">Médicos</Link>
           <Link href="/onde-comprar/">Onde comprar</Link>

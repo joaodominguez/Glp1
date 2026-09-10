@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { PenCluster } from "@/components/PenIllustration";
+import { PenIllustration } from "@/components/PenIllustration";
+import { articlesSorted } from "@/content/articles";
 import { medicationsSorted } from "@/content/medications";
 import { absoluteUrl, pageMetadata, webPageLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
@@ -16,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function HomePage() {
   const meds = medicationsSorted();
+  const posts = articlesSorted();
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -55,17 +57,17 @@ export default function HomePage() {
               <Link className="btn btn-primary" href="/medicamentos/mounjaro/">
                 Ver Mounjaro
               </Link>
-              <Link className="btn btn-ghost" href="/medicamentos/">
-                Todos os medicamentos
+              <Link className="btn btn-ghost" href="/artigos/">
+                Boas práticas
               </Link>
             </div>
           </div>
           <figure className="hero-photo">
-            <PenCluster
+            <PenIllustration
               mechanism="gip-glp1"
-              title="Ilustração de três canetas injectáveis da classe GLP-1"
+              title="Ilustração editorial de uma caneta injectável da classe GLP-1"
             />
-            <figcaption>Ilustração editorial da classe GLP-1</figcaption>
+            <figcaption>Ilustração editorial — caneta genérica, sem marca</figcaption>
           </figure>
         </div>
       </section>
@@ -83,6 +85,12 @@ export default function HomePage() {
             </Link>
           </li>
           <li>
+            <Link className="path-card" href="/artigos/">
+              <strong>Na prática</strong>
+              <span>Primeiras semanas, náuseas, viagem e proteína.</span>
+            </Link>
+          </li>
+          <li>
             <Link className="path-card" href="/precos/">
               <strong>O preço</strong>
               <span>Ordens de grandeza em Portugal e o que verificar.</span>
@@ -94,12 +102,26 @@ export default function HomePage() {
               <span>Que especialidade e o que levar à consulta.</span>
             </Link>
           </li>
-          <li>
-            <Link className="path-card" href="/onde-comprar/">
-              <strong>Onde comprar</strong>
-              <span>Farmácia legal — sem atalhos perigosos.</span>
-            </Link>
-          </li>
+        </ul>
+      </section>
+
+      <section className="section shell">
+        <div className="section-head">
+          <h2>Artigos</h2>
+          <p>Boas práticas e truques do dia a dia — sem marketing.</p>
+        </div>
+        <ul className="article-grid">
+          {posts.map((article) => (
+            <li key={article.slug}>
+              <Link className="article-card" href={`/artigos/${article.slug}/`}>
+                <span className="meta">
+                  {article.eyebrow} · {article.readMinutes} min
+                </span>
+                <strong>{article.title}</strong>
+                <span className="blurb">{article.summary}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </section>
 
@@ -124,10 +146,6 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
-        <p className="disclaimer">
-          Quem decide a dose e se o tratamento faz sentido para si é o seu
-          médico. Este guia serve para chegar à consulta a saber o que perguntar.
-        </p>
       </section>
     </>
   );

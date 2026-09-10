@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles } from "@/content/articles";
 import { medications } from "@/content/medications";
 import { CONTENT_REVIEWED_AT, SITE_URL } from "@/lib/site";
 
@@ -11,6 +12,7 @@ const staticRoutes: Array<{
 }> = [
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/medicamentos/", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/artigos/", changeFrequency: "weekly", priority: 0.92 },
   { path: "/precos/", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicos/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/onde-comprar/", changeFrequency: "monthly", priority: 0.8 },
@@ -34,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...pages, ...medPages];
+  const articlePages = articles.map((article) => ({
+    url: `${SITE_URL}/artigos/${article.slug}/`,
+    lastModified: new Date(article.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.88,
+  }));
+
+  return [...pages, ...medPages, ...articlePages];
 }
