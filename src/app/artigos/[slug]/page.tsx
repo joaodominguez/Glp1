@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { PenIllustration } from "@/components/PenIllustration";
 import { articles, getArticle } from "@/content/articles";
 import {
   absoluteUrl,
@@ -35,6 +36,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const url = absoluteUrl(`/artigos/${article.slug}/`);
+  const illo = article.illustration;
 
   return (
     <div className="shell page-simple">
@@ -75,16 +77,31 @@ export default async function ArticlePage({ params }: Props) {
         {article.title}
       </nav>
 
-      <p className="eyebrow" style={{ marginTop: "1.2rem" }}>
-        {article.eyebrow} · {article.readMinutes} min
-      </p>
-      <h1>{article.title}</h1>
-      <p className="lede">{article.lede}</p>
-
-      <div className="disclaimer">
-        Conteúdo informativo. Não substitui consulta, bula nem prescrição. As
-        práticas abaixo são hábitos gerais — o seu médico manda no seu caso.
-      </div>
+      <header className="article-hero">
+        <div>
+          <p className="eyebrow">
+            {article.eyebrow} · {article.readMinutes} min
+          </p>
+          <h1>{article.title}</h1>
+          <p className="lede">{article.lede}</p>
+          <div className="disclaimer">
+            Conteúdo informativo. Não substitui consulta, bula nem prescrição.
+            As práticas abaixo são hábitos gerais — o seu médico manda no seu
+            caso.
+          </div>
+        </div>
+        <figure className="article-hero-art">
+          <PenIllustration
+            mechanism={illo.mechanism}
+            brandName={illo.brandName}
+            substance={illo.substance}
+            title={`Ilustração editorial — ${illo.brandName}`}
+          />
+          <figcaption>
+            {illo.brandName} · ilustração editorial (nome na caneta)
+          </figcaption>
+        </figure>
+      </header>
 
       <article className="article article-body">
         {article.sections.map((section) => (

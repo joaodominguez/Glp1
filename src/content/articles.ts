@@ -6,6 +6,12 @@ export type Article = {
   eyebrow: string;
   readMinutes: number;
   publishedAt: string;
+  /** Pen shown in the article hero */
+  illustration: {
+    brandName: string;
+    substance: string;
+    mechanism: "glp1" | "gip-glp1" | "outro";
+  };
   sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
   whenToCall: string[];
   related: { href: string; label: string; blurb: string }[];
@@ -22,6 +28,11 @@ export const articles: Article[] = [
     eyebrow: "Na prática",
     readMinutes: 6,
     publishedAt: "2026-09-10",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+    },
     sections: [
       {
         heading: "O que estas semanas são (e não são)",
@@ -85,6 +96,11 @@ export const articles: Article[] = [
     eyebrow: "Na prática",
     readMinutes: 5,
     publishedAt: "2026-09-10",
+    illustration: {
+      brandName: "Ozempic",
+      substance: "semaglutida",
+      mechanism: "glp1",
+    },
     sections: [
       {
         heading: "Porque acontece",
@@ -147,6 +163,11 @@ export const articles: Article[] = [
     eyebrow: "Na prática",
     readMinutes: 5,
     publishedAt: "2026-09-10",
+    illustration: {
+      brandName: "Wegovy",
+      substance: "semaglutida",
+      mechanism: "glp1",
+    },
     sections: [
       {
         heading: "Esqueci a dose — e agora?",
@@ -206,6 +227,11 @@ export const articles: Article[] = [
     eyebrow: "Na prática",
     readMinutes: 6,
     publishedAt: "2026-09-10",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+    },
     sections: [
       {
         heading: "O problema escondido",
