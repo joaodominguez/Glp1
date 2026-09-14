@@ -5,6 +5,9 @@ export const SITE_TAGLINE =
 export const CONTENT_REVIEWED_AT = "2026-09-14";
 export const CONTENT_REVIEWED_LABEL = "14 de setembro de 2026";
 
+/** Google Analytics 4 measurement ID. */
+export const GA_MEASUREMENT_ID = "G-NQVW713D8K";
+
 export const navLinks = [
   { href: "/medicamentos/", label: "Medicamentos" },
   { href: "/artigos/", label: "Artigos" },

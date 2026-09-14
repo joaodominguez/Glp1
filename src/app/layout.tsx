@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt-PT" className={outfit.variable}>
       <body style={{ fontFamily: "var(--font-outfit), var(--font)" }}>
+        <Analytics />
         <JsonLd data={siteGraphLd()} />
         <SiteHeader />
         <div className="site-main">{children}</div>
