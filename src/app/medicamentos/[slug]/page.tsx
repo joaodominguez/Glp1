@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Article } from "@/components/Article";
 import { JsonLd } from "@/components/JsonLd";
-import { MedicationMedia } from "@/components/MedicationMedia";
-import {
-  getMedicationImages,
-  getManufacturer,
-  manufacturerIdForCompany,
-} from "@/content/medication-media";
+import { PenIllustration } from "@/components/PenIllustration";
+import { getFicha } from "@/content/ficha";
 import {
   getMedication,
   medications,
   relatedMedications,
 } from "@/content/medications";
-import { pageMetadata } from "@/lib/seo";
-import { CONTENT_REVIEWED_AT, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  absoluteUrl,
+  breadcrumbLd,
+  pageMetadata,
+  webPageLd,
+} from "@/lib/seo";
+import { CONTENT_REVIEWED_LABEL, SITE_URL } from "@/lib/site";
 
-type Props = {
-  params: Promise<{ slug: string }>;
-};
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return medications.map((med) => ({ slug: med.slug }));
@@ -28,19 +26,28 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const med = getMedication(slug);
-  if (!med) {
-    return { title: "Medicamento" };
-  }
+  if (!med) return { title: "Medicamento" };
+
+  const title =
+    slug === "rybelsus"
+      ? "Rybelsus em Portugal (semaglutida oral)"
+      : `${med.brandName} (${med.substance})`;
+
+  const description =
+    slug === "rybelsus"
+      ? "Rybelsus em Portugal: semaglutida em comprimido para diabetes tipo 2 — rotina de toma, diferenças face ao Ozempic e o que confirmar na Infomed."
+      : med.summary;
+
   return pageMetadata({
-    title: `${med.brandName} (${med.substance})`,
-    description: `${med.brandName}: ${med.summary} Informação em português sobre indicação, diferenças na classe GLP-1 e o que confirmar na bula. Não substitui aconselhamento médico.`,
+    title,
+    description,
     path: `/medicamentos/${med.slug}`,
     keywords: [
       med.brandName,
       med.substance,
-      ...(med.alsoKnownAs ?? []),
       "GLP-1",
-      "Guia GLP-1",
+      ...(slug === "rybelsus" ? ["Rybelsus Portugal", "semaglutida oral"] : []),
+      ...(med.alsoKnownAs ?? []),
     ],
   });
 }
@@ -50,12 +57,17 @@ export default async function MedicationPage({ params }: Props) {
   const med = getMedication(slug);
   if (!med) notFound();
 
+  const ficha = getFicha(slug);
   const related = relatedMedications(med);
-  const url = `${SITE_URL}/medicamentos/${med.slug}/`;
-  const images = getMedicationImages(med.slug);
-  const manufacturer = getManufacturer(manufacturerIdForCompany(med.company));
+  const url = absoluteUrl(`/medicamentos/${med.slug}/`);
 
-  const jsonLd = [
+  const schemas = [
+    webPageLd({
+      name: `${med.brandName} (${med.substance})`,
+      description: med.summary,
+      path: `/medicamentos/${med.slug}`,
+      type: "MedicalWebPage",
+    }),
     {
       "@context": "https://schema.org",
       "@type": "Drug",
@@ -67,156 +79,180 @@ export default async function MedicationPage({ params }: Props) {
       nonProprietaryName: med.substance,
       manufacturer: {
         "@type": "Organization",
-        name: manufacturer.name,
-        logo: `${SITE_URL}${manufacturer.logo}`,
+        name: med.company,
       },
-      ...(images.length
-        ? {
-            image: images.map((img) => ({
-              "@type": "ImageObject",
-              url: `${SITE_URL}${img.src}`,
-              caption: img.alt,
-            })),
-          }
-        : {}),
       administrationRoute: med.route,
       inLanguage: "pt-PT",
+      isPartOf: {
+        "@type": "WebSite",
+        name: "Guia GLP-1",
+        url: `${SITE_URL}/`,
+      },
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Início",
-          item: `${SITE_URL}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Medicamentos",
-          item: `${SITE_URL}/medicamentos/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: med.brandName,
-          item: url,
-        },
-      ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      name: `${med.brandName} (${med.substance})`,
-      url,
-      dateModified: CONTENT_REVIEWED_AT,
-      isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
-      about: { "@type": "Drug", name: med.brandName },
-      inLanguage: "pt-PT",
-      specialty: "https://schema.org/Physician",
-    },
+    breadcrumbLd([
+      { name: "Início", path: "/" },
+      { name: "Medicamentos", path: "/medicamentos" },
+      { name: med.brandName, path: `/medicamentos/${med.slug}` },
+    ]),
   ];
 
   return (
-    <>
-      <JsonLd data={jsonLd} />
-      <Article
-        kicker="Medicamento"
-        title={`${med.brandName} — ${med.substance}`}
-        lede={med.lede}
-      >
-        <p className="med-facts">
-          {med.mechanismLabel} · {med.route} · {med.frequency} ·{" "}
-          {manufacturer.name}
-        </p>
+    <div className="shell">
+      <JsonLd data={schemas} />
+      <nav className="crumbs" aria-label="Trilho">
+        <Link href="/">Início</Link>
+        {" / "}
+        <Link href="/medicamentos/">Medicamentos</Link>
+        {" / "}
+        {med.brandName}
+      </nav>
 
-        <MedicationMedia
-          company={med.company}
-          brandName={med.brandName}
-          images={images}
-        />
+      <header className="med-hero">
+        <div>
+          <h1>{med.brandName}</h1>
+          <p className="substance">
+            {med.substance} · {med.frequency}
+          </p>
+          <p className="lede">{med.lede}</p>
+        </div>
+        <figure className="med-photo">
+          <PenIllustration
+            mechanism={med.mechanism}
+            brandName={med.brandName}
+            substance={med.substance}
+            slug={med.slug}
+            title={`Ilustração editorial — ${med.brandName}`}
+            priority
+          />
+          <figcaption>
+            Ilustração editorial de {med.brandName}
+            {med.route.toLowerCase().includes("oral")
+              ? " — embalagem genérica identificada."
+              : " — caneta genérica identificada."}
+          </figcaption>
+        </figure>
+      </header>
 
+      {ficha ? (
+        <section className="ficha" aria-label={`Ficha ${med.brandName}`}>
+          <div className="ficha-label">Ficha · {med.brandName}</div>
+          <dl>
+            <div>
+              <dt>Substância activa</dt>
+              <dd>{med.substance}</dd>
+            </div>
+            <div>
+              <dt>Como actua</dt>
+              <dd>{med.mechanismLabel}</dd>
+            </div>
+            <div>
+              <dt>Como se administra</dt>
+              <dd>{med.route}</dd>
+            </div>
+            <div>
+              <dt>Frequência</dt>
+              <dd>{med.frequency}</dd>
+            </div>
+            <div>
+              <dt>Dose inicial</dt>
+              <dd>{ficha.doseInicial}</dd>
+            </div>
+            <div>
+              <dt>Dose máxima</dt>
+              <dd>{ficha.doseMaxima}</dd>
+            </div>
+            <div>
+              <dt>Fora do frigorífico</dt>
+              <dd>{ficha.foraDoFrio}</dd>
+            </div>
+            <div>
+              <dt>Indicação</dt>
+              <dd>{ficha.indicacao}</dd>
+            </div>
+            <div>
+              <dt>Estatuto</dt>
+              <dd>{ficha.estatuto}</dd>
+            </div>
+            <div>
+              <dt>Titular</dt>
+              <dd>{med.company}</dd>
+            </div>
+          </dl>
+        </section>
+      ) : null}
+
+      <article className="article">
         <h2>O que é</h2>
-        <ul>
+        <ul className="points">
           {med.whatItIs.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
 
-        <h2>Indicação (resumo)</h2>
-        <p>{med.indicationSummary}</p>
-        <p className="callout">{med.availabilityNote}</p>
-
-        <h2>Como se distingue na classe</h2>
-        <ul>
+        <h2>Em que difere</h2>
+        <ul className="points">
           {med.howItDiffers.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
 
-        <h2>Notas práticas</h2>
-        <ul>
+        <h2>Na prática</h2>
+        <ul className="points">
           {med.practicalNotes.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
 
+        <p className="disclaimer" style={{ marginTop: "1.6rem" }}>
+          {med.indicationSummary} {med.availabilityNote} Nada nesta página é
+          recomendação de dose ou de troca de medicamento.
+        </p>
+
         {related.length > 0 ? (
-          <>
-            <h2>Nomes relacionados</h2>
-            <ul className="med-list">
+          <section className="siblings">
+            <h2>A mesma substância, noutro nome</h2>
+            <ul>
               {related.map((item) => (
                 <li key={item.slug}>
-                  <Link href={`/medicamentos/${item.slug}`}>
+                  <Link href={`/medicamentos/${item.slug}/`}>
                     <strong>{item.brandName}</strong>
-                    <span className="med-meta">{item.substance}</span>
                     <span>{item.summary}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-          </>
+          </section>
         ) : null}
 
-        <h2>Continuar no guia</h2>
-        <ul>
-          <li>
-            <Link href="/medicamentos">Todos os medicamentos do levantamento</Link>
-          </li>
-          <li>
-            <Link href="/mounjaro-vs-ozempic">Mounjaro vs Ozempic</Link>
-          </li>
-          <li>
-            <Link href="/como-funciona">Como estes fármacos atuam no corpo</Link>
-          </li>
-          <li>
-            <Link href="/efeitos">Efeitos secundários e sinais de alerta</Link>
-          </li>
-          <li>
-            <Link href="/nauseas">Náuseas (página dedicada)</Link>
-          </li>
-          <li>
-            <Link href="/precos">Preços em Portugal</Link>
-            {" · "}
-            <Link href="/brasil/precos">Preços no Brasil</Link>
-          </li>
-          <li>
-            <Link href="/checklist">Checklist para a consulta</Link>
-          </li>
-          <li>
-            <Link href="/faq">Perguntas frequentes</Link>
-          </li>
-          <li>
-            <Link href="/fontes">Fontes oficiais (EMA, INFARMED, FDA…)</Link>
-          </li>
-        </ul>
-        <p>
-          Última revisão editorial deste guia:{" "}
-          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_AT}</time>.
+        <section className="next-reads">
+          <h2>O que ler a seguir</h2>
+          <ul>
+            <li>
+              <Link href="/precos/">
+                <strong>Preços</strong>
+                <span>Ordens de grandeza e o que verificar</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/medicos/">
+                <strong>Médicos</strong>
+                <span>Que especialidade consultar</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/medicamentos/">
+                <strong>Todos os medicamentos</strong>
+                <span>Os 11 no mesmo formato</span>
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <p className="verified">
+          Verificado a {CONTENT_REVIEWED_LABEL}. Verificação editorial — não é
+          revisão clínica.
         </p>
-      </Article>
-    </>
+      </article>
+    </div>
   );
 }

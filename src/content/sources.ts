@@ -1,76 +1,62 @@
-export type Source = {
+export type SourceLink = {
   id: string;
   title: string;
-  publisher: string;
   href: string;
-  note: string;
+  why: string;
 };
 
-export const sources: Source[] = [
+export const officialSources: SourceLink[] = [
   {
-    id: "ema-mounjaro",
-    title: "Mounjaro (tirzepatida) — informação do medicamento",
-    publisher: "Agência Europeia de Medicamentos (EMA)",
-    href: "https://www.ema.europa.eu/en/medicines/human/EPAR/mounjaro",
-    note: "Resumo europeu oficial: para que serve, como se usa e principais riscos.",
-  },
-  {
-    id: "ema-epar",
-    title: "Relatório público de avaliação (EPAR) e RCM",
-    publisher: "EMA / Lilly",
-    href: "https://www.ema.europa.eu/en/medicines/human/EPAR/mounjaro#product-info",
-    note: "O Resumo das Características do Medicamento (RCM) é a referência técnica para profissionais.",
+    id: "infomed",
+    title: "Infomed (INFARMED)",
+    href: "https://extranet.infarmed.pt/INFOMED-fo/",
+    why: "PVP, estatuto e informação oficial de medicamentos em Portugal.",
   },
   {
     id: "infarmed",
-    title: "Infomed — INFARMED",
-    publisher: "INFARMED (Portugal)",
-    href: "https://extranet.infarmed.pt/INFOMED-fo/",
-    note: "Base portuguesa de medicamentos autorizados, apresentações e informação de preço/comparticipação. Procure por nome comercial ou substância.",
+    title: "INFARMED",
+    href: "https://www.infarmed.pt/",
+    why: "Autoridade nacional do medicamento e produtos de saúde.",
   },
   {
-    id: "infarmed-preco",
-    title: "Pesquisa do medicamento / preço",
-    publisher: "INFARMED (Portugal)",
-    href: "https://www.infarmed.pt/web/infarmed/servicos-on-line/pesquisa-do-medicamento",
-    note: "Serviço online do INFARMED para consultar informação de medicamentos, incluindo preço quando disponível.",
+    id: "ema",
+    title: "EMA — Agência Europeia de Medicamentos",
+    href: "https://www.ema.europa.eu/",
+    why: "Avaliação e informação europeia sobre medicamentos autorizados.",
   },
   {
-    id: "ordem-medicos",
-    title: "Pesquisa de médicos",
-    publisher: "Ordem dos Médicos",
+    id: "ordem",
+    title: "Ordem dos Médicos — pesquisa de médicos",
     href: "https://ordemdosmedicos.pt/pesquisa-de-medicos/",
-    note: "Confirme cédula profissional e especialidade antes de confiar numa consulta online ou num anúncio.",
+    why: "Confirmar cédula e especialidade antes de confiar num prescritor.",
+  },
+  {
+    id: "dgs",
+    title: "Direção-Geral da Saúde",
+    href: "https://www.dgs.pt/",
+    why: "Orientações e informação de saúde pública em Portugal.",
+  },
+];
+
+export const manufacturerSources: SourceLink[] = [
+  {
+    id: "ema-search",
+    title: "EMA — pesquisa de medicamentos",
+    href: "https://www.ema.europa.eu/en/medicines",
+    why: "Fichas europeias (EPAR) dos medicamentos autorizados na UE.",
   },
   {
     id: "sns24",
     title: "SNS 24",
-    publisher: "Serviço Nacional de Saúde",
     href: "https://www.sns24.gov.pt/",
-    note: "Orientação do SNS (incluindo linha 808 24 24 24) para contactos e triagem não emergente.",
-  },
-  {
-    id: "anvisa",
-    title: "Consultas de medicamentos",
-    publisher: "ANVISA (Brasil)",
-    href: "https://consultas.anvisa.gov.br/#/medicamentos/",
-    note: "Para confirmar o que está autorizado no Brasil e ler a bula local.",
-  },
-  {
-    id: "fda-mounjaro",
-    title: "Mounjaro prescribing information",
-    publisher: "FDA (Estados Unidos)",
-    href: "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm",
-    note: "A bula norte-americana descreve indicações, avisos e titulação. As regras não são iguais em todos os países.",
-  },
-  {
-    id: "who-diabetes",
-    title: "Diabetes",
-    publisher: "Organização Mundial da Saúde",
-    href: "https://www.who.int/health-topics/diabetes",
-    note: "Contexto geral sobre diabetes tipo 2 — não é um folheto do Mounjaro.",
+    why: "Linha e informação de saúde do SNS para dúvidas e urgências.",
   },
 ];
 
-export const sourceShortNote =
-  "A autorização, o nome comercial e as indicações mudam de país para país. Confirme sempre a bula ou o RCM do seu país e a orientação de quem o acompanha.";
+export const editorialPrinciples = [
+  "Não vendemos medicamentos nem recebemos comissão por farmácias ou clínicas.",
+  "Não publicamos rankings de médicos nem «top clínicas».",
+  "Preferimos linguagem clara a jargão — sem simplificar riscos de mais.",
+  "Quando os preços ou regras mudam, a Infomed e a bula mandam sobre este site.",
+  "Conteúdo educativo YMYL: não substitui consulta, diagnóstico ou prescrição.",
+];

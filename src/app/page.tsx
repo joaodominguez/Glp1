@@ -1,104 +1,166 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiteSearch } from "@/components/SiteSearch";
-import { brasilLinks, intentLinks, portugalLinks } from "@/content/nav";
+import { JsonLd } from "@/components/JsonLd";
+import { PenIllustration } from "@/components/PenIllustration";
+import { articlesSorted } from "@/content/articles";
 import { medicationsSorted } from "@/content/medications";
-import { pageMetadata } from "@/lib/seo";
+import { absoluteUrl, pageMetadata, webPageLd } from "@/lib/seo";
+import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy e a classe GLP-1",
+  title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy, Rybelsus`,
   description:
-    "Informação clara em português sobre medicamentos GLP-1 e afins: Mounjaro, Ozempic, Wegovy, Saxenda, Victoza, Trulicity e outros. Como funcionam, efeitos e perguntas frequentes.",
+    "Guia em português sobre medicamentos GLP-1: fichas, preços em Portugal, médicos, FAQ e artigos práticos. Sem venda de medicamentos.",
   path: "/",
   type: "website",
   absoluteTitle: true,
   keywords: [
-    "GLP-1",
     "Mounjaro",
     "Ozempic",
     "Wegovy",
-    "Saxenda",
+    "Rybelsus Portugal",
+    "GLP-1",
     "tirzepatida",
     "semaglutida",
   ],
 });
 
 export default function HomePage() {
-  const featuredMeds = medicationsSorted().slice(0, 6);
+  const meds = medicationsSorted();
+  const posts = articlesSorted();
+
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Medicamentos GLP-1 e afins",
+    itemListElement: meds.map((med, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: med.brandName,
+      url: absoluteUrl(`/medicamentos/${med.slug}/`),
+    })),
+  };
 
   return (
-    <div className="home">
-      <header className="home-intro">
-        <p className="kicker">Guia em português</p>
-        <h1>Mounjaro, Ozempic, Wegovy — o que a bula não explica em linguagem simples.</h1>
-        <p className="lede">
-          Um mapa da classe GLP-1 para Portugal e Brasil. Sem ranking, sem
-          milagres, sem substituir o médico.
-        </p>
-        <SiteSearch variant="home" id="pesquisa-inicio" />
-      </header>
-
-      <section className="home-section" aria-labelledby="home-meds">
-        <div className="section-head">
-          <h2 id="home-meds">Medicamentos</h2>
-          <p>Nome comercial, substância e o que muda de país para país.</p>
+    <>
+      <JsonLd
+        data={[
+          webPageLd({
+            name: SITE_NAME,
+            description: SITE_TAGLINE,
+            path: "/",
+            type: "MedicalWebPage",
+          }),
+          itemListLd,
+        ]}
+      />
+      <section className="hero shell">
+        <div className="hero-grid">
+          <div>
+            <p className="eyebrow">Guia GLP-1</p>
+            <h1>Vais começar Mounjaro. Começa por perceber o que é.</h1>
+            <p className="lede">
+              Onze nomes comerciais, seis substâncias. Preços, onde comprar com
+              segurança e que médico consultar — em português claro.
+            </p>
+            <div className="cta-row">
+              <Link className="btn btn-primary" href="/medicamentos/mounjaro/">
+                Ver Mounjaro
+              </Link>
+              <Link className="btn btn-ghost" href="/artigos/rybelsus-portugal/">
+                Rybelsus em Portugal
+              </Link>
+            </div>
+          </div>
+          <figure className="hero-photo">
+            <PenIllustration
+              mechanism="gip-glp1"
+              brandName="Mounjaro"
+              substance="tirzepatida"
+              slug="mounjaro"
+              title="Ilustração editorial da caneta de Mounjaro"
+              priority
+            />
+            <figcaption>Ilustração editorial — caneta genérica identificada</figcaption>
+          </figure>
         </div>
-        <ul className="med-list">
-          {featuredMeds.map((med) => (
+      </section>
+
+      <section className="section shell">
+        <div className="section-head">
+          <h2>Por onde começar</h2>
+          <p>Quatro caminhos. Sem menu infinito.</p>
+        </div>
+        <ul className="path-grid path-grid-4">
+          <li>
+            <Link className="path-card" href="/medicamentos/mounjaro/">
+              <strong>O medicamento</strong>
+              <span>O que é a tirzepatida e em que difere do Ozempic.</span>
+            </Link>
+          </li>
+          <li>
+            <Link className="path-card" href="/artigos/">
+              <strong>Na prática</strong>
+              <span>Rybelsus, comparações, stock e primeiras semanas.</span>
+            </Link>
+          </li>
+          <li>
+            <Link className="path-card" href="/precos/">
+              <strong>O preço</strong>
+              <span>Ordens de grandeza em Portugal e o que verificar.</span>
+            </Link>
+          </li>
+          <li>
+            <Link className="path-card" href="/perguntas/">
+              <strong>Perguntas</strong>
+              <span>FAQ: doses, náuseas, compra e mitos.</span>
+            </Link>
+          </li>
+        </ul>
+      </section>
+
+      <section className="section shell">
+        <div className="section-head">
+          <h2>Artigos</h2>
+          <p>Boas práticas e truques do dia a dia — sem marketing.</p>
+        </div>
+        <ul className="article-grid">
+          {posts.map((article) => (
+            <li key={article.slug}>
+              <Link className="article-card" href={`/artigos/${article.slug}/`}>
+                <span className="meta">
+                  {article.eyebrow} · {article.readMinutes} min
+                </span>
+                <strong>{article.title}</strong>
+                <span className="blurb">{article.summary}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="section shell" id="medicamentos">
+        <div className="section-head">
+          <h2>Os 11 medicamentos</h2>
+          <p>
+            A mesma substância chega à farmácia com nomes diferentes. Cada
+            página segue o mesmo formato.
+          </p>
+        </div>
+        <ul className="med-grid">
+          {meds.map((med) => (
             <li key={med.slug}>
-              <Link href={`/medicamentos/${med.slug}`}>
+              <Link className="med-card" href={`/medicamentos/${med.slug}/`}>
                 <strong>{med.brandName}</strong>
-                <span className="med-meta">
+                <span className="meta">
                   {med.substance} · {med.frequency}
                 </span>
-                <span>{med.summary}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <p className="home-more">
-          <Link href="/medicamentos">Todos os medicamentos</Link>
-        </p>
-      </section>
-
-      <section className="home-split" aria-label="Por país">
-        <div>
-          <h2>Portugal</h2>
-          <ul className="plain-links">
-            {portugalLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2>Brasil</h2>
-          <ul className="plain-links">
-            {brasilLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="home-section" aria-labelledby="home-intent">
-        <div className="section-head">
-          <h2 id="home-intent">Perguntas que mais se misturam</h2>
-        </div>
-        <ul className="plain-links">
-          {intentLinks.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href}>
-                {item.label}
-                <span> — {item.description}</span>
+                <span className="blurb">{med.summary}</span>
               </Link>
             </li>
           ))}
         </ul>
       </section>
-    </div>
+    </>
   );
 }

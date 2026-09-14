@@ -1,33 +1,26 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
-import { PageShell } from "@/components/PageShell";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { absoluteUrl } from "@/lib/seo";
-import {
-  CONTENT_REVIEWED_AT,
-  OG_IMAGE_PATH,
-  SITE_NAME,
-  SITE_TAGLINE,
-  SITE_URL,
-} from "@/lib/site";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
+import { absoluteUrl, siteGraphLd } from "@/lib/seo";
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const body = Manrope({
-  variable: "--font-body",
+const outfit = Outfit({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy e a classe GLP-1",
+    default: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy`,
     template: `%s — ${SITE_NAME}`,
   },
-  description:
-    "Informação em português claro sobre medicamentos GLP-1 e afins: Mounjaro (tirzepatida), Ozempic, Wegovy, Saxenda, Victoza, Trulicity e outros. Como funcionam, efeitos, FAQ e checklist. Não substitui aconselhamento médico.",
+  description: SITE_TAGLINE,
   applicationName: SITE_NAME,
   keywords: [
     "GLP-1",
@@ -58,100 +51,26 @@ export const metadata: Metadata = {
     locale: "pt_PT",
     url: absoluteUrl("/"),
     siteName: SITE_NAME,
-    title: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy e a classe GLP-1",
+    title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy`,
     description: SITE_TAGLINE,
-    images: [
-      {
-        url: absoluteUrl(OG_IMAGE_PATH),
-        width: 1200,
-        height: 630,
-        alt: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy em português",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Guia GLP-1 — Mounjaro, Ozempic, Wegovy e a classe GLP-1",
+    title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy`,
     description: SITE_TAGLINE,
-    images: [absoluteUrl(OG_IMAGE_PATH)],
   },
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/brand-mark.svg", type: "image/svg+xml" },
-    ],
-  },
-};
-
-const themeBootScript = `
-(function () {
-  try {
-    var key = "guia-glp1-theme";
-    var stored = localStorage.getItem(key);
-    var theme = stored === "light" || stored === "dark"
-      ? stored
-      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    document.documentElement.dataset.theme = theme;
-  } catch (e) {
-    document.documentElement.dataset.theme = "light";
-  }
-})();
-`;
-
-const organizationLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: `${SITE_URL}/`,
-      name: SITE_NAME,
-      description: SITE_TAGLINE,
-      inLanguage: "pt-PT",
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-      logo: absoluteUrl("/brand-mark.svg"),
-      description:
-        "Guia informativo em português sobre agonistas de GLP-1 e medicamentos afins. Conteúdo educativo — não substitui consulta médica.",
-    },
-    {
-      "@type": "MedicalWebPage",
-      "@id": `${SITE_URL}/#medical`,
-      url: `${SITE_URL}/`,
-      name: SITE_NAME,
-      dateModified: CONTENT_REVIEWED_AT,
-      inLanguage: "pt-PT",
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      about: {
-        "@type": "MedicalCondition",
-        name: "Diabetes mellitus tipo 2 e gestão de peso com agonistas de GLP-1",
-      },
-    },
-  ],
+  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="pt-PT"
-      data-theme="light"
-      className={`${body.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
-      </head>
-      <body className="min-h-full">
+    <html lang="pt-PT" className={outfit.variable}>
+      <body style={{ fontFamily: "var(--font-outfit), var(--font)" }}>
         <Analytics />
-        <JsonLd data={organizationLd} />
-        <ThemeProvider>
-          <PageShell>{children}</PageShell>
-        </ThemeProvider>
+        <JsonLd data={siteGraphLd()} />
+        <SiteHeader />
+        <div className="site-main">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );

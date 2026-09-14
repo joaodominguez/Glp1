@@ -1,22 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Article } from "@/components/Article";
 import { JsonLd } from "@/components/JsonLd";
 import {
   comparticipacaoNotes,
   priceBands,
   pricePageDisclaimer,
 } from "@/content/prices";
-import { pageMetadata } from "@/lib/seo";
 import {
-  CONTENT_REVIEWED_AT,
-  CONTENT_REVIEWED_LABEL,
-  SITE_NAME,
-  SITE_URL,
-} from "@/lib/site";
+  absoluteUrl,
+  breadcrumbLd,
+  pageMetadata,
+  webPageLd,
+} from "@/lib/seo";
+import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 const description =
-  "Quanto custam Mounjaro, Wegovy, Ozempic e outros GLP-1 em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que verificar na Infomed e na farmácia.";
+  "Quanto custam Mounjaro, Wegovy, Ozempic e outros GLP-1 em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que verificar na Infomed.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Preços Mounjaro, Ozempic e Wegovy em Portugal",
@@ -32,61 +31,58 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function PrecosPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Preços GLP-1 em Portugal",
-    description,
-    url: `${SITE_URL}/precos/`,
-    dateModified: CONTENT_REVIEWED_AT,
-    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
-    inLanguage: "pt-PT",
-    about: priceBands.map((row) => ({
-      "@type": "Drug",
-      name: row.brandName,
-      nonProprietaryName: row.substance,
-    })),
-  };
-
   return (
-    <>
-      <JsonLd data={jsonLd} />
-      <Article
-        kicker="Portugal · dinheiro"
-        title="Preços dos medicamentos GLP-1 em Portugal"
-        lede="A pergunta mais frequente depois de «isto é para mim?» é «quanto custa?». Aqui vai a ordem de grandeza — e o que a muda — sem fingir que o ticket da farmácia é eternamente o mesmo."
-      >
-        <div className="callout warning">
-          <p>
-            <strong>Isto não é uma tabela oficial de preços.</strong>{" "}
-            {pricePageDisclaimer} Confirme sempre em{" "}
-            <a
-              href="https://extranet.infarmed.pt/INFOMED-fo/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Infomed (INFARMED)
-            </a>{" "}
-            e no recibo da farmácia.
-          </p>
-        </div>
+    <div className="shell page-simple">
+      <JsonLd
+        data={[
+          webPageLd({
+            name: "Preços GLP-1 em Portugal",
+            description,
+            path: "/precos",
+            type: "MedicalWebPage",
+          }),
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Preços", path: "/precos" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Ordens de grandeza de PVP GLP-1 em Portugal",
+            itemListElement: priceBands.map((row, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Drug",
+                name: row.brandName,
+                nonProprietaryName: row.substance,
+                url: absoluteUrl(`/medicamentos/${row.slug}/`),
+              },
+            })),
+          },
+        ]}
+      />
+      <p className="eyebrow">Portugal · dinheiro</p>
+      <h1>Preços dos medicamentos GLP-1</h1>
+      <p className="lede">
+        A pergunta mais frequente depois de «isto é para mim?» é «quanto custa?».
+        Aqui vai a ordem de grandeza — e o que a muda.
+      </p>
 
-        <p className="price-verify">
-          <strong>Última verificação editorial:</strong>{" "}
-          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>
-          <span>
-            · Verifique de novo na{" "}
-            <a
-              href="https://extranet.infarmed.pt/INFOMED-fo/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Infomed
-            </a>{" "}
-            antes de decidir.
-          </span>
-        </p>
+      <div className="disclaimer">
+        <strong>Isto não é uma tabela oficial.</strong> {pricePageDisclaimer}{" "}
+        Confirme em{" "}
+        <a
+          href="https://extranet.infarmed.pt/INFOMED-fo/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Infomed (INFARMED)
+        </a>{" "}
+        e no recibo da farmácia.
+      </div>
 
+      <section className="content-block">
         <h2>Ordens de grandeza (PVP / mês)</h2>
         <div className="price-table-wrap">
           <table className="price-table">
@@ -94,14 +90,16 @@ export default function PrecosPage() {
               <tr>
                 <th scope="col">Medicamento</th>
                 <th scope="col">Faixa típica</th>
-                <th scope="col">Comparticipação (resumo)</th>
+                <th scope="col">Comparticipação</th>
               </tr>
             </thead>
             <tbody>
               {priceBands.map((row) => (
                 <tr key={row.slug}>
                   <th scope="row">
-                    <Link href={`/medicamentos/${row.slug}`}>{row.brandName}</Link>
+                    <Link href={`/medicamentos/${row.slug}/`}>
+                      {row.brandName}
+                    </Link>
                     <span className="price-sub">{row.substance}</span>
                   </th>
                   <td>
@@ -115,33 +113,31 @@ export default function PrecosPage() {
             </tbody>
           </table>
         </div>
-        <p>
-          Revisão editorial desta página:{" "}
-          <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>.
-        </p>
+      </section>
 
-        <h2>Comparticipação SNS — o que saber agora</h2>
-        <ul>
+      <section className="content-block article">
+        <h2>Comparticipação SNS</h2>
+        <ul className="points">
           {comparticipacaoNotes.map((note) => (
-            <li key={note.slice(0, 40)}>{note}</li>
+            <li key={note.slice(0, 48)}>{note}</li>
           ))}
         </ul>
-        <p className="callout">
+        <p className="soft-note">
           Ter receita médica <strong>não</strong> significa automaticamente
-          comparticipação. O que conta é a indicação, o medicamento e as regras
-          publicadas pelo INFARMED / Ministério da Saúde.
+          comparticipação. Contam a indicação, o medicamento e as regras do
+          INFARMED / Ministério da Saúde.
         </p>
 
         <h2>O que entra na conta real</h2>
-        <ul>
+        <ul className="plain-list">
           <li>Preço da caneta / embalagem (sobe com a dose).</li>
           <li>Consultas (SNS ou privadas) e análises.</li>
           <li>Nutrição e, se fizer sentido, psicologia.</li>
-          <li>Deslocações e tempo — sobretudo se a farmácia tiver de encomendar.</li>
+          <li>Deslocações — sobretudo se a farmácia tiver de encomendar.</li>
         </ul>
 
-        <h2>Como verificar o preço oficial</h2>
-        <ol>
+        <h2>Como verificar</h2>
+        <ol className="plain-list numbered">
           <li>
             Abra a{" "}
             <a
@@ -151,34 +147,44 @@ export default function PrecosPage() {
             >
               Infomed
             </a>{" "}
-            e procure pelo nome comercial ou pela substância.
+            e procure o nome comercial.
           </li>
-          <li>Confirme a apresentação (dosagem) que está na receita.</li>
-          <li>Peça na farmácia o PVP e se há comparticipação aplicável àquela receita.</li>
+          <li>Compare com o PVP no ticket da farmácia.</li>
+          <li>
+            Pergunte se há comparticipação para a sua indicação — não para «o
+            que o vizinho pagou».
+          </li>
         </ol>
 
-        <h2>Continuar</h2>
-        <ul>
-          <li>
-            <Link href="/medicos">Que médicos fazem sentido</Link>
-          </li>
-          <li>
-            <Link href="/clinicas">Clínicas e centros (orientação)</Link>
-          </li>
-          <li>
-            <Link href="/medicamentos">Levantamento de medicamentos</Link>
-          </li>
-          <li>
-            <Link href="/brasil/precos">Preços no Brasil (R$)</Link>
-          </li>
-          <li>
-            <Link href="/comprar-online">Riscos de comprar online</Link>
-          </li>
-          <li>
-            <Link href="/checklist">Checklist para a consulta</Link>
-          </li>
-        </ul>
-      </Article>
-    </>
+        <div className="next-reads">
+          <h2>Continuar</h2>
+          <ul>
+            <li>
+              <Link href="/onde-comprar/">
+                <strong>Onde comprar</strong>
+                <span>Farmácia legal — não anúncios baratos.</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/medicos/">
+                <strong>Médicos</strong>
+                <span>Quem acompanha e o que perguntar.</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/medicamentos/">
+                <strong>Medicamentos</strong>
+                <span>As 11 fichas no mesmo formato.</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <p className="verified">
+        Revisão editorial:{" "}
+        <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>
+      </p>
+    </div>
   );
 }

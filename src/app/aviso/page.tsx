@@ -1,59 +1,79 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Article } from "@/components/Article";
-import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd, pageMetadata, webPageLd } from "@/lib/seo";
+import { CONTENT_REVIEWED_LABEL, SITE_NAME } from "@/lib/site";
+
+const description =
+  "Este site é informativo e educativo. Não substitui consulta médica, não vende medicamentos e não classifica clínicas.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Aviso médico",
-  description:
-    "O Guia GLP-1 é informativo e não substitui consulta, diagnóstico nem prescrição. Limites do conteúdo, conflitos de interesse e responsabilidade.",
+  title: "Aviso médico e responsabilidade",
+  description,
   path: "/aviso",
+  keywords: ["aviso médico", "disclaimer GLP-1", "informação educativa"],
 });
 
-export default function Page() {
+export default function AvisoPage() {
   return (
-    <Article
-      kicker="Leia isto até ao fim"
-      title="O que este site é — e o que não é"
-      lede="Foi feito porque a informação em português sobre Mounjaro e GLP-1 está dispersa e, muitas vezes, má. Isso não o transforma num médico."
-    >
-      <h2>Não é aconselhamento médico</h2>
-      <p>
-        Nada aqui é diagnóstico, prescrição, plano alimentar individual ou
-        urgência. Não inicia, aumenta, reduz nem interrompe medicamentos com
-        base nestas páginas. Se está em sofrimento ou com sintomas graves,
-        contacte os serviços de saúde do seu país.
+    <div className="shell page-simple">
+      <JsonLd
+        data={[
+          webPageLd({
+            name: "Aviso médico",
+            description,
+            path: "/aviso",
+            type: "MedicalWebPage",
+          }),
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Aviso médico", path: "/aviso" },
+          ]),
+        ]}
+      />
+      <p className="eyebrow">Importante</p>
+      <h1>Aviso médico</h1>
+      <p className="lede">
+        {SITE_NAME} é um guia educativo. Não é consulta, receita, farmácia online
+        nem classificação de clínicas.
       </p>
 
-      <h2>Não é o folheto oficial</h2>
-      <p>
-        A informação resume e explica documentos públicos (EMA, reguladores
-        nacionais, bulas). Pode ficar incompleta, desatualizada ou simplificada
-        demais para o seu caso. A embalagem que tem na mão e o profissional que
-        o segue são a referência.
-      </p>
+      <div className="disclaimer">
+        <strong>Decisões de saúde são consigo e com o seu médico.</strong> Em
+        urgência, contacte o SNS 24 ou os serviços de emergência — não este site.
+      </div>
 
-      <h2>Não cobre todos os países da mesma forma</h2>
-      <p>
-        Nomes comerciais, doses disponíveis, comparticipação e indicações
-        (diabetes, peso, ambos) mudam. O português deste site é genérico de
-        propósito: serve leitores de vários países, não substitui a regra local.
-      </p>
+      <section className="content-block article">
+        <h2>O que este site é</h2>
+        <p>
+          Um mapa em português europeu sobre medicamentos da família GLP-1 (e
+          relacionados): nomes, substâncias, diferenças gerais, preços em
+          contexto, perguntas frequentes e artigos práticos. O objectivo é
+          preparar perguntas melhores para a consulta — não substituí-la.
+        </p>
 
-      <h2>Conflitos que este projeto evita</h2>
-      <ul>
-        <li>Não vende medicamentos nem comissões de farmácia.</li>
-        <li>Não mostra anúncios de clínicas milagrosas.</li>
-        <li>Não tem «antes e depois» para vender uma ideia.</li>
-      </ul>
-      <p>
-        As <Link href="/fontes">fontes</Link> estão listadas. Se encontrar um
-        erro factual, contacte-nos via <Link href="/sobre">Sobre</Link> ou{" "}
-        <Link href="/sugerir">Sugerir clínica</Link>.
-      </p>
-      <p>
-        Também: <Link href="/privacidade">Privacidade e cookies</Link>.
-      </p>
-    </Article>
+        <h2>O que este site não é</h2>
+        <ul>
+          <li>Não vende medicamentos nem encaminha para compra online.</li>
+          <li>Não recomenda doses, marcas ou esquemas de tratamento.</li>
+          <li>Não classifica nem recomenda clínicas ou médicos.</li>
+          <li>Não interpreta análises clínicas individuais.</li>
+          <li>Não substitui a bula, o RCM nem o aconselhamento farmacêutico.</li>
+        </ul>
+
+        <h2>Responsabilidade</h2>
+        <p>
+          A informação pode ficar desactualizada face a alterações regulatórias
+          ou de stock. Em caso de dúvida, prevalecem Infomed, bula e o
+          profissional que o acompanha.
+        </p>
+        <p>
+          Fontes oficiais: <Link href="/fontes/">lista de fontes</Link>. Termos
+          técnicos: <Link href="/glossario/">glossário</Link>.
+        </p>
+      </section>
+
+      <p className="verified">Conteúdo revisto em {CONTENT_REVIEWED_LABEL}.</p>
+    </div>
   );
 }

@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Article } from "@/components/Article";
 import { JsonLd } from "@/components/JsonLd";
+import { checklistSections } from "@/content/checklist";
 import {
   careRedFlags,
   howToFindDoctors,
   ordemMedicosUrl,
   specialistProfiles,
 } from "@/content/doctors";
-import { pageMetadata } from "@/lib/seo";
-import { CONTENT_REVIEWED_AT, SITE_NAME, SITE_URL } from "@/lib/site";
+import { breadcrumbLd, pageMetadata, webPageLd } from "@/lib/seo";
+import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 const description =
-  "Que médicos fazem sentido para GLP-1 em Portugal: endocrinologia, consulta de obesidade, médico de família, sinais de alerta e como confirmar na Ordem dos Médicos.";
+  "Que médicos fazem sentido para GLP-1: endocrinologia, consulta de obesidade, médico de família, sinais de alerta e checklist para a consulta.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Médicos aconselháveis para GLP-1",
+  title: "Médicos para GLP-1 em Portugal",
   description,
   path: "/medicos",
   keywords: [
@@ -28,54 +28,56 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function MedicosPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Médicos aconselháveis para GLP-1",
-    description,
-    url: `${SITE_URL}/medicos/`,
-    dateModified: CONTENT_REVIEWED_AT,
-    isPartOf: { "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` },
-    inLanguage: "pt-PT",
-  };
-
   return (
-    <>
-      <JsonLd data={jsonLd} />
-      <Article
-        kicker="Portugal · quem acompanha"
-        title="Médicos aconselháveis — o que isso deve significar"
-        lede="Não publicamos um «top 10» de nomes. Publicamos o critério: especialidade, rigor clínico e sinais de que a consulta serve a si — não a venda da caneta."
-      >
-        <div className="callout warning">
-          <p>
-            <strong>O Guia GLP-1 não indica o seu médico.</strong> Não temos
-            parcerias pagas com prescritores. Um bom profissional pode ser do
-            SNS ou do privado; o que importa é a avaliação, não o Instagram.
-          </p>
-        </div>
+    <div className="shell page-simple">
+      <JsonLd
+        data={[
+          webPageLd({
+            name: "Médicos aconselháveis para GLP-1",
+            description,
+            path: "/medicos",
+            type: "MedicalWebPage",
+          }),
+          breadcrumbLd([
+            { name: "Início", path: "/" },
+            { name: "Médicos", path: "/medicos" },
+          ]),
+        ]}
+      />
+      <p className="eyebrow">Portugal · quem acompanha</p>
+      <h1>Médicos — o critério, não um ranking</h1>
+      <p className="lede">
+        Não publicamos um «top 10» de nomes. Publicamos o critério: especialidade,
+        rigor clínico e sinais de que a consulta serve a si — não a venda da
+        caneta.
+      </p>
 
+      <div className="disclaimer">
+        <strong>O Guia GLP-1 não indica o seu médico.</strong> Não temos
+        parcerias pagas com prescritores. Um bom profissional pode ser do SNS ou
+        do privado; o que importa é a avaliação, não o Instagram.
+      </div>
+
+      <section className="content-block article">
         <h2>Perfis que costumam fazer sentido</h2>
-        <ul className="med-list">
+        <ul className="profile-list">
           {specialistProfiles.map((profile) => (
             <li key={profile.id}>
-              <div>
-                <strong>{profile.title}</strong>
-                <span className="med-meta">O que pedir na consulta</span>
-                <span>{profile.why}</span>
-                <ul>
-                  {profile.askFor.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+              <strong>{profile.title}</strong>
+              <p>{profile.why}</p>
+              <p className="ask-label">O que pedir</p>
+              <ul>
+                {profile.askFor.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
 
-        <h2>Como encontrar (sem atalhos perigosos)</h2>
+        <h2>Como encontrar</h2>
         {howToFindDoctors.map((block) => (
-          <div key={block.title}>
+          <div key={block.title} className="find-block">
             <h3>{block.title}</h3>
             <p>{block.body}</p>
           </div>
@@ -89,35 +91,74 @@ export default function MedicosPage() {
         </p>
 
         <h2>Sinais de alerta</h2>
-        <ul>
+        <ul className="points">
           {careRedFlags.map((flag) => (
             <li key={flag.id}>
-              <strong>{flag.title}.</strong> {flag.detail}
+              <strong className="ink">{flag.title}.</strong> {flag.detail}
             </li>
           ))}
         </ul>
+      </section>
 
-        <h2>Perguntas úteis para levar</h2>
-        <p>
-          Use a{" "}
-          <Link href="/checklist">checklist para a consulta</Link>: indicação,
-          alternativas, titulação, outros medicamentos, gravidez, quem ligar se
-          a dor de barriga não for «só náusea».
-        </p>
+      <section className="content-block" id="checklist">
+        <div className="section-head">
+          <h2>Checklist para a consulta</h2>
+          <p>
+            Uma consulta rende mais com factos. Escolha o que se aplica — não
+            precisa de marcar tudo.
+          </p>
+        </div>
+        <div className="checklist-stack">
+          {checklistSections.map((section) => (
+            <div key={section.id} className="checklist-block">
+              <h3>{section.title}</h3>
+              <p>{section.intro}</p>
+              <ul className="checklist">
+                {section.items.map((item) => (
+                  <li key={item.id}>
+                    <span className="check-box" aria-hidden />
+                    <span>
+                      <strong>{item.label}</strong>
+                      {item.hint ? (
+                        <span className="hint">{item.hint}</span>
+                      ) : null}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      <div className="next-reads">
         <h2>Continuar</h2>
         <ul>
           <li>
-            <Link href="/clinicas">Clínicas e centros (orientação)</Link>
+            <Link href="/precos/">
+              <strong>Preços</strong>
+              <span>Ordens de grandeza e comparticipação.</span>
+            </Link>
           </li>
           <li>
-            <Link href="/precos">Preços e comparticipação</Link>
+            <Link href="/onde-comprar/">
+              <strong>Onde comprar</strong>
+              <span>Farmácia legal, sem atalhos perigosos.</span>
+            </Link>
           </li>
           <li>
-            <Link href="/aviso">Aviso médico</Link>
+            <Link href="/perguntas/">
+              <strong>Perguntas</strong>
+              <span>FAQ em português claro.</span>
+            </Link>
           </li>
         </ul>
-      </Article>
-    </>
+      </div>
+
+      <p className="verified">
+        Revisão editorial:{" "}
+        <time dateTime={CONTENT_REVIEWED_AT}>{CONTENT_REVIEWED_LABEL}</time>
+      </p>
+    </div>
   );
 }

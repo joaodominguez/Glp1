@@ -1,61 +1,29 @@
 import Link from "next/link";
-import {
-  aboutLinks,
-  brasilLinks,
-  portugalLinks,
-  toolLinks,
-} from "@/content/nav";
+import { SITE_NAME } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="footer-grid">
+      <div className="shell footer-inner">
         <div>
-          <p className="footer-brand">Guia GLP-1</p>
-          <p>
-            Informação em português sobre a classe GLP-1. Educativo — não é
-            consulta, farmácia nem folheto de laboratório.
+          <p className="footer-brand">{SITE_NAME}</p>
+          <p className="footer-note">
+            Conteúdo informativo. Não substitui consulta, diagnóstico nem
+            prescrição. Não vendemos medicamentos.
           </p>
         </div>
-        <div>
-          <p>Portugal e Brasil</p>
-          <ul>
-            {portugalLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-            {brasilLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p>Ferramentas e transparência</p>
-          <ul>
-            {toolLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-            {aboutLinks.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <nav className="footer-links" aria-label="Rodapé">
+          <Link href="/medicamentos/">Medicamentos</Link>
+          <Link href="/artigos/">Artigos</Link>
+          <Link href="/precos/">Preços</Link>
+          <Link href="/medicos/">Médicos</Link>
+          <Link href="/onde-comprar/">Onde comprar</Link>
+          <Link href="/perguntas/">Perguntas</Link>
+          <Link href="/glossario/">Glossário</Link>
+          <Link href="/fontes/">Fontes</Link>
+          <Link href="/aviso/">Aviso médico</Link>
+        </nav>
       </div>
-      <p className="footer-note">
-        Não substitui consulta, diagnóstico nem prescrição.{" "}
-        <Link href="/aviso">Aviso médico</Link>
-        {" · "}
-        <Link href="/sobre">Sobre</Link>
-        {" · "}
-        <Link href="/privacidade">Privacidade</Link>
-      </p>
     </footer>
   );
 }

@@ -45,6 +45,8 @@ export const faqItems: FaqItem[] = [
     question: "Ozempic e Wegovy são a mesma coisa?",
     answer:
       "Partilham a substância (semaglutida), mas não são a mesma caneta nem a mesma indicação. Ozempic está tipicamente autorizado para diabetes tipo 2; Wegovy para gestão de peso, com doses e critérios próprios. Trocar um pelo outro sem indicação médica é um erro comum e arriscado.",
+    relatedHref: "/artigos/ozempic-vs-wegovy/",
+    relatedLabel: "Artigo: Ozempic vs Wegovy",
   },
   {
     id: "mounjaro-vs-ozempic",
@@ -52,15 +54,42 @@ export const faqItems: FaqItem[] = [
     question: "Mounjaro é o mesmo que Ozempic?",
     answer:
       "Não. Mounjaro é tirzepatida (agonista duplo GIP + GLP-1). Ozempic é semaglutida (agonista de GLP-1). Empresas, doses, canetas e evidência são diferentes. Comparações de «qual emagrece mais» na internet não substituem a escolha clínica com base no seu diagnóstico e na bula local.",
-    relatedHref: "/mounjaro-vs-ozempic",
-    relatedLabel: "Comparação Mounjaro vs Ozempic",
+    relatedHref: "/artigos/mounjaro-vs-ozempic/",
+    relatedLabel: "Artigo: Mounjaro vs Ozempic",
+  },
+  {
+    id: "o-que-e-rybelsus",
+    category: "basico",
+    question: "O que é o Rybelsus?",
+    answer:
+      "Rybelsus é semaglutida em comprimido diário (Novo Nordisk), tipicamente autorizado para diabetes tipo 2. Não é «Ozempic em pastilha» sem regras: a toma em jejum, com pouca água e espera antes de comer ou outros comprimidos é crítica. Em Portugal, confirme sempre Infomed e a bula local.",
+    relatedHref: "/artigos/rybelsus-portugal/",
+    relatedLabel: "Rybelsus em Portugal",
+  },
+  {
+    id: "rybelsus-portugal",
+    category: "basico",
+    question: "O Rybelsus está disponível em Portugal?",
+    answer:
+      "A disponibilidade, o PVP e a comparticipação mudam. A fonte de verdade é o Infomed (INFARMED) e a farmácia com receita válida — não um anúncio ou grupo online. Se o stock falhar, o médico decide alternativas; não troque sozinho por canetas ou «genéricos» da internet.",
+    relatedHref: "/medicamentos/rybelsus/",
+    relatedLabel: "Ficha do Rybelsus",
   },
   {
     id: "glp1-ou-gip",
     category: "basico",
     question: "É um «GLP-1»?",
     answer:
-      "Na conversa do dia a dia, muita gente chama «GLP-1» a toda esta família de injeções semanais. Em rigor, a tirzepatida é um agonista duplo: GLP-1 e GIP. A semaglutida (Ozempic, Wegovy) atua sobretudo no GLP-1. Não são o mesmo fármaco nem a mesma caneta.",
+      "Na conversa do dia a dia, muita gente chama «GLP-1» a toda esta família de injeções semanais. Em rigor, a tirzepatida é um agonista duplo: GLP-1 e GIP. A semaglutida (Ozempic, Wegovy, Rybelsus) atua sobretudo no GLP-1. Não são o mesmo fármaco nem a mesma rotina.",
+  },
+  {
+    id: "stock-farmacia",
+    category: "basico",
+    question: "A farmácia diz que não há stock. O que faço?",
+    answer:
+      "Não compre em sites duvidosos nem partilhe canetas. Peça ao médico um plano B (outra dose, outro nome da mesma classe, ou pausa controlada). Confirme Infomed e contacte várias farmácias com receita. Ver o artigo sobre stock.",
+    relatedHref: "/artigos/stock-farmacia/",
+    relatedLabel: "Artigo: stock na farmácia",
   },
   {
     id: "emagrece",
@@ -95,14 +124,7 @@ export const faqItems: FaqItem[] = [
     category: "basico",
     question: "Que médico devo procurar?",
     answer:
-      "Endocrinologia ou uma consulta de obesidade multidisciplinar são perfis frequentes; o médico de família é o ponto de entrada no SNS. Confirme cédula na Ordem dos Médicos. Evite quem receita sem história clínica ou vende a caneta no mesmo sítio. Ver /medicos e /clinicas. No Brasil: endocrino/nutrologia e CRM no CFM — ver /brasil/medicos.",
-  },
-  {
-    id: "apps-tracking",
-    category: "vida",
-    question: "Há apps para lembrar a dose e o peso?",
-    answer:
-      "Sim. Trackers como Shotsy, Titra ou Pep ajudam com lembretes de caneta, peso e efeitos — mas não substituem o médico nem a bula. Evite apps que vendem medicamento ou «sobe a dose» sozinhas. Ver /apps.",
+      "Endocrinologia ou uma consulta de obesidade multidisciplinar são perfis frequentes; o médico de família é o ponto de entrada no SNS. Confirme cédula na Ordem dos Médicos. Evite quem receita sem história clínica ou vende a caneta no mesmo sítio. Ver a página Médicos.",
   },
   {
     id: "como-se-toma",
@@ -116,7 +138,18 @@ export const faqItems: FaqItem[] = [
     category: "uso",
     question: "Tem de ser com comida ou em jejum?",
     answer:
-      "A informação oficial do Mounjaro indica que pode ser tomado a qualquer hora do dia, com ou sem refeição. O que importa é a regularidade semanal e a dose que o médico definiu.",
+      "Para canetas como Mounjaro, a informação oficial indica em geral qualquer hora do dia, com ou sem refeição — o que importa é a regularidade semanal. Já o Rybelsus (comprimido) tem regras de jejum e água: siga o folheto à letra. Não misture as rotinas das duas vias.",
+    relatedHref: "/artigos/rybelsus-portugal/",
+    relatedLabel: "Rotina do Rybelsus",
+  },
+  {
+    id: "rybelsus-como-tomar",
+    category: "uso",
+    question: "Como se toma o Rybelsus?",
+    answer:
+      "Em traços gerais: de manhã em jejum, com um pouco de água, e esperar o tempo indicado na bula antes de comer, beber ou tomar outros comprimidos. Desviar desta rotina pode reduzir a absorção. Peça confirmação ao farmacêutico na primeira embalagem — não invente atalhos de fóruns.",
+    relatedHref: "/medicamentos/rybelsus/",
+    relatedLabel: "Ficha Rybelsus",
   },
   {
     id: "titulacao",
@@ -131,8 +164,6 @@ export const faqItems: FaqItem[] = [
     question: "E se eu esquecer uma dose?",
     answer:
       "O RCM europeu e a bula de vários países dizem, em traços gerais: se passaram 4 dias ou menos, tome assim que lembrar e retome o calendário; se passaram mais de 4 dias, salte essa dose e espere pelo dia habitual. Deve haver pelo menos 3 dias entre duas injeções. Se tiver dúvidas, pergunte a quem o acompanha — não invente uma dose extra «para compensar».",
-    relatedHref: "/dose-esquecida",
-    relatedLabel: "Página: dose esquecida",
   },
   {
     id: "guardar",
@@ -147,8 +178,6 @@ export const faqItems: FaqItem[] = [
     question: "As náuseas são normais?",
     answer:
       "São o efeito mais falado: náusea, menos fome, prisão de ventre ou diarreia, azia, enfartamento. Costumam ser mais fortes ao subir a dose e tendem a aliviar. Estratégias que muita gente usa (sempre com o acordo do profissional): refeições mais pequenas, comer devagar, menos gordura e álcool, hidratação. Vómitos intensos, desidratação ou dor forte já não são «o normal da adaptação».",
-    relatedHref: "/nauseas",
-    relatedLabel: "Página: náuseas com GLP-1",
   },
   {
     id: "quando-ligar",
@@ -184,8 +213,6 @@ export const faqItems: FaqItem[] = [
     question: "Afeta a pílula?",
     answer:
       "Como o estômago esvazia mais devagar, a absorção de alguns comprimidos pode mudar, sobretudo ao subir a dose. A informação oficial da tirzepatida alerta para este ponto em contraceptivos orais. Não mude o método sozinho: fale com quem prescreve. Gravidez sob este medicamento não é o cenário desejado.",
-    relatedHref: "/pilula",
-    relatedLabel: "Página: GLP-1 e a pílula",
   },
   {
     id: "paragem",
@@ -207,8 +234,6 @@ export const faqItems: FaqItem[] = [
     question: "E gravidez ou amamentação?",
     answer:
       "Em geral estes medicamentos não se usam na gravidez. Quem puder engravidar precisa de um plano contraceptivo claro. Se houver gravidez, contacte o médico; não ajuste doses pela internet. Amamentação também exige orientação individual — a bula local é o ponto de partida.",
-    relatedHref: "/gravidez",
-    relatedLabel: "Página: gravidez e amamentação",
   },
   {
     id: "outras-doencas",
@@ -223,8 +248,8 @@ export const faqItems: FaqItem[] = [
     question: "Posso comprar mais barato na internet?",
     answer:
       "Canetas sem cadeia de frio, sem receita e sem farmácia identificada são um risco clássico: falsificações, doses erradas, infeção. Preço baixo não é critério clínico. Se o custo é o obstáculo, isso é assunto para o médico, o seguro ou o sistema de saúde — não para um anúncio.",
-    relatedHref: "/comprar-online",
-    relatedLabel: "Página: riscos de comprar online",
+    relatedHref: "/onde-comprar/",
+    relatedLabel: "Onde comprar com segurança",
   },
   {
     id: "quanto-mais-melhor",

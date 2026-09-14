@@ -3,25 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { BrandMark } from "@/components/BrandMark";
-import { SiteSearch } from "@/components/SiteSearch";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import {
-  aboutLinks,
-  brasilLinks,
-  headerNav,
-  learnLinks,
-  portugalLinks,
-  toolLinks,
-} from "@/content/nav";
-
-const groups = [
-  { label: "Aprender", items: learnLinks },
-  { label: "Portugal", items: portugalLinks },
-  { label: "Brasil", items: brasilLinks },
-  { label: "Ferramentas", items: toolLinks },
-  { label: "Sobre", items: aboutLinks },
-];
+import { navLinks, SITE_NAME } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -29,84 +11,49 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <div className="header-inner">
+      <div className="shell header-inner">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <BrandMark className="brand-mark" />
-          <strong>Guia GLP-1</strong>
+          <img src="/brand-mark.svg" alt="" width={28} height={28} />
+          <span>{SITE_NAME}</span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Secções principais">
-          {headerNav.map((item) => {
+        <nav className="nav-desktop" aria-label="Secções">
+          {navLinks.map((link) => {
             const current =
-              pathname === item.href || pathname.startsWith(`${item.href}/`);
+              pathname === link.href || pathname.startsWith(link.href);
             return (
               <Link
-                key={`${item.href}-${item.label}`}
-                href={item.href}
-                className="nav-link"
+                key={link.href}
+                href={link.href}
                 aria-current={current ? "page" : undefined}
               >
-                {item.label}
+                {link.label}
               </Link>
             );
           })}
         </nav>
 
-        <SiteSearch
-          variant="header"
-          id="pesquisa-header"
-          hideLabel
-          placeholder="Procurar…"
-        />
-
-        <div className="header-actions">
-          <ThemeToggle />
-          <button
-            type="button"
-            className="menu-toggle"
-            aria-expanded={open}
-            aria-controls="menu-mobile"
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? "Fechar" : "Menu"}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="menu-btn"
+          aria-expanded={open}
+          aria-controls="menu-mobile"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "Fechar" : "Menu"}
+        </button>
       </div>
 
       {open ? (
-        <nav id="menu-mobile" className="mobile-nav" aria-label="Menu">
-          <SiteSearch
-            variant="inline"
-            id="pesquisa-mobile"
-            label="Procurar no guia"
-            placeholder="Ozempic, náuseas…"
-          />
-          <ul className="mobile-primary">
-            {headerNav.map((item) => (
-              <li key={`${item.href}-${item.label}`}>
-                <Link href={item.href} onClick={() => setOpen(false)}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {groups.map((group) => (
-            <div key={group.label}>
-              <p>{group.label}</p>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={pathname === item.href ? "page" : undefined}
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <nav id="menu-mobile" className="nav-mobile shell" aria-label="Menu">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </Link>
           ))}
         </nav>
       ) : null}
