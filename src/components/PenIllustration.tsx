@@ -23,9 +23,15 @@ const PEN_SLUGS = new Set([
   "lyxumia",
 ]);
 
+/** Bump when pen assets change so CDN/browser caches refresh. */
+const PEN_ASSET_VERSION = "20260914";
+
 function penSrc(slug?: string) {
-  if (slug && PEN_SLUGS.has(slug)) return `/illustrations/pens/${slug}.png`;
-  return "/illustrations/pens/mounjaro.png";
+  const base =
+    slug && PEN_SLUGS.has(slug)
+      ? `/illustrations/pens/${slug}.png`
+      : "/illustrations/pens/mounjaro.png";
+  return `${base}?v=${PEN_ASSET_VERSION}`;
 }
 
 export function PenIllustration({
