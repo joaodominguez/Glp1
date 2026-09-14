@@ -17,6 +17,9 @@ const staticRoutes: Array<{
   { path: "/medicos/", changeFrequency: "monthly", priority: 0.85 },
   { path: "/onde-comprar/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/perguntas/", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/glossario/", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/fontes/", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/aviso/", changeFrequency: "yearly", priority: 0.5 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

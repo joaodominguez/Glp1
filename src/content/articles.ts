@@ -289,6 +289,270 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "rybelsus-portugal",
+    title: "Rybelsus em Portugal: o que saber antes da receita",
+    lede:
+      "É semaglutida — mas em comprimido. Em Portugal a pergunta certa não é «é o Ozempic em pastilha?»; é «a rotina de toma e a indicação fazem sentido para mim?»",
+    summary:
+      "Rybelsus em Portugal: o que é, em que difere do Ozempic, regras de toma, preço/comparticipação e o que confirmar na Infomed e na farmácia.",
+    eyebrow: "Portugal",
+    readMinutes: 7,
+    publishedAt: "2026-09-14",
+    illustration: {
+      brandName: "Rybelsus",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "rybelsus",
+    },
+    sections: [
+      {
+        heading: "O que é (e o que não é)",
+        paragraphs: [
+          "Rybelsus é semaglutida em comprimido oral, tipicamente para diabetes tipo 2. Partilha a substância com Ozempic e Wegovy, mas não a caneta, não a dose e não a rotina. Chamar-lhe «Ozempic em pastilha» é um atalho que gera erros de expectativa — e de toma.",
+          "Em Portugal, confirme sempre a informação actual na Infomed (INFARMED) e no folheto da embalagem que comprou. Este guia explica o conceito; não decide se o medicamento é para si.",
+        ],
+      },
+      {
+        heading: "A rotina de toma importa mais do que a marca",
+        paragraphs: [
+          "A forma oral tem regras apertadas (jejum, volume de água, espera antes de comer ou de outros comprimidos). Se falharem, o efeito pode cair sem a pessoa perceber. Peça ao médico ou farmacêutico para rever consigo o horário da manhã — sobretudo se já toma vários medicamentos em jejum.",
+        ],
+        bullets: [
+          "Siga o folheto à letra no timing e nos líquidos.",
+          "Não «compense» uma toma falhada com dose dupla.",
+          "Anote interações com outros comprimidos da manhã.",
+          "Se a adesão for difícil, diga — pode haver alternativas injectáveis mais simples para o seu caso.",
+        ],
+      },
+      {
+        heading: "Preço, comparticipação e farmácia",
+        paragraphs: [
+          "Como nos outros da classe, o PVP muda e a comparticipação depende da indicação e das regras em vigor — não do que o vizinho pagou. Para obesidade/peso, muitos agonistas têm sido pagos a 100% pelo utente; em diabetes tipo 2 pode haver critérios diferentes. Confirme Infomed + ticket da farmácia.",
+          "Compre só com receita em farmácia licenciada. Preço baixo online sem cold chain / sem farmácia identificada continua a ser um risco clássico — mesmo em comprimidos.",
+        ],
+      },
+      {
+        heading: "Quando faz sentido falar com o médico",
+        paragraphs: [
+          "Se está a comparar Rybelsus com Ozempic/Wegovy/Mounjaro, leve à consulta o diagnóstico (diabetes? peso? ambos?), a lista de medicação e a dificuldade real de cumprir jejum matinal. A «melhor» opção é a que consegue manter com segurança — não a que ganha debates em grupos.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Efeitos digestivos intensos que impedem comer ou beber.",
+      "Dúvida sobre toma falhada e outros antidiabéticos (insulina, sulfonilureias).",
+      "Gravidez, desejo de engravidar ou amamentação.",
+    ],
+    related: [
+      {
+        href: "/medicamentos/rybelsus/",
+        label: "Ficha Rybelsus",
+        blurb: "Substância, via e diferenças.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços em Portugal",
+        blurb: "Ordens de grandeza e Infomed.",
+      },
+      {
+        href: "/artigos/mounjaro-vs-ozempic/",
+        label: "Mounjaro vs Ozempic",
+        blurb: "Outra comparação frequente.",
+      },
+    ],
+  },
+  {
+    slug: "mounjaro-vs-ozempic",
+    title: "Mounjaro vs Ozempic: o que muda de verdade",
+    lede:
+      "Não é a mesma caneta, nem a mesma substância. Comparar «qual emagrece mais» na internet não substitui a escolha clínica com o seu diagnóstico e a bula local.",
+    summary:
+      "Diferenças entre Mounjaro (tirzepatida) e Ozempic (semaglutida): mecanismo, indicações, titulação e erros comuns — em português claro.",
+    eyebrow: "Comparar",
+    readMinutes: 7,
+    publishedAt: "2026-09-14",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+      slug: "mounjaro",
+    },
+    sections: [
+      {
+        heading: "Substância e mecanismo",
+        paragraphs: [
+          "Ozempic é semaglutida (agonista de GLP-1). Mounjaro é tirzepatida (agonista duplo GIP + GLP-1). Empresas, doses, canetas e evidência são diferentes. Trocar um pelo outro sem indicação médica é um erro comum e arriscado.",
+        ],
+      },
+      {
+        heading: "Indicação ≠ alcunha de grupo",
+        paragraphs: [
+          "Ozempic está tipicamente autorizado para diabetes tipo 2. Wegovy (também semaglutida) é a linha mais associada a gestão de peso. Mounjaro, conforme o país, pode estar autorizado sobretudo para diabetes tipo 2 e/ou peso. O que a bula do seu país autoriza manda — não o Instagram.",
+        ],
+        bullets: [
+          "Mesma «família» de conversa ≠ mesmo fármaco.",
+          "Dose e titulação não são intercambiáveis.",
+          "Efeitos digestivos existem nos dois; a intensidade individual varia.",
+          "Custo e stock em Portugal também diferem — veja Preços.",
+        ],
+      },
+      {
+        heading: "Como decidir sem ruído",
+        paragraphs: [
+          "Leve à consulta: diagnóstico, comorbilidades, outros medicamentos, tolerância digestiva, capacidade de pagar e de manter follow-up. Pergunte alternativas — incluindo não começar agora. Desconfie de quem garante «X kg» ou vende a caneta no mesmo sítio da «consulta» de cinco minutos.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Está a pensar mudar de caneta por conta própria.",
+      "Teve efeito grave com uma e quer saber se a outra é «mais segura» — isso é avaliação médica, não fórum.",
+    ],
+    related: [
+      {
+        href: "/medicamentos/mounjaro/",
+        label: "Ficha Mounjaro",
+        blurb: "Tirzepatida em detalhe.",
+      },
+      {
+        href: "/medicamentos/ozempic/",
+        label: "Ficha Ozempic",
+        blurb: "Semaglutida injectável.",
+      },
+      {
+        href: "/artigos/ozempic-vs-wegovy/",
+        label: "Ozempic vs Wegovy",
+        blurb: "Mesma substância, outra indicação.",
+      },
+    ],
+  },
+  {
+    slug: "ozempic-vs-wegovy",
+    title: "Ozempic vs Wegovy: a mesma substância, outro contexto",
+    lede:
+      "Ambos têm semaglutida. Não são a mesma caneta nem a mesma indicação. Confundir os dois é um dos erros mais repetidos em português.",
+    summary:
+      "Ozempic e Wegovy partilham semaglutida mas diferem em indicação, doses e critérios. O que isto significa em Portugal.",
+    eyebrow: "Comparar",
+    readMinutes: 5,
+    publishedAt: "2026-09-14",
+    illustration: {
+      brandName: "Wegovy",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "wegovy",
+    },
+    sections: [
+      {
+        heading: "O que é igual",
+        paragraphs: [
+          "A substância activa é a semaglutida. Ambos são injectáveis semanais da mesma família GLP-1. Muita da conversa sobre náuseas, titulação e estilo de vida aplica-se aos dois — com nuances de dose.",
+        ],
+      },
+      {
+        heading: "O que não é igual",
+        paragraphs: [
+          "A indicação autorizada, o esquema de doses e o «pacote» comercial são diferentes. Ozempic aparece tipicamente no contexto de diabetes tipo 2; Wegovy no de gestão de peso, com critérios próprios. Usar um «só porque o outro falhou no stock» sem reavaliação clínica é má prática.",
+        ],
+        bullets: [
+          "Não partilhe canetas nem «divida» doses entre pessoas.",
+          "Confirme na receita e na Infomed o medicamento exacto.",
+          "Comparticipação e PVP não são automaticamente iguais.",
+        ],
+      },
+      {
+        heading: "Em Portugal",
+        paragraphs: [
+          "Verifique preço e estatuto na Infomed e na farmácia. Para peso, Wegovy e outros têm sido frequentemente pagos a 100% pelo utente; Ozempic pode ter regras distintas em diabetes. O ticket e a receita mandam.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "A farmácia propõe «trocar» Ozempic por Wegovy (ou o inverso) sem o médico.",
+      "Está a usar um off-label e não tem plano de follow-up.",
+    ],
+    related: [
+      {
+        href: "/medicamentos/ozempic/",
+        label: "Ficha Ozempic",
+        blurb: "Diabetes tipo 2.",
+      },
+      {
+        href: "/medicamentos/wegovy/",
+        label: "Ficha Wegovy",
+        blurb: "Gestão de peso.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços",
+        blurb: "Faixas em Portugal.",
+      },
+    ],
+  },
+  {
+    slug: "stock-farmacia",
+    title: "Quando a farmácia não tem stock",
+    lede:
+      "Falta de canetas é stress real. Há caminhos seguros — e atalhos que parecem práticos e são perigosos.",
+    summary:
+      "O que fazer se Mounjaro, Ozempic ou Wegovy faltarem na farmácia: encomenda legal, alternativas clínicas e sinais de alerta online.",
+    eyebrow: "Na prática",
+    readMinutes: 5,
+    publishedAt: "2026-09-14",
+    illustration: {
+      brandName: "Ozempic",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "ozempic",
+    },
+    sections: [
+      {
+        heading: "Primeiro: o caminho legal",
+        paragraphs: [
+          "Peça à farmácia para encomendar e pergunte prazos. Experimente outra farmácia da rede ou do bairro — stock não é uniforme. Leve a receita válida. Se a espera for longa, contacte quem prescreveu: pode haver plano B clínico (outra dose, outro fármaco da classe, ou pausa supervisionada).",
+        ],
+      },
+      {
+        heading: "O que não fazer",
+        paragraphs: [
+          "Não compre canetas «mais baratas» sem farmácia identificada. Não peça emprestado o medicamento do vizinho. Não suba a dose «para render mais tempo». Não mude de marca só porque um anúncio promete entrega em 24 h.",
+        ],
+        bullets: [
+          "Sem receita / receita por mensagem → red flag.",
+          "Preço muito abaixo do PVP habitual → red flag.",
+          "Remetente sem cold chain → red flag.",
+          "Venda no mesmo sítio da «consulta» de 5 minutos → red flag.",
+        ],
+      },
+      {
+        heading: "Fale com o médico cedo",
+        paragraphs: [
+          "Em diabetes, falhas de tratamento importam. Em gestão de peso, parar de súbito também tem consequências. Uma mensagem clara («não há stock há X dias») permite ajustar o plano — melhor do que improvisar sozinho.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "É diabético e ficou sem medicação.",
+      "Só encontra oferta online duvidosa e está sob pressão.",
+    ],
+    related: [
+      {
+        href: "/onde-comprar/",
+        label: "Onde comprar",
+        blurb: "Sinais de alerta.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços",
+        blurb: "Ordens de grandeza PVP.",
+      },
+      {
+        href: "/medicos/",
+        label: "Médicos",
+        blurb: "Quem pode ajustar o plano.",
+      },
+    ],
+  },
 ];
 
 export function getArticle(slug: string) {

@@ -206,9 +206,9 @@ export const medications: Medication[] = [
     indicationSummary:
       "Forma oral da semaglutida, autorizada para diabetes tipo 2. A rotina de toma (jejum, água, espera) é diferente das canetas semanais.",
     summary:
-      "Semaglutida em comprimido diário para diabetes tipo 2 — não é «Ozempic em pastilha» sem regras.",
+      "Rybelsus em Portugal: semaglutida em comprimido diário para diabetes tipo 2 — não é «Ozempic em pastilha» sem regras.",
     lede:
-      "Rybelsus mostra que «GLP-1» não é só injeção. Mas a forma oral tem regras de toma que, se falharem, reduzem o efeito.",
+      "Rybelsus mostra que «GLP-1» não é só injeção. Em Portugal a pergunta certa é a rotina de toma e a indicação — não o marketing.",
     whatItIs: [
       "Substância ativa: semaglutida.",
       "Via oral diária, com instruções específicas de jejum e volume de água.",
@@ -221,9 +221,10 @@ export const medications: Medication[] = [
     practicalNotes: [
       "Seguir à letra as instruções de toma do folheto: timing e líquidos importam.",
       "Fale com o médico ou farmacêutico antes de combinar com outros comprimidos da manhã.",
+      "Confirme PVP e estatuto na Infomed; leia o artigo «Rybelsus em Portugal» para o contexto local.",
     ],
     relatedSlugs: ["ozempic", "wegovy"],
-    alsoKnownAs: ["semaglutida oral"],
+    alsoKnownAs: ["semaglutida oral", "Rybelsus Portugal"],
     availabilityNote:
       "Confirme no INFARMED a informação atual para Portugal.",
     order: 5,

@@ -27,11 +27,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const med = getMedication(slug);
   if (!med) return { title: "Medicamento" };
+
+  const title =
+    slug === "rybelsus"
+      ? "Rybelsus em Portugal (semaglutida oral)"
+      : `${med.brandName} (${med.substance})`;
+
+  const description =
+    slug === "rybelsus"
+      ? "Rybelsus em Portugal: semaglutida em comprimido para diabetes tipo 2 — rotina de toma, diferenças face ao Ozempic e o que confirmar na Infomed."
+      : med.summary;
+
   return pageMetadata({
-    title: `${med.brandName} (${med.substance})`,
-    description: med.summary,
+    title,
+    description,
     path: `/medicamentos/${med.slug}`,
-    keywords: [med.brandName, med.substance, "GLP-1", ...(med.alsoKnownAs ?? [])],
+    keywords: [
+      med.brandName,
+      med.substance,
+      "GLP-1",
+      ...(slug === "rybelsus" ? ["Rybelsus Portugal", "semaglutida oral"] : []),
+      ...(med.alsoKnownAs ?? []),
+    ],
   });
 }
 

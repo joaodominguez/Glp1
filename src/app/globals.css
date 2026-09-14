@@ -1089,6 +1089,69 @@ img {
   font-weight: 550;
 }
 
+.glossary {
+  display: grid;
+  gap: 0;
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.glossary-item {
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.glossary-item h2 {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.glossary-item p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 42em;
+}
+
+.glossary-related {
+  margin-top: 0.55rem !important;
+}
+
+.glossary-related a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.source-list {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.source-list li {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.source-list a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.source-list a:hover {
+  color: var(--accent);
+}
+
+.source-list p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
 .verified {
   margin-top: 2rem;
   padding-top: 0.9rem;

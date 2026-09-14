@@ -8,11 +8,21 @@ import { absoluteUrl, pageMetadata, webPageLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy e a classe GLP-1`,
-  description: SITE_TAGLINE,
+  title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy, Rybelsus`,
+  description:
+    "Guia em português sobre medicamentos GLP-1: fichas, preços em Portugal, médicos, FAQ e artigos práticos. Sem venda de medicamentos.",
   path: "/",
   type: "website",
   absoluteTitle: true,
+  keywords: [
+    "Mounjaro",
+    "Ozempic",
+    "Wegovy",
+    "Rybelsus Portugal",
+    "GLP-1",
+    "tirzepatida",
+    "semaglutida",
+  ],
 });
 
 export default function HomePage() {
@@ -57,8 +67,8 @@ export default function HomePage() {
               <Link className="btn btn-primary" href="/medicamentos/mounjaro/">
                 Ver Mounjaro
               </Link>
-              <Link className="btn btn-ghost" href="/artigos/">
-                Boas práticas
+              <Link className="btn btn-ghost" href="/artigos/rybelsus-portugal/">
+                Rybelsus em Portugal
               </Link>
             </div>
           </div>
@@ -91,7 +101,7 @@ export default function HomePage() {
           <li>
             <Link className="path-card" href="/artigos/">
               <strong>Na prática</strong>
-              <span>Primeiras semanas, náuseas, viagem e proteína.</span>
+              <span>Rybelsus, comparações, stock e primeiras semanas.</span>
             </Link>
           </li>
           <li>
@@ -101,9 +111,9 @@ export default function HomePage() {
             </Link>
           </li>
           <li>
-            <Link className="path-card" href="/medicos/">
-              <strong>O médico</strong>
-              <span>Que especialidade e o que levar à consulta.</span>
+            <Link className="path-card" href="/perguntas/">
+              <strong>Perguntas</strong>
+              <span>FAQ: doses, náuseas, compra e mitos.</span>
             </Link>
           </li>
         </ul>

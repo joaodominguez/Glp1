@@ -10,13 +10,19 @@ import {
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 const description =
-  "FAQ em português: o que é o Mounjaro, quanto custa, que médico procurar, náuseas, dose esquecida e riscos de comprar online.";
+  "FAQ em português: Mounjaro, Rybelsus, Ozempic vs Wegovy, preços, stock, náuseas, dose esquecida e riscos de comprar online.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Perguntas frequentes sobre GLP-1",
   description,
   path: "/perguntas",
-  keywords: ["FAQ GLP-1", "Mounjaro perguntas", "Ozempic dúvidas", "Wegovy"],
+  keywords: [
+    "FAQ GLP-1",
+    "Mounjaro perguntas",
+    "Rybelsus Portugal",
+    "Ozempic dúvidas",
+    "Wegovy",
+  ],
 });
 
 export default function PerguntasPage() {
@@ -91,6 +97,18 @@ export default function PerguntasPage() {
             <Link href="/medicamentos/mounjaro/">
               <strong>Mounjaro</strong>
               <span>A ficha completa.</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/artigos/rybelsus-portugal/">
+              <strong>Rybelsus</strong>
+              <span>Comprimido em Portugal.</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/glossario/">
+              <strong>Glossário</strong>
+              <span>Termos em linguagem clara.</span>
             </Link>
           </li>
           <li>

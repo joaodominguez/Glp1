@@ -19,6 +19,9 @@ export function SiteFooter() {
           <Link href="/medicos/">Médicos</Link>
           <Link href="/onde-comprar/">Onde comprar</Link>
           <Link href="/perguntas/">Perguntas</Link>
+          <Link href="/glossario/">Glossário</Link>
+          <Link href="/fontes/">Fontes</Link>
+          <Link href="/aviso/">Aviso médico</Link>
         </nav>
       </div>
     </footer>
