@@ -99,7 +99,10 @@ export default async function ArticlePage({ params }: Props) {
             title={`Ilustração editorial — ${illo.brandName}`}
           />
           <figcaption>
-            {illo.brandName} · ilustração editorial (nome na caneta)
+            {illo.brandName} · ilustração editorial
+            {illo.slug === "rybelsus"
+              ? " (embalagem identificada)"
+              : " (nome na caneta)"}
           </figcaption>
         </figure>
       </header>

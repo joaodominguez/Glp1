@@ -121,12 +121,14 @@ export default async function MedicationPage({ params }: Props) {
             brandName={med.brandName}
             substance={med.substance}
             slug={med.slug}
-            title={`Ilustração editorial da caneta de ${med.brandName}`}
+            title={`Ilustração editorial — ${med.brandName}`}
             priority
           />
           <figcaption>
-            Ilustração editorial de {med.brandName} — não representa uma
-            embalagem específica.
+            Ilustração editorial de {med.brandName}
+            {med.route.toLowerCase().includes("oral")
+              ? " — embalagem genérica identificada."
+              : " — caneta genérica identificada."}
           </figcaption>
         </figure>
       </header>
