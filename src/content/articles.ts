@@ -346,9 +346,9 @@ export const articles: Article[] = [
     ],
     related: [
       {
-        href: "/medicamentos/rybelsus/",
-        label: "Ficha Rybelsus",
-        blurb: "Substância, via e diferenças.",
+        href: "/artigos/rybelsus-vs-ozempic/",
+        label: "Rybelsus vs Ozempic",
+        blurb: "Oral vs caneta semanal.",
       },
       {
         href: "/precos/",
@@ -356,9 +356,9 @@ export const articles: Article[] = [
         blurb: "Ordens de grandeza e Infomed.",
       },
       {
-        href: "/artigos/mounjaro-vs-ozempic/",
-        label: "Mounjaro vs Ozempic",
-        blurb: "Outra comparação frequente.",
+        href: "/artigos/comparticipacao-sns/",
+        label: "Comparticipação",
+        blurb: "O que verificar no SNS.",
       },
     ],
   },
@@ -550,6 +550,261 @@ export const articles: Article[] = [
         href: "/medicos/",
         label: "Médicos",
         blurb: "Quem pode ajustar o plano.",
+      },
+    ],
+  },
+  {
+    slug: "se-eu-parar",
+    title: "Se eu parar o medicamento: o que esperar",
+    lede:
+      "O efeito não fica «gravado» para sempre. Perceber o que costuma acontecer ao parar ajuda a planear com o médico — não a improvisar sozinho.",
+    summary:
+      "O que acontece se parar Mounjaro, Ozempic, Wegovy ou outro GLP-1: fome, peso, açúcar, e porque a pausa merece conversa clínica.",
+    eyebrow: "Na prática",
+    readMinutes: 6,
+    publishedAt: "2026-09-17",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+      slug: "mounjaro",
+    },
+    sections: [
+      {
+        heading: "O medicamento não é um interruptor permanente",
+        paragraphs: [
+          "Enquanto usa a caneta ou o comprimido, a saciedade e o esvaziamento gástrico mudam. Quando para, esses efeitos diminuem. Em muitos estudos, parte do peso e do controlo glicémico regride se nada mais mudar — alimentação, músculo, sono, outros fármacos.",
+          "Isso não é «falha de carácter». É farmacologia. Por isso o plano de fundo (proteína, força, acompanhamento) importa tanto quanto a dose.",
+        ],
+      },
+      {
+        heading: "Porque as pessoas param",
+        paragraphs: [
+          "Stock, preço, efeitos adversos, gravidez, cirurgia, viagem longa, ou decisão partilhada com o médico. Cada motivo pede um caminho diferente — não o mesmo conselho de grupo online.",
+        ],
+        bullets: [
+          "Falta de stock → ver artigo sobre farmácia e falar cedo com quem prescreve.",
+          "Náuseas intensas → pode ser ajuste de dose ou pausa supervisionada, não «aguentar calado».",
+          "Desejo de engravidar → estes fármacos em geral não se usam na gravidez; planeie com o médico.",
+          "Custo → conversa de comparticipação e alternativas, não sites duvidosos.",
+        ],
+      },
+      {
+        heading: "O que planear antes de parar",
+        paragraphs: [
+          "Não invente uma «descontinuação» com doses à la carte. Pergunte: preciso de descer a dose? Que sinais vigiar (açúcar, pressão, humor, fome rebound)? Que reforço alimentar e de treino faz sentido nas semanas seguintes? Em diabetes, parar sem rede é especialmente arriscado.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "É diabético e ficou sem medicação ou parou por conta própria.",
+      "Sintomas novos intensos depois de interromper (desidratação, hiperglicemia, vómitos).",
+      "Pensamentos de restringir comida de forma extrema para «segurar» o peso.",
+    ],
+    related: [
+      {
+        href: "/artigos/stock-farmacia/",
+        label: "Stock na farmácia",
+        blurb: "Quando a falta força a pausa.",
+      },
+      {
+        href: "/artigos/proteina-e-musculo/",
+        label: "Proteína e músculo",
+        blurb: "O que sustenta o progresso.",
+      },
+      {
+        href: "/perguntas/#paragem",
+        label: "FAQ: se eu parar",
+        blurb: "Resposta curta.",
+      },
+    ],
+  },
+  {
+    slug: "rybelsus-vs-ozempic",
+    title: "Rybelsus vs Ozempic: mesma substância, rotinas diferentes",
+    lede:
+      "Ambos são semaglutida. Um é comprimido diário; o outro é caneta semanal. A pergunta útil não é «qual é o mais forte» — é «qual consigo cumprir com segurança».",
+    summary:
+      "Diferenças entre Rybelsus e Ozempic em Portugal: via oral vs injectável, regras de toma, indicações típicas e o que confirmar na Infomed.",
+    eyebrow: "Comparar",
+    readMinutes: 6,
+    publishedAt: "2026-09-17",
+    illustration: {
+      brandName: "Rybelsus",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "rybelsus",
+    },
+    sections: [
+      {
+        heading: "O que partilham",
+        paragraphs: [
+          "A substância activa é semaglutida (Novo Nordisk). Ambos actuam sobretudo como agonistas de GLP-1. Em Portugal, confirme sempre autorização, PVP e estatuto na Infomed — este guia não substitui a bula da embalagem que comprou.",
+        ],
+      },
+      {
+        heading: "O que muda de verdade",
+        paragraphs: [
+          "Ozempic é injectável semanal; Rybelsus é comprimido diário com regras apertadas de jejum, água e espera antes de comer ou outros fármacos. Falhar a rotina oral pode reduzir o efeito sem a pessoa perceber. A caneta pede técnica e frio; o comprimido pede disciplina matinal.",
+        ],
+        bullets: [
+          "Indicações e doses não são intercambiáveis «à vontade».",
+          "Trocar um pelo outro só com indicação médica.",
+          "Se o jejum matinal for impossível, diga — pode haver alternativa injectável mais simples para si.",
+          "Preço e comparticipação podem diferir: ver página de preços e Infomed.",
+        ],
+      },
+      {
+        heading: "Como decidir na consulta",
+        paragraphs: [
+          "Leve o diagnóstico (diabetes tipo 2? outras metas?), a lista de comprimidos da manhã e a honestidade sobre adesão. «Rybelsus em Portugal» aprofunda o contexto local; a ficha de cada medicamento resume a substância e a via.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Dúvida sobre toma falhada de Rybelsus com outros antidiabéticos.",
+      "Efeitos digestivos que impedem comer ou beber.",
+    ],
+    related: [
+      {
+        href: "/artigos/rybelsus-portugal/",
+        label: "Rybelsus em Portugal",
+        blurb: "Contexto local e rotina.",
+      },
+      {
+        href: "/medicamentos/rybelsus/",
+        label: "Ficha Rybelsus",
+        blurb: "Semaglutida oral.",
+      },
+      {
+        href: "/medicamentos/ozempic/",
+        label: "Ficha Ozempic",
+        blurb: "Semaglutida semanal.",
+      },
+    ],
+  },
+  {
+    slug: "mounjaro-vs-wegovy",
+    title: "Mounjaro vs Wegovy: o que muda de verdade",
+    lede:
+      "Tirzepatida versus semaglutida para peso. Empresas, mecanismos e critérios são diferentes — comparações de redes sociais não são a sua bula.",
+    summary:
+      "Mounjaro (tirzepatida) e Wegovy (semaglutida): diferenças de mecanismo, indicação típica de peso e erros comuns ao comparar na internet.",
+    eyebrow: "Comparar",
+    readMinutes: 6,
+    publishedAt: "2026-09-17",
+    illustration: {
+      brandName: "Wegovy",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "wegovy",
+    },
+    sections: [
+      {
+        heading: "Substâncias diferentes",
+        paragraphs: [
+          "Wegovy é semaglutida (agonista de GLP-1), tipicamente posicionado para gestão de peso. Mounjaro é tirzepatida (agonista duplo GIP + GLP-1); a indicação exacta (diabetes, peso, ou ambos) depende do país e da bula local. Não são a mesma caneta nem a mesma evidência linha a linha.",
+        ],
+      },
+      {
+        heading: "O que a internet confunde",
+        paragraphs: [
+          "«Qual emagrece mais» em vídeos sem contexto clínico ignora contraindicações, outros fármacos, tolerância digestiva e acesso (stock, preço, comparticipação). Em Portugal, confirme Infomed e fale com endocrinologia ou consulta de obesidade — não com o anúncio.",
+        ],
+        bullets: [
+          "Ozempic ≠ Wegovy (mesma substância, indicações/doses diferentes).",
+          "Mounjaro ≠ Ozempic (substâncias diferentes).",
+          "Falta de stock não autoriza compra online duvidosa.",
+        ],
+      },
+      {
+        heading: "Perguntas úteis para a consulta",
+        paragraphs: [
+          "Qual é o objectivo (açúcar, peso, ambos)? Que critérios oficiais se aplicam? Que efeitos já tive noutro da classe? Consigo manter o custo e a logística do frio? A resposta certa é a que consegue cumprir com segurança.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Efeitos graves ou dúvida se a caneta que tem corresponde à receita.",
+    ],
+    related: [
+      {
+        href: "/artigos/mounjaro-vs-ozempic/",
+        label: "Mounjaro vs Ozempic",
+        blurb: "Outra comparação frequente.",
+      },
+      {
+        href: "/medicamentos/mounjaro/",
+        label: "Ficha Mounjaro",
+        blurb: "Tirzepatida.",
+      },
+      {
+        href: "/medicamentos/wegovy/",
+        label: "Ficha Wegovy",
+        blurb: "Semaglutida para peso.",
+      },
+    ],
+  },
+  {
+    slug: "comparticipacao-sns",
+    title: "Comparticipação e SNS: o que verificar",
+    lede:
+      "Ter receita não basta. Em Portugal, o que paga depende do medicamento, da indicação e das regras em vigor — não do que o vizinho pagou no mês passado.",
+    summary:
+      "Como pensar comparticipação SNS e PVP em agonistas GLP-1: Infomed, farmácia, indicação (diabetes vs peso) e perguntas para o médico.",
+    eyebrow: "Portugal",
+    readMinutes: 6,
+    publishedAt: "2026-09-17",
+    illustration: {
+      brandName: "Ozempic",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "ozempic",
+    },
+    sections: [
+      {
+        heading: "PVP ≠ o que sai do bolso",
+        paragraphs: [
+          "O PVP (preço de venda ao público) é a referência no ticket. A comparticipação — se existir — depende de regras oficiais e da indicação. Para vários agonistas usados em obesidade/peso, o utente tem pagado 100% em muitos cenários; em diabetes tipo 2 pode haver critérios diferentes. Confirme Infomed e o talão da farmácia.",
+        ],
+      },
+      {
+        heading: "Checklist prática",
+        paragraphs: ["Antes de assumir um valor que viu num grupo:"],
+        bullets: [
+          "Qual é o medicamento e a dose exactos na receita?",
+          "A indicação é diabetes, peso, ou ambos?",
+          "O que diz a Infomed hoje para esse código?",
+          "Há stock? Encomenda? Prazo?",
+          "O médico conhece alternativas se o custo for bloqueio?",
+        ],
+      },
+      {
+        heading: "O que não resolver o preço",
+        paragraphs: [
+          "Sites sem farmácia identificada, canetas «da mala» e partilha de medicação são risco clínico e legal. Se o dinheiro é o obstáculo, isso é assunto para a consulta e para informação oficial — não para um anúncio.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Discrepância grande entre o que lhe disseram e o ticket da farmácia.",
+      "Pressão para comprar online «mais barato» sem receita clara.",
+    ],
+    related: [
+      {
+        href: "/precos/",
+        label: "Preços em Portugal",
+        blurb: "Ordens de grandeza.",
+      },
+      {
+        href: "/fontes/",
+        label: "Fontes",
+        blurb: "Infomed e INFARMED.",
+      },
+      {
+        href: "/artigos/stock-farmacia/",
+        label: "Stock",
+        blurb: "Quando não há medicamento.",
       },
     ],
   },

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AnalyticsLink } from "@/components/AnalyticsLink";
 import { JsonLd } from "@/components/JsonLd";
 import { PenIllustration } from "@/components/PenIllustration";
 import { articlesSorted } from "@/content/articles";
@@ -27,7 +28,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function HomePage() {
   const meds = medicationsSorted();
-  const posts = articlesSorted();
+  const posts = articlesSorted().slice(0, 8);
 
   const itemListLd = {
     "@context": "https://schema.org",
@@ -64,12 +65,20 @@ export default function HomePage() {
               segurança e que médico consultar — em português claro.
             </p>
             <div className="cta-row">
-              <Link className="btn btn-primary" href="/medicamentos/mounjaro/">
+              <AnalyticsLink
+                className="btn btn-primary"
+                href="/medicamentos/mounjaro/"
+                event="cta_mounjaro"
+              >
                 Ver Mounjaro
-              </Link>
-              <Link className="btn btn-ghost" href="/artigos/rybelsus-portugal/">
+              </AnalyticsLink>
+              <AnalyticsLink
+                className="btn btn-ghost"
+                href="/artigos/rybelsus-portugal/"
+                event="cta_rybelsus"
+              >
                 Rybelsus em Portugal
-              </Link>
+              </AnalyticsLink>
             </div>
           </div>
           <figure className="hero-photo">
@@ -93,28 +102,44 @@ export default function HomePage() {
         </div>
         <ul className="path-grid path-grid-4">
           <li>
-            <Link className="path-card" href="/medicamentos/mounjaro/">
+            <AnalyticsLink
+              className="path-card"
+              href="/medicamentos/mounjaro/"
+              event="path_medicamento"
+            >
               <strong>O medicamento</strong>
               <span>O que é a tirzepatida e em que difere do Ozempic.</span>
-            </Link>
+            </AnalyticsLink>
           </li>
           <li>
-            <Link className="path-card" href="/artigos/">
-              <strong>Na prática</strong>
-              <span>Rybelsus, comparações, stock e primeiras semanas.</span>
-            </Link>
+            <AnalyticsLink
+              className="path-card"
+              href="/artigos/rybelsus-portugal/"
+              event="path_rybelsus"
+            >
+              <strong>Rybelsus</strong>
+              <span>Comprimido em Portugal — rotina e Infomed.</span>
+            </AnalyticsLink>
           </li>
           <li>
-            <Link className="path-card" href="/precos/">
+            <AnalyticsLink
+              className="path-card"
+              href="/precos/"
+              event="path_precos"
+            >
               <strong>O preço</strong>
-              <span>Ordens de grandeza em Portugal e o que verificar.</span>
-            </Link>
+              <span>Ordens de grandeza e comparticipação SNS.</span>
+            </AnalyticsLink>
           </li>
           <li>
-            <Link className="path-card" href="/perguntas/">
+            <AnalyticsLink
+              className="path-card"
+              href="/perguntas/"
+              event="path_faq"
+            >
               <strong>Perguntas</strong>
               <span>FAQ: doses, náuseas, compra e mitos.</span>
-            </Link>
+            </AnalyticsLink>
           </li>
         </ul>
       </section>
@@ -137,6 +162,13 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+        <p className="soft-note" style={{ marginTop: "1.25rem" }}>
+          <Link href="/artigos/">Ver todos os artigos</Link>
+          {" · "}
+          <Link href="/artigos/rybelsus-vs-ozempic/">Rybelsus vs Ozempic</Link>
+          {" · "}
+          <Link href="/artigos/se-eu-parar/">Se eu parar</Link>
+        </p>
       </section>
 
       <section className="section shell" id="medicamentos">

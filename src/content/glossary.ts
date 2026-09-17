@@ -99,4 +99,24 @@ export const glossaryTerms: GlossaryTerm[] = [
     definition:
       "Substância que activa um recetor. «Agonista de GLP-1» significa que o medicamento imita parte do efeito da hormona GLP-1.",
   },
+  {
+    id: "sns24",
+    term: "SNS 24",
+    definition:
+      "Linha e serviço de informação de saúde do SNS. Em dúvida urgente ou sintomas graves, é um contacto adequado — não um fórum online.",
+  },
+  {
+    id: "men2",
+    term: "MEN2",
+    definition:
+      "Neoplasia endócrina múltipla tipo 2. História pessoal ou familiar relevante é contraindicação clássica a discutir na consulta antes destes fármacos.",
+  },
+  {
+    id: "imc",
+    term: "IMC",
+    definition:
+      "Índice de massa corporal. Muitos critérios de indicação para gestão de peso usam limiares de IMC — o médico interpreta no seu contexto clínico, não um post.",
+    relatedHref: "/medicos/",
+    relatedLabel: "Médicos",
+  },
 ];

@@ -21,6 +21,8 @@ export function SiteFooter() {
           <Link href="/perguntas/">Perguntas</Link>
           <Link href="/glossario/">Glossário</Link>
           <Link href="/fontes/">Fontes</Link>
+          <Link href="/sobre/">Sobre</Link>
+          <Link href="/privacidade/">Privacidade</Link>
           <Link href="/aviso/">Aviso médico</Link>
         </nav>
       </div>

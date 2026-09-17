@@ -106,6 +106,12 @@ export default function PerguntasPage() {
             </Link>
           </li>
           <li>
+            <Link href="/artigos/se-eu-parar/">
+              <strong>Se eu parar</strong>
+              <span>O que costuma acontecer.</span>
+            </Link>
+          </li>
+          <li>
             <Link href="/glossario/">
               <strong>Glossário</strong>
               <span>Termos em linguagem clara.</span>
