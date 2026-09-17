@@ -118,6 +118,8 @@ export const faqItems: FaqItem[] = [
     question: "Quanto custa em Portugal?",
     answer:
       "Ordens de grandeza típicas de PVP: Mounjaro cerca de 180–430 €/mês conforme a dose; Wegovy cerca de 150–200 €/mês; Ozempic muitas vezes na casa dos 100–140 €/mês. Para obesidade, Mounjaro/Wegovy/Saxenda têm sido pagos a 100% pelo utente. Ozempic pode ter comparticipação em diabetes tipo 2 dentro de critérios. Confirme sempre Infomed e a farmácia — ver página /precos.",
+    relatedHref: "/artigos/comparticipacao-sns/",
+    relatedLabel: "Comparticipação: o que verificar",
   },
   {
     id: "que-medico",
@@ -220,6 +222,26 @@ export const faqItems: FaqItem[] = [
     question: "O que acontece se eu parar?",
     answer:
       "O efeito vai-se e, em muitos estudos, parte do peso e do controlo do açúcar regride se nada mais mudar. Por isso o plano de alimentação, músculo e acompanhamento importa tanto quanto a caneta. Parar de súbito por falta de stock ou por conta própria merece uma conversa médica — especialmente em diabetes.",
+    relatedHref: "/artigos/se-eu-parar/",
+    relatedLabel: "Artigo: se eu parar",
+  },
+  {
+    id: "comparticipacao",
+    category: "basico",
+    question: "O SNS comparticipa estes medicamentos?",
+    answer:
+      "Depende do medicamento, da indicação (diabetes tipo 2 vs peso) e das regras oficiais em vigor. Ter receita não garante comparticipação. Confirme Infomed e o ticket da farmácia; a página de preços e o artigo sobre comparticipação explicam o que verificar — sem prometer direitos.",
+    relatedHref: "/artigos/comparticipacao-sns/",
+    relatedLabel: "Comparticipação: o que verificar",
+  },
+  {
+    id: "rybelsus-vs-ozempic",
+    category: "basico",
+    question: "Rybelsus é o mesmo que Ozempic?",
+    answer:
+      "Partilham a substância (semaglutida), mas não a via nem a rotina: Rybelsus é comprimido diário com regras de jejum; Ozempic é injectável semanal. Não troque um pelo outro sem indicação médica.",
+    relatedHref: "/artigos/rybelsus-vs-ozempic/",
+    relatedLabel: "Artigo: Rybelsus vs Ozempic",
   },
   {
     id: "tiroide",

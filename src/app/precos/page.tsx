@@ -160,6 +160,18 @@ export default function PrecosPage() {
           <h2>Continuar</h2>
           <ul>
             <li>
+              <Link href="/artigos/comparticipacao-sns/">
+                <strong>Comparticipação SNS</strong>
+                <span>O que verificar além do PVP.</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/artigos/rybelsus-portugal/">
+                <strong>Rybelsus em Portugal</strong>
+                <span>Contexto local do comprimido.</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/onde-comprar/">
                 <strong>Onde comprar</strong>
                 <span>Farmácia legal — não anúncios baratos.</span>
@@ -169,12 +181,6 @@ export default function PrecosPage() {
               <Link href="/medicos/">
                 <strong>Médicos</strong>
                 <span>Quem acompanha e o que perguntar.</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/medicamentos/">
-                <strong>Medicamentos</strong>
-                <span>As 11 fichas no mesmo formato.</span>
               </Link>
             </li>
           </ul>

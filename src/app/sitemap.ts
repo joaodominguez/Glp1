@@ -19,6 +19,8 @@ const staticRoutes: Array<{
   { path: "/perguntas/", changeFrequency: "weekly", priority: 0.85 },
   { path: "/glossario/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/fontes/", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/sobre/", changeFrequency: "yearly", priority: 0.55 },
+  { path: "/privacidade/", changeFrequency: "yearly", priority: 0.45 },
   { path: "/aviso/", changeFrequency: "yearly", priority: 0.5 },
 ];
 
