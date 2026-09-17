@@ -62,11 +62,19 @@ export default function SobrePage() {
           <li>Não recomendamos doses, marcas ou esquemas de tratamento.</li>
         </ul>
 
+        <h2>Portugal primeiro</h2>
+        <p>
+          O domínio e a linguagem padrão são portugueses europeus (Infomed,
+          SNS, ortografia pt-PT). Não mantemos neste momento um hub Brasil
+          paralelo — evita misturar reguladores e ortografias. Se isso mudar, será
+          uma secção explícita, não uma cópia silenciosa do FAQ.
+        </p>
+
         <h2>Contacto editorial</h2>
         <p>
-          Encontrou um erro factual? Prefira as{" "}
-          <Link href="/fontes/">fontes oficiais</Link> e diga-nos o que corrigir —
-          o objectivo é utilidade, não ego. Ver também o{" "}
+          Encontrou um erro factual? Use{" "}
+          <Link href="/sugerir/">Sugerir correcção</Link>, preferindo as{" "}
+          <Link href="/fontes/">fontes oficiais</Link>. Ver também o{" "}
           <Link href="/aviso/">aviso médico</Link> e a{" "}
           <Link href="/privacidade/">privacidade</Link>.
         </p>

@@ -124,21 +124,21 @@ export default function HomePage() {
           <li>
             <AnalyticsLink
               className="path-card"
-              href="/precos/"
-              event="path_precos"
+              href="/medicos/#checklist"
+              event="path_checklist"
             >
-              <strong>O preço</strong>
-              <span>Ordens de grandeza e comparticipação SNS.</span>
+              <strong>Checklist</strong>
+              <span>O que levar à consulta — com vistos no browser.</span>
             </AnalyticsLink>
           </li>
           <li>
             <AnalyticsLink
               className="path-card"
-              href="/perguntas/"
-              event="path_faq"
+              href="/pesquisa/"
+              event="path_pesquisa"
             >
-              <strong>Perguntas</strong>
-              <span>FAQ: doses, náuseas, compra e mitos.</span>
+              <strong>Pesquisar</strong>
+              <span>Medicamentos, artigos, FAQ e glossário.</span>
             </AnalyticsLink>
           </li>
         </ul>
@@ -165,9 +165,11 @@ export default function HomePage() {
         <p className="soft-note" style={{ marginTop: "1.25rem" }}>
           <Link href="/artigos/">Ver todos os artigos</Link>
           {" · "}
-          <Link href="/artigos/rybelsus-vs-ozempic/">Rybelsus vs Ozempic</Link>
+          <Link href="/comparar/">Comparar medicamentos</Link>
           {" · "}
-          <Link href="/artigos/se-eu-parar/">Se eu parar</Link>
+          <Link href="/artigos/dor-abdominal-vesicula/">Dor abdominal</Link>
+          {" · "}
+          <Link href="/artigos/hipoglicemia-quando-preocupar/">Hipoglicemia</Link>
         </p>
       </section>
 

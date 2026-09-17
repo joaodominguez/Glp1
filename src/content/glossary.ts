@@ -119,4 +119,28 @@ export const glossaryTerms: GlossaryTerm[] = [
     relatedHref: "/medicos/",
     relatedLabel: "Médicos",
   },
+  {
+    id: "pancreatite",
+    term: "Pancreatite",
+    definition:
+      "Inflamação do pâncreas. História prévia ou dor abdominal intensa com vómitos merece avaliação urgente — não «esperar pela próxima dose».",
+    relatedHref: "/artigos/dor-abdominal-vesicula/",
+    relatedLabel: "Dor abdominal",
+  },
+  {
+    id: "hipoglicemia",
+    term: "Hipoglicemia",
+    definition:
+      "Açúcar no sangue demasiado baixo. Com insulina ou certos comprimidos antidiabéticos o risco sobe; o plano é individual.",
+    relatedHref: "/artigos/hipoglicemia-quando-preocupar/",
+    relatedLabel: "Quando preocupar",
+  },
+  {
+    id: "sulfonilureia",
+    term: "Sulfonilureia",
+    definition:
+      "Classe de comprimidos para diabetes que pode baixar o açúcar. Em combinação com GLP-1, o médico pode precisar de ajustar doses.",
+    relatedHref: "/artigos/hipoglicemia-quando-preocupar/",
+    relatedLabel: "Hipoglicemia",
+  },
 ];

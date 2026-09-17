@@ -9,6 +9,7 @@ import {
   medications,
   relatedMedications,
 } from "@/content/medications";
+import { manufacturerSources, officialSources } from "@/content/sources";
 import {
   absoluteUrl,
   breadcrumbLd,
@@ -208,6 +209,37 @@ export default async function MedicationPage({ params }: Props) {
           recomendação de dose ou de troca de medicamento.
         </p>
 
+        <section className="source-box" aria-label="Fontes oficiais">
+          <h2>Confirmar nas fontes oficiais</h2>
+          <p>
+            Preços, estatuto e bula mudam. Cruze sempre com reguladores — este
+            guia é educativo.
+          </p>
+          <ul className="source-list compact">
+            {officialSources.slice(0, 3).map((s) => (
+              <li key={s.id}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer">
+                  {s.title}
+                </a>
+                <p>{s.why}</p>
+              </li>
+            ))}
+            {manufacturerSources
+              .filter((s) => s.id === "ema-search" || s.id === "sns24")
+              .map((s) => (
+                <li key={s.id}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer">
+                    {s.title}
+                  </a>
+                  <p>{s.why}</p>
+                </li>
+              ))}
+          </ul>
+          <p className="soft-note">
+            Lista completa em <Link href="/fontes/">Fontes</Link>.
+          </p>
+        </section>
+
         {related.length > 0 ? (
           <section className="siblings">
             <h2>A mesma substância, noutro nome</h2>
@@ -228,21 +260,21 @@ export default async function MedicationPage({ params }: Props) {
           <h2>O que ler a seguir</h2>
           <ul>
             <li>
+              <Link href="/comparar/">
+                <strong>Comparar</strong>
+                <span>Dois medicamentos, factos lado a lado</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/precos/">
                 <strong>Preços</strong>
                 <span>Ordens de grandeza e o que verificar</span>
               </Link>
             </li>
             <li>
-              <Link href="/medicos/">
-                <strong>Médicos</strong>
-                <span>Que especialidade consultar</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/medicamentos/">
-                <strong>Todos os medicamentos</strong>
-                <span>Os 11 no mesmo formato</span>
+              <Link href="/medicos/#checklist">
+                <strong>Checklist</strong>
+                <span>O que levar à consulta</span>
               </Link>
             </li>
           </ul>

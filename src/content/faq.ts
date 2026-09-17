@@ -294,4 +294,40 @@ export const faqItems: FaqItem[] = [
     answer:
       "Comer fibra, proteína e movimento regular influencia hormonas da saciedade. Isso é saúde. Não é equivalente a um agonista farmacológico semanal. Suplementos vendidos como «GLP-1 natural» misturam marketing com ciência fraca. Desconfie de quem promete o mesmo efeito sem receita.",
   },
+  {
+    id: "composto",
+    category: "mitos",
+    question: "Posso usar «semaglutida composta» ou de manipulação?",
+    answer:
+      "Produtos manipulados ou vendidos fora do circuito de farmácia licenciada e bula oficial são um risco clássico de dose, pureza e frio. Em Portugal, a referência é Infomed + farmácia com receita. Se o stock falhar, fale com o médico — não com um anúncio.",
+    relatedHref: "/onde-comprar/",
+    relatedLabel: "Onde comprar com segurança",
+  },
+  {
+    id: "grupo-vs-bula",
+    category: "mitos",
+    question: "O grupo do Facebook sabe mais que a bula?",
+    answer:
+      "Grupos partilham experiências — úteis para empatia, péssimos como protocolo. Dose, troca de marca e «truques» de toma devem passar pelo prescritor e pelo folheto. A bula e o RCM mandam; o algoritmo não.",
+    relatedHref: "/fontes/",
+    relatedLabel: "Fontes oficiais",
+  },
+  {
+    id: "vesicula-alarme",
+    category: "efeitos",
+    question: "Dor forte na barriga é normal?",
+    answer:
+      "Náusea leve ao subir a dose é frequente. Dor intensa e persistente, vómitos que impedem beber, febre ou icterícia não são «o normal da adaptação» — contacte SNS 24 / urgência / médico.",
+    relatedHref: "/artigos/dor-abdominal-vesicula/",
+    relatedLabel: "Artigo: dor e vesícula",
+  },
+  {
+    id: "hipoglicemia",
+    category: "efeitos",
+    question: "Estes medicamentos dão hipoglicemia?",
+    answer:
+      "Soinhos, o risco de hipoglicemia grave é baixo. Com insulina ou sulfonilureias sobe — o médico pode ajustar esses outros fármacos. Não corte insulina por conta própria.",
+    relatedHref: "/artigos/hipoglicemia-quando-preocupar/",
+    relatedLabel: "Artigo: hipoglicemia",
+  },
 ];

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { InteractiveChecklist } from "@/components/InteractiveChecklist";
 import { JsonLd } from "@/components/JsonLd";
-import { checklistSections } from "@/content/checklist";
 import {
   careRedFlags,
   howToFindDoctors,
@@ -104,31 +104,11 @@ export default function MedicosPage() {
         <div className="section-head">
           <h2>Checklist para a consulta</h2>
           <p>
-            Uma consulta rende mais com factos. Escolha o que se aplica — não
-            precisa de marcar tudo.
+            Marque o que já tem. Os vistos ficam só neste browser — não
+            enviamos a sua lista.
           </p>
         </div>
-        <div className="checklist-stack">
-          {checklistSections.map((section) => (
-            <div key={section.id} className="checklist-block">
-              <h3>{section.title}</h3>
-              <p>{section.intro}</p>
-              <ul className="checklist">
-                {section.items.map((item) => (
-                  <li key={item.id}>
-                    <span className="check-box" aria-hidden />
-                    <span>
-                      <strong>{item.label}</strong>
-                      {item.hint ? (
-                        <span className="hint">{item.hint}</span>
-                      ) : null}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <InteractiveChecklist />
       </section>
 
       <div className="next-reads">
