@@ -12,5 +12,5 @@ export const navLinks = [
   { href: "/medicamentos/", label: "Medicamentos" },
   { href: "/artigos/", label: "Artigos" },
   { href: "/precos/", label: "Preços" },
-  { href: "/perguntas/", label: "Perguntas" },
+  { href: "/pesquisa/", label: "Pesquisar" },
 ] as const;

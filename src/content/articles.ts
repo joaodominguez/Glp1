@@ -808,6 +808,133 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "dor-abdominal-vesicula",
+    title: "Dor de barriga forte: quando não é «só náusea»",
+    lede:
+      "Náuseas ligeiras são comuns ao subir a dose. Dor intensa e persistente — com ou sem vómitos — já é outro capítulo. Não diagnostique pela internet.",
+    summary:
+      "Sinais de alarme digestivos com GLP-1: vesícula, pancreatite e quando contactar SNS 24 ou urgência — em linguagem clara.",
+    eyebrow: "Segurança",
+    readMinutes: 5,
+    publishedAt: "2026-09-17",
+    illustration: {
+      brandName: "Wegovy",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "wegovy",
+    },
+    sections: [
+      {
+        heading: "O que muitas vezes é adaptação",
+        paragraphs: [
+          "Enfartamento, náusea leve, alterações do trânsito intestinal ao subir a dose. Estratégias gerais (refeições mais pequenas, menos gordura, hidratação) ajudam muita gente — sempre alinhadas com o médico.",
+        ],
+      },
+      {
+        heading: "Sinais que pedem avaliação urgente",
+        paragraphs: [
+          "Dor intensa e persistente na barriga (especialmente em cima à direita), vómitos que impedem beber, febre, amarelar da pele/olhos, ou dor que irradia para as costas. Estes padrões entram na conversa de vesícula, pancreatite e outras causas — só a equipa de saúde avalia o seu caso.",
+        ],
+        bullets: [
+          "Não «aguente até à próxima dose» se a dor for forte.",
+          "Não suba a dose para «compensar» dias maus.",
+          "Diga todos os medicamentos e o dia da última injectável/comprimido.",
+        ],
+      },
+      {
+        heading: "O que este site não faz",
+        paragraphs: [
+          "Não diz se «é vesícula» ou «é pancreatite». Diz: há um limiar em que deixar de ser «efeito chato» e passar a ser motivo de contacto com SNS 24 / urgência / médico. O artigo de náuseas cobre o dia a dia; este cobre o alarme.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Dor abdominal intensa ou que não passa.",
+      "Vómitos com desidratação ou incapacidade de beber.",
+      "Febre, icterícia, ou dor com irradiação para as costas.",
+    ],
+    related: [
+      {
+        href: "/artigos/nauseas-e-estomago/",
+        label: "Náuseas no dia a dia",
+        blurb: "Adaptação vs alarme.",
+      },
+      {
+        href: "/perguntas/#quando-ligar",
+        label: "FAQ: quando ligar",
+        blurb: "Resposta curta.",
+      },
+      {
+        href: "/fontes/",
+        label: "Fontes",
+        blurb: "SNS 24 e reguladores.",
+      },
+    ],
+  },
+  {
+    slug: "hipoglicemia-quando-preocupar",
+    title: "Hipoglicemia com GLP-1: quando preocupar",
+    lede:
+      "Soinhos, estes fármacos sozinhos raramente causam hipoglicemia grave. Com insulina ou certos comprimidos para o açúcar, o risco sobe — e a conversa com o médico muda.",
+    summary:
+      "Sinais de hipoglicemia, quem está mais em risco com agonistas GLP-1, e o que não improvisar sem orientação clínica.",
+    eyebrow: "Segurança",
+    readMinutes: 5,
+    publishedAt: "2026-09-17",
+    illustration: {
+      brandName: "Ozempic",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "ozempic",
+    },
+    sections: [
+      {
+        heading: "Quem precisa de atenção redobrada",
+        paragraphs: [
+          "Pessoas com diabetes tipo 2 que usam insulina ou sulfonilureias (e classes semelhantes). O médico pode ajustar doses desses outros fármacos quando se inicia ou sobe um agonista de GLP-1. Não corte insulina «porque leu que emagrece».",
+        ],
+      },
+      {
+        heading: "Sinais a reconhecer",
+        paragraphs: [
+          "Tremores, suores, fome intensa, confusão, palpitações, visão turva — o padrão exacto varia. Se já tem glucómetro ou sensor, use o plano que o médico definiu. Se não tem diabetes e sente sintomas estranhos, isso também merece avaliação: não assuma que «é o GLP-1».",
+        ],
+        bullets: [
+          "Leve a lista completa de antidiabéticos à consulta.",
+          "Pergunte o que fazer se o açúcar baixar de noite ou após exercício.",
+          "Não invente «pausas» de insulina por conta própria.",
+        ],
+      },
+      {
+        heading: "Urgência",
+        paragraphs: [
+          "Confusão grave, desmaio, convulsões ou incapacidade de engolir açúcar rápido: contacte emergência / SNS 24 conforme a gravidade. Este site não substitui o plano individual de hipoglicemia.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Sintomas de hipoglicemia grave ou recorrente.",
+      "Usa insulina/sulfonilureia e vai iniciar ou subir um GLP-1.",
+    ],
+    related: [
+      {
+        href: "/medicos/#checklist",
+        label: "Checklist da consulta",
+        blurb: "O que levar.",
+      },
+      {
+        href: "/perguntas/#quando-ligar",
+        label: "FAQ: quando ligar",
+        blurb: "Alarmes gerais.",
+      },
+      {
+        href: "/artigos/dor-abdominal-vesicula/",
+        label: "Dor abdominal",
+        blurb: "Outro alarme digestivo.",
+      },
+    ],
+  },
 ];
 
 export function getArticle(slug: string) {
