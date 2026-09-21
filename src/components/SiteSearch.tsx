@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { searchHits } from "@/lib/search-index";
 
 const kindLabel: Record<string, string> = {
@@ -22,6 +23,17 @@ export function SiteSearch({
   const [query, setQuery] = useState("");
   const hits = useMemo(() => searchHits(query), [query]);
 
+  useEffect(() => {
+    if (query.trim().length < 2) return;
+    const t = window.setTimeout(() => {
+      trackEvent("search_query", {
+        search_term: query.trim().slice(0, 80),
+        result_count: hits.length,
+      });
+    }, 600);
+    return () => window.clearTimeout(t);
+  }, [query, hits.length]);
+
   return (
     <div className="site-search">
       <label className="sr-only" htmlFor={id}>
@@ -39,11 +51,21 @@ export function SiteSearch({
       {query.trim().length >= 2 ? (
         <ul className="search-results" role="listbox">
           {hits.length === 0 ? (
-            <li className="search-empty">Sem resultados. Tente outro termo.</li>
+            <li className="search-empty">
+              Sem resultados. Experimente «Rybelsus», «preço» ou «náuseas».
+            </li>
           ) : (
             hits.map((hit) => (
               <li key={hit.id}>
-                <Link href={hit.href}>
+                <Link
+                  href={hit.href}
+                  onClick={() =>
+                    trackEvent("search_result_click", {
+                      link_url: hit.href,
+                      search_term: query.trim().slice(0, 80),
+                    })
+                  }
+                >
                   <span className="search-kind">{kindLabel[hit.kind]}</span>
                   <strong>{hit.title}</strong>
                   <span className="blurb">{hit.blurb}</span>

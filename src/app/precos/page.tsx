@@ -15,18 +15,20 @@ import {
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 const description =
-  "Quanto custam Mounjaro, Wegovy, Ozempic e outros GLP-1 em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que verificar na Infomed.";
+  "Preço Mounjaro, Ozempic, Wegovy e Rybelsus em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que confirmar na Infomed antes de decidir.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Preços Mounjaro, Ozempic e Wegovy em Portugal",
+  title: "Preço Mounjaro, Ozempic e Wegovy em Portugal",
   description,
   path: "/precos",
   keywords: [
-    "preço Mounjaro Portugal",
-    "preço Wegovy",
-    "Ozempic comparticipação",
-    "GLP-1 preço",
-    "INFARMED",
+    "mounjaro preço portugal",
+    "ozempic preço portugal",
+    "preço Wegovy Portugal",
+    "rybelsus preço",
+    "trulicity preço",
+    "GLP-1 comparticipação",
+    "INFARMED Infomed",
   ],
 });
 
@@ -63,10 +65,11 @@ export default function PrecosPage() {
         ]}
       />
       <p className="eyebrow">Portugal · dinheiro</p>
-      <h1>Preços dos medicamentos GLP-1</h1>
+      <h1>Preço Mounjaro, Ozempic e Wegovy em Portugal</h1>
       <p className="lede">
         A pergunta mais frequente depois de «isto é para mim?» é «quanto custa?».
-        Aqui vai a ordem de grandeza — e o que a muda.
+        Aqui vai a ordem de grandeza de PVP — e o que a muda (dose, indicação,
+        comparticipação).
       </p>
 
       <div className="disclaimer">
@@ -160,6 +163,12 @@ export default function PrecosPage() {
           <h2>Continuar</h2>
           <ul>
             <li>
+              <Link href="/artigos/como-ler-infomed/">
+                <strong>Como ler a Infomed</strong>
+                <span>PVP e estatuto oficiais.</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/artigos/comparticipacao-sns/">
                 <strong>Comparticipação SNS</strong>
                 <span>O que verificar além do PVP.</span>
@@ -172,15 +181,9 @@ export default function PrecosPage() {
               </Link>
             </li>
             <li>
-              <Link href="/onde-comprar/">
-                <strong>Onde comprar</strong>
-                <span>Farmácia legal — não anúncios baratos.</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/medicos/">
-                <strong>Médicos</strong>
-                <span>Quem acompanha e o que perguntar.</span>
+              <Link href="/clinicas/">
+                <strong>Clínicas</strong>
+                <span>Critério — sem ranking.</span>
               </Link>
             </li>
           </ul>

@@ -27,6 +27,13 @@ const staticPages: SearchHit[] = [
     kind: "pagina",
   },
   {
+    id: "page-clinicas",
+    title: "Clínicas GLP-1 em Portugal",
+    blurb: "Critério de consulta — sem ranking.",
+    href: "/clinicas/",
+    kind: "pagina",
+  },
+  {
     id: "page-comparar",
     title: "Comparar medicamentos",
     blurb: "Dois nomes, factos lado a lado — sem veredicto.",

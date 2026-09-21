@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+import { trackEvent } from "@/lib/analytics";
 
 type Props = {
   href: string;
@@ -30,13 +25,7 @@ export function AnalyticsLink({
       className={className}
       {...rest}
       onClick={() => {
-        if (typeof window === "undefined" || typeof window.gtag !== "function") {
-          return;
-        }
-        window.gtag("event", event, {
-          link_url: href,
-          transport_type: "beacon",
-        });
+        trackEvent(event, { link_url: href });
       }}
     >
       {children}

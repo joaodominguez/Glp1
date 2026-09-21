@@ -12,8 +12,15 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Artigos — boas práticas com GLP-1",
   description:
-    "Guias práticos em português: primeiras semanas, náuseas, dose esquecida, viagem, proteína e músculo com canetas GLP-1.",
+    "Guias práticos: Rybelsus Portugal, preços, titulação, obstipação, comparações (Mounjaro, Ozempic, Wegovy, Saxenda) e alarmes.",
   path: "/artigos",
+  keywords: [
+    "rybelsus portugal",
+    "mounjaro preço",
+    "artigos GLP-1",
+    "titulação",
+    "obstipação Ozempic",
+  ],
 });
 
 export default function ArtigosPage() {

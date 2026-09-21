@@ -330,4 +330,40 @@ export const faqItems: FaqItem[] = [
     relatedHref: "/artigos/hipoglicemia-quando-preocupar/",
     relatedLabel: "Artigo: hipoglicemia",
   },
+  {
+    id: "obstipacao",
+    category: "efeitos",
+    question: "É normal ficar obstipado?",
+    answer:
+      "É um efeito frequente: menos comida e esvaziamento mais lento. Água, fibra e movimento ajudam muita gente — com o acordo do médico. Dor forte, vómitos ou inchaço marcado já pedem avaliação.",
+    relatedHref: "/artigos/obstipacao-glp1/",
+    relatedLabel: "Artigo: obstipação",
+  },
+  {
+    id: "ema-registo",
+    category: "basico",
+    question: "O que significa registo na EMA?",
+    answer:
+      "A EMA avalia medicamentos a nível da União Europeia. Ter avaliação europeia não diz sozinho o PVP nem a comparticipação em Portugal — para isso use Infomed e a farmácia. Ver o mini-guia Infomed e a página de Fontes.",
+    relatedHref: "/artigos/como-ler-infomed/",
+    relatedLabel: "Como ler a Infomed",
+  },
+  {
+    id: "exenatida",
+    category: "basico",
+    question: "O que é a exenatida?",
+    answer:
+      "É a substância de canetas como Byetta (e formulações relacionadas como Bydureon). Faz parte da família dos agonistas de GLP-1, tipicamente mais antigas que as semanais actuais. Ver a ficha Byetta no levantamento.",
+    relatedHref: "/medicamentos/byetta/",
+    relatedLabel: "Ficha Byetta",
+  },
+  {
+    id: "dominio-oficial",
+    category: "mitos",
+    question: "meuglp1.com.br é o mesmo site?",
+    answer:
+      "O site oficial deste guia é https://www.meuglp1.pt (Portugal, pt-PT). Não operamos um .com.br paralelo. Desconfie de cópias ou sites com nome parecido que vendam medicamentos.",
+    relatedHref: "/sobre/",
+    relatedLabel: "Sobre o Guia GLP-1",
+  },
 ];
