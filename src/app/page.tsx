@@ -165,11 +165,11 @@ export default function HomePage() {
         <p className="soft-note" style={{ marginTop: "1.25rem" }}>
           <Link href="/artigos/">Ver todos os artigos</Link>
           {" · "}
-          <Link href="/comparar/">Comparar medicamentos</Link>
+          <Link href="/clinicas/">Clínicas (critério)</Link>
           {" · "}
-          <Link href="/artigos/dor-abdominal-vesicula/">Dor abdominal</Link>
+          <Link href="/comparar/">Comparar</Link>
           {" · "}
-          <Link href="/artigos/hipoglicemia-quando-preocupar/">Hipoglicemia</Link>
+          <Link href="/artigos/como-ler-infomed/">Ler Infomed</Link>
         </p>
       </section>
 

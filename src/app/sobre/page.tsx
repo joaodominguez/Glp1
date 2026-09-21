@@ -64,10 +64,13 @@ export default function SobrePage() {
 
         <h2>Portugal primeiro</h2>
         <p>
-          O domínio e a linguagem padrão são portugueses europeus (Infomed,
-          SNS, ortografia pt-PT). Não mantemos neste momento um hub Brasil
-          paralelo — evita misturar reguladores e ortografias. Se isso mudar, será
-          uma secção explícita, não uma cópia silenciosa do FAQ.
+          O domínio oficial é <strong>www.meuglp1.pt</strong> (português europeu,
+          Infomed, SNS). Não operamos um site .com.br paralelo — se aparecer um
+          nome parecido a vender medicamentos, trate como red flag.
+        </p>
+        <p>
+          Não mantemos neste momento um hub Brasil completo — evita misturar
+          reguladores e ortografias. Se isso mudar, será uma secção explícita.
         </p>
 
         <h2>Contacto editorial</h2>

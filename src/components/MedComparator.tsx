@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import { medications, type Medication } from "@/content/medications";
+import { trackEvent } from "@/lib/analytics";
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
@@ -29,6 +31,33 @@ function MedColumn({ med }: { med: Medication | undefined }) {
   );
 }
 
+const PAIR_ARTICLES: Record<string, { href: string; label: string }> = {
+  "mounjaro|ozempic": {
+    href: "/artigos/mounjaro-vs-ozempic/",
+    label: "Artigo: Mounjaro vs Ozempic",
+  },
+  "mounjaro|wegovy": {
+    href: "/artigos/mounjaro-vs-wegovy/",
+    label: "Artigo: Mounjaro vs Wegovy",
+  },
+  "ozempic|rybelsus": {
+    href: "/artigos/rybelsus-vs-ozempic/",
+    label: "Artigo: Rybelsus vs Ozempic",
+  },
+  "ozempic|wegovy": {
+    href: "/artigos/ozempic-vs-wegovy/",
+    label: "Artigo: Ozempic vs Wegovy",
+  },
+  "saxenda|wegovy": {
+    href: "/artigos/saxenda-vs-wegovy/",
+    label: "Artigo: Saxenda vs Wegovy",
+  },
+};
+
+function pairKey(a: string, b: string) {
+  return [a, b].sort().join("|");
+}
+
 export function MedComparator() {
   const sorted = useMemo(
     () => [...medications].sort((a, b) => a.order - b.order),
@@ -39,13 +68,27 @@ export function MedComparator() {
 
   const a = sorted.find((m) => m.slug === left);
   const b = sorted.find((m) => m.slug === right);
+  const article = PAIR_ARTICLES[pairKey(left, right)];
+
+  useEffect(() => {
+    trackEvent("compare_view", { med_a: left, med_b: right });
+  }, [left, right]);
 
   return (
     <div className="compare-tool">
       <div className="compare-pickers">
         <label>
           Medicamento A
-          <select value={left} onChange={(e) => setLeft(e.target.value)}>
+          <select
+            value={left}
+            onChange={(e) => {
+              setLeft(e.target.value);
+              trackEvent("compare_change", {
+                med_a: e.target.value,
+                med_b: right,
+              });
+            }}
+          >
             {sorted.map((m) => (
               <option key={m.slug} value={m.slug}>
                 {m.brandName}
@@ -55,7 +98,16 @@ export function MedComparator() {
         </label>
         <label>
           Medicamento B
-          <select value={right} onChange={(e) => setRight(e.target.value)}>
+          <select
+            value={right}
+            onChange={(e) => {
+              setRight(e.target.value);
+              trackEvent("compare_change", {
+                med_a: left,
+                med_b: e.target.value,
+              });
+            }}
+          >
             {sorted.map((m) => (
               <option key={m.slug} value={m.slug}>
                 {m.brandName}
@@ -68,6 +120,14 @@ export function MedComparator() {
         Comparação factual do nosso levantamento — não diz qual é «melhor» para
         si. Confirme Infomed e a consulta.
       </p>
+      {article ? (
+        <p className="soft-note">
+          Leitura relacionada:{" "}
+          <Link href={article.href} onClick={() => trackEvent("compare_article_click")}>
+            {article.label}
+          </Link>
+        </p>
+      ) : null}
       <div className="compare-grid">
         <div>
           <h2>{a?.brandName ?? "—"}</h2>

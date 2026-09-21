@@ -15,6 +15,7 @@ const staticRoutes: Array<{
   { path: "/artigos/", changeFrequency: "weekly", priority: 0.92 },
   { path: "/precos/", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicos/", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/clinicas/", changeFrequency: "monthly", priority: 0.82 },
   { path: "/onde-comprar/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/perguntas/", changeFrequency: "weekly", priority: 0.85 },
   { path: "/pesquisa/", changeFrequency: "monthly", priority: 0.7 },

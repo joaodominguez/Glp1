@@ -17,6 +17,7 @@ export function SiteFooter() {
           <Link href="/artigos/">Artigos</Link>
           <Link href="/precos/">Preços</Link>
           <Link href="/medicos/">Médicos</Link>
+          <Link href="/clinicas/">Clínicas</Link>
           <Link href="/onde-comprar/">Onde comprar</Link>
           <Link href="/perguntas/">Perguntas</Link>
           <Link href="/comparar/">Comparar</Link>

@@ -5,6 +5,7 @@ import {
   CHECKLIST_STORAGE_KEY,
   checklistSections,
 } from "@/content/checklist";
+import { trackEvent } from "@/lib/analytics";
 
 export function InteractiveChecklist() {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
@@ -18,6 +19,7 @@ export function InteractiveChecklist() {
       /* ignore */
     }
     setReady(true);
+    trackEvent("checklist_view");
   }, []);
 
   useEffect(() => {
@@ -52,9 +54,14 @@ export function InteractiveChecklist() {
                     <input
                       type="checkbox"
                       checked={isOn}
-                      onChange={() =>
-                        setChecked((prev) => ({ ...prev, [id]: !prev[id] }))
-                      }
+                      onChange={() => {
+                        const next = !isOn;
+                        setChecked((prev) => ({ ...prev, [id]: next }));
+                        trackEvent("checklist_toggle", {
+                          item_id: id,
+                          checked: next,
+                        });
+                      }}
                     />
                     <span>
                       <strong>{item.label}</strong>
@@ -72,7 +79,10 @@ export function InteractiveChecklist() {
       <button
         type="button"
         className="btn btn-ghost"
-        onClick={() => setChecked({})}
+        onClick={() => {
+          setChecked({});
+          trackEvent("checklist_clear");
+        }}
       >
         Limpar vistos
       </button>

@@ -29,15 +29,66 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const med = getMedication(slug);
   if (!med) return { title: "Medicamento" };
 
-  const title =
-    slug === "rybelsus"
-      ? "Rybelsus em Portugal (semaglutida oral)"
-      : `${med.brandName} (${med.substance})`;
+  const seoBySlug: Record<
+    string,
+    { title: string; description: string; keywords: string[] }
+  > = {
+    rybelsus: {
+      title: "Rybelsus Portugal — semaglutida oral (comprimido)",
+      description:
+        "Rybelsus em Portugal: o que é, rotina de toma em jejum, diferenças face ao Ozempic, preço/Infomed e o que levar à consulta.",
+      keywords: [
+        "rybelsus",
+        "rybelsus portugal",
+        "semaglutida oral",
+        "rybelsus preço",
+      ],
+    },
+    mounjaro: {
+      title: "Mounjaro (tirzepatida) em Portugal — ficha e preço",
+      description:
+        "Mounjaro em Portugal: o que é a tirzepatida, em que difere do Ozempic, conservação e onde ver ordens de grandeza de preço.",
+      keywords: [
+        "mounjaro",
+        "mounjaro preço portugal",
+        "tirzepatida",
+        "Mounjaro Portugal",
+      ],
+    },
+    ozempic: {
+      title: "Ozempic (semaglutida) — ficha e preço em Portugal",
+      description:
+        "Ozempic em Portugal: semaglutida semanal, diferenças face ao Wegovy e Rybelsus, e o que confirmar na Infomed sobre PVP.",
+      keywords: [
+        "ozempic",
+        "ozempic preço portugal",
+        "semaglutida",
+        "Ozempic Portugal",
+      ],
+    },
+    trulicity: {
+      title: "Trulicity (dulaglutida) — ficha e contexto de preço",
+      description:
+        "Trulicity em Portugal: dulaglutida semanal, indicação típica e onde ver ordens de grandeza de PVP na página de preços.",
+      keywords: ["trulicity", "trulicity preço", "dulaglutida", "GLP-1"],
+    },
+    saxenda: {
+      title: "Saxenda (liraglutida) — ficha em Portugal",
+      description:
+        "Saxenda em Portugal: liraglutida diária para gestão de peso, diferenças face ao Wegovy e o que confirmar na Infomed.",
+      keywords: ["saxenda", "saxenda preço", "liraglutida", "Wegovy"],
+    },
+    byetta: {
+      title: "Byetta (exenatida) — ficha GLP-1",
+      description:
+        "Byetta: exenatida, agonista de GLP-1 mais antigo — o que é e em que difere das canetas semanais actuais.",
+      keywords: ["byetta", "exenatida", "exenatida diabetes", "GLP-1"],
+    },
+  };
 
-  const description =
-    slug === "rybelsus"
-      ? "Rybelsus em Portugal: semaglutida em comprimido para diabetes tipo 2 — rotina de toma, diferenças face ao Ozempic e o que confirmar na Infomed."
-      : med.summary;
+  const custom = seoBySlug[slug];
+  const title = custom?.title ?? `${med.brandName} (${med.substance})`;
+  const description = custom?.description ?? med.summary;
 
   return pageMetadata({
     title,
@@ -47,7 +98,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       med.brandName,
       med.substance,
       "GLP-1",
-      ...(slug === "rybelsus" ? ["Rybelsus Portugal", "semaglutida oral"] : []),
+      ...(custom?.keywords ?? []),
       ...(med.alsoKnownAs ?? []),
     ],
   });

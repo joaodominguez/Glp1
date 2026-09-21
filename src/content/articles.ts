@@ -935,6 +935,259 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "obstipacao-glp1",
+    title: "Obstipação com GLP-1: o que costuma ajudar",
+    lede:
+      "Menos fome e esvaziamento mais lento também podem significar intestino mais preguiçoso. Não é «falha» — mas merece plano, não só aguentar.",
+    summary:
+      "Obstipação com Mounjaro, Ozempic ou Wegovy: hábitos úteis, o que anotar e quando a obstipação deixa de ser «adaptação».",
+    eyebrow: "Na prática",
+    readMinutes: 5,
+    publishedAt: "2026-09-21",
+    illustration: {
+      brandName: "Ozempic",
+      substance: "semaglutida",
+      mechanism: "glp1",
+      slug: "ozempic",
+    },
+    sections: [
+      {
+        heading: "Porque acontece",
+        paragraphs: [
+          "Estes medicamentos atrasam o esvaziamento gástrico e reduzem a ingestão. Menos fibra, menos líquidos e menos movimento agravam o trânsito. O padrão varia de pessoa para pessoa.",
+        ],
+      },
+      {
+        heading: "Hábitos que muita gente testa (com o acordo do médico)",
+        paragraphs: [
+          "Nada disto substitui o plano clínico. São pontos frequentes na conversa de consulta:",
+        ],
+        bullets: [
+          "Água ao longo do dia — mesmo quando a sede some.",
+          "Fibra e volume nas refeições que ainda consegue tolerar.",
+          "Caminhada curta depois de comer, se estiver bem.",
+          "Não «compensar» com laxantes de anúncio sem orientação.",
+          "Anotar há quantos dias, dor, sangue ou vómitos.",
+        ],
+      },
+      {
+        heading: "Quando já não é só adaptação",
+        paragraphs: [
+          "Dor intensa, vómitos, incapacidade de evacuar com inchaço marcado, sangue ou tonturas: contacte SNS 24 / médico / urgência conforme a gravidade. O artigo sobre dor abdominal cobre outros alarmes digestivos.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Obstipação com dor forte, vómitos ou inchaço progressivo.",
+      "Sangue nas fezes ou sintomas novos intensos.",
+    ],
+    related: [
+      {
+        href: "/artigos/nauseas-e-estomago/",
+        label: "Náuseas",
+        blurb: "Outro efeito digestivo comum.",
+      },
+      {
+        href: "/artigos/dor-abdominal-vesicula/",
+        label: "Dor abdominal",
+        blurb: "Sinais de alarme.",
+      },
+      {
+        href: "/perguntas/#nauseas",
+        label: "FAQ efeitos",
+        blurb: "Respostas curtas.",
+      },
+    ],
+  },
+  {
+    slug: "titulacao-doses",
+    title: "Titulação: porque a dose sobe aos poucos",
+    lede:
+      "Começar já «no máximo» não acelera um resultado saudável — acelera náuseas. A titulação existe para o corpo acompanhar.",
+    summary:
+      "O que é titulação em Mounjaro, Ozempic ou Wegovy: porque se sobe de 4 em 4 semanas e porque a dose certa não é sempre a mais alta.",
+    eyebrow: "Na prática",
+    readMinutes: 5,
+    publishedAt: "2026-09-21",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+      slug: "mounjaro",
+    },
+    sections: [
+      {
+        heading: "O que a titulação é (e não é)",
+        paragraphs: [
+          "É a subida gradual da dose segundo o esquema do médico e da bula. Não é uma corrida nem um julgamento de «força de vontade». Em diabetes, o açúcar pode melhorar antes da balança; em peso, as primeiras semanas são muitas vezes só adaptação.",
+        ],
+      },
+      {
+        heading: "Erros comuns",
+        paragraphs: [
+          "Saltar degraus porque um vídeo mostrou a dose alta. Partilhar canetas. Comparar o seu mês 1 com fotos de redes. Parar e retomar à dose máxima sem plano.",
+        ],
+        bullets: [
+          "A dose certa é a mais baixa que cumpre o objectivo com efeitos vivíveis.",
+          "Efeitos fortes ao subir → diga — pode haver pausa no aumento.",
+          "Stock em falta → não invente esquema; fale com quem prescreve.",
+        ],
+      },
+      {
+        heading: "O que levar à revisão",
+        paragraphs: [
+          "Dia da dose, efeitos, outras medicações, e se o custo ou o stock condicionam o plano. Use a checklist na página de Médicos.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Vómitos intensos ou desidratação ao subir a dose.",
+      "Dúvida se deve avançar de dose com outros antidiabéticos.",
+    ],
+    related: [
+      {
+        href: "/artigos/primeiras-semanas/",
+        label: "Primeiras 4 semanas",
+        blurb: "Expectativas iniciais.",
+      },
+      {
+        href: "/artigos/se-eu-parar/",
+        label: "Se eu parar",
+        blurb: "Quando a titulação para.",
+      },
+      {
+        href: "/medicos/#checklist",
+        label: "Checklist",
+        blurb: "Para a consulta.",
+      },
+    ],
+  },
+  {
+    slug: "saxenda-vs-wegovy",
+    title: "Saxenda vs Wegovy: diário ou semanal?",
+    lede:
+      "Ambos são agonistas de GLP-1 usados em gestão de peso. A substância e a rotina mudam — e isso pesa na adesão.",
+    summary:
+      "Diferenças entre Saxenda (liraglutida diária) e Wegovy (semaglutida semanal): rotina, indicação típica e o que perguntar na consulta.",
+    eyebrow: "Comparar",
+    readMinutes: 6,
+    publishedAt: "2026-09-21",
+    illustration: {
+      brandName: "Saxenda",
+      substance: "liraglutida",
+      mechanism: "glp1",
+      slug: "saxenda",
+    },
+    sections: [
+      {
+        heading: "Substâncias diferentes",
+        paragraphs: [
+          "Saxenda é liraglutida (em geral injectável diária). Wegovy é semaglutida (semanal). Empresas, doses e evidência não são intercambiáveis «à vontade». Confirme sempre a bula e a Infomed em Portugal.",
+        ],
+      },
+      {
+        heading: "Rotina e adesão",
+        paragraphs: [
+          "Diário exige constância todos os dias; semanal exige lembrar um dia fixo e gerir frio/viagem. Nenhuma é «melhor» em abstracto — a melhor é a que consegue manter com segurança e acompanhamento.",
+        ],
+        bullets: [
+          "Não troque Saxenda por Wegovy (ou o inverso) sem indicação médica.",
+          "Preço e stock diferem: ver página de preços.",
+          "Efeitos digestivos existem em ambos — a titulação importa.",
+        ],
+      },
+      {
+        heading: "Perguntas úteis na consulta",
+        paragraphs: [
+          "Qual o objectivo clínico? Que critérios oficiais se aplicam? Consigo cumprir diário vs semanal? Há alternativa se o stock falhar?",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Dúvida se a caneta que tem corresponde à receita.",
+      "Efeitos graves ao iniciar ou subir.",
+    ],
+    related: [
+      {
+        href: "/medicamentos/saxenda/",
+        label: "Ficha Saxenda",
+        blurb: "Liraglutida.",
+      },
+      {
+        href: "/medicamentos/wegovy/",
+        label: "Ficha Wegovy",
+        blurb: "Semaglutida para peso.",
+      },
+      {
+        href: "/comparar/",
+        label: "Comparar",
+        blurb: "Dois nomes lado a lado.",
+      },
+    ],
+  },
+  {
+    slug: "como-ler-infomed",
+    title: "Como ler a Infomed (sem se perder)",
+    lede:
+      "A Infomed é a fonte de PVP e estatuto em Portugal. Vale a pena saber o que procurar — e o que este site não substitui.",
+    summary:
+      "Mini-guia Infomed/INFARMED para GLP-1: o que verificar (nome, dose, PVP, estatuto) e como cruzar com a farmácia e a receita.",
+    eyebrow: "Portugal",
+    readMinutes: 5,
+    publishedAt: "2026-09-21",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+      slug: "mounjaro",
+    },
+    sections: [
+      {
+        heading: "O que é",
+        paragraphs: [
+          "A Infomed é a base do INFARMED com informação oficial de medicamentos em Portugal. Para preços e estatutos, prevalece sobre posts e grupos. Ligação na página de Fontes.",
+        ],
+      },
+      {
+        heading: "Checklist rápida",
+        paragraphs: ["Antes de assumir um valor que viu na internet:"],
+        bullets: [
+          "Nome comercial exacto e substância.",
+          "Dose e apresentação (caneta, comprimido).",
+          "PVP indicado (se disponível) e data da informação.",
+          "Estatuto / comparticipação — depende da indicação.",
+          "Cruzar com o ticket da farmácia e a receita.",
+        ],
+      },
+      {
+        heading: "EMA e Infomed",
+        paragraphs: [
+          "A EMA avalia a nível europeu; a Infomed reflecte o contexto português. «Registo na EMA» não responde sozinho ao preço na sua farmácia. Use ambos: EMA para informação do medicamento, Infomed para Portugal.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Discrepância grande entre Infomed, farmácia e o que lhe disseram na consulta.",
+    ],
+    related: [
+      {
+        href: "/fontes/",
+        label: "Fontes",
+        blurb: "Infomed, EMA, SNS 24.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços",
+        blurb: "Ordens de grandeza.",
+      },
+      {
+        href: "/artigos/comparticipacao-sns/",
+        label: "Comparticipação",
+        blurb: "O que verificar no SNS.",
+      },
+    ],
+  },
 ];
 
 export function getArticle(slug: string) {
