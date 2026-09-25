@@ -159,6 +159,8 @@ export const faqItems: FaqItem[] = [
     question: "Porque se começa com uma dose baixa?",
     answer:
       "Porque o aparelho digestivo precisa de tempo. A titulação típica sobe a dose em degraus (muitas vezes de 4 em 4 semanas), se a pessoa tolerar. Começar já «no máximo» não acelera um resultado saudável — acelera náuseas. A dose certa é a mais baixa que cumpre o objetivo clínico com efeitos que a pessoa consegue viver.",
+    relatedHref: "/artigos/titulacao-doses/",
+    relatedLabel: "Artigo: titulação e doses",
   },
   {
     id: "esqueci",

@@ -58,10 +58,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ozempic: {
       title: "Ozempic (semaglutida) — ficha e preço em Portugal",
       description:
-        "Ozempic em Portugal: semaglutida semanal, diferenças face ao Wegovy e Rybelsus, e o que confirmar na Infomed sobre PVP.",
+        "Ozempic em Portugal: semaglutida semanal, titulação/doses segundo a bula, diferenças face ao Wegovy e Rybelsus, e PVP na Infomed.",
       keywords: [
         "ozempic",
         "ozempic preço portugal",
+        "ozempic dosagem",
         "semaglutida",
         "Ozempic Portugal",
       ],
@@ -320,6 +321,12 @@ export default async function MedicationPage({ params }: Props) {
               <Link href="/precos/">
                 <strong>Preços</strong>
                 <span>Ordens de grandeza e o que verificar</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/artigos/titulacao-doses/">
+                <strong>Titulação e doses</strong>
+                <span>Porque a caneta sobe aos poucos</span>
               </Link>
             </li>
             <li>
