@@ -6,6 +6,9 @@ RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Canonical trailing slash (Next export + GSC). Surgical: /precos without slash.
+RewriteRule ^precos$ /precos/ [R=301,L]
+
 <FilesMatch "\.html$">
   Header set Cache-Control "public, max-age=0, must-revalidate"
 </FilesMatch>

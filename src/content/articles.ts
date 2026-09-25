@@ -621,11 +621,11 @@ export const articles: Article[] = [
   },
   {
     slug: "rybelsus-vs-ozempic",
-    title: "Rybelsus vs Ozempic: mesma substância, rotinas diferentes",
+    title: "Rybelsus vs Ozempic em Portugal: comprimido ou caneta?",
     lede:
       "Ambos são semaglutida. Um é comprimido diário; o outro é caneta semanal. A pergunta útil não é «qual é o mais forte» — é «qual consigo cumprir com segurança».",
     summary:
-      "Diferenças entre Rybelsus e Ozempic em Portugal: via oral vs injectável, regras de toma, indicações típicas e o que confirmar na Infomed.",
+      "Rybelsus ou Ozempic? Em Portugal: oral diário vs injectável semanal, regras de toma, o que não é intercambiável e onde ver preço na Infomed.",
     eyebrow: "Comparar",
     readMinutes: 6,
     publishedAt: "2026-09-17",
@@ -680,6 +680,11 @@ export const articles: Article[] = [
         href: "/medicamentos/ozempic/",
         label: "Ficha Ozempic",
         blurb: "Semaglutida semanal.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços em Portugal",
+        blurb: "Ordens de grandeza de PVP.",
       },
     ],
   },
@@ -1002,11 +1007,11 @@ export const articles: Article[] = [
   },
   {
     slug: "titulacao-doses",
-    title: "Titulação: porque a dose sobe aos poucos",
+    title: "Titulação e doses (Ozempic, Mounjaro, Wegovy): porque sobe aos poucos",
     lede:
       "Começar já «no máximo» não acelera um resultado saudável — acelera náuseas. A titulação existe para o corpo acompanhar.",
     summary:
-      "O que é titulação em Mounjaro, Ozempic ou Wegovy: porque se sobe de 4 em 4 semanas e porque a dose certa não é sempre a mais alta.",
+      "Ozempic dosagem e titulação em Mounjaro ou Wegovy: porque a dose sobe de 4 em 4 semanas, o que não inventar sozinho e como o PVP muda com a caneta.",
     eyebrow: "Na prática",
     readMinutes: 5,
     publishedAt: "2026-09-21",
@@ -1020,7 +1025,7 @@ export const articles: Article[] = [
       {
         heading: "O que a titulação é (e não é)",
         paragraphs: [
-          "É a subida gradual da dose segundo o esquema do médico e da bula. Não é uma corrida nem um julgamento de «força de vontade». Em diabetes, o açúcar pode melhorar antes da balança; em peso, as primeiras semanas são muitas vezes só adaptação.",
+          "É a subida gradual da dose segundo o esquema do médico e da bula — em Ozempic, Mounjaro, Wegovy ou outros da classe. Não é uma corrida nem um julgamento de «força de vontade». Em diabetes, o açúcar pode melhorar antes da balança; em peso, as primeiras semanas são muitas vezes só adaptação. Este site não indica a sua dose: só o clínico e a bula da embalagem o fazem.",
         ],
       },
       {
@@ -1032,6 +1037,7 @@ export const articles: Article[] = [
           "A dose certa é a mais baixa que cumpre o objectivo com efeitos vivíveis.",
           "Efeitos fortes ao subir → diga — pode haver pausa no aumento.",
           "Stock em falta → não invente esquema; fale com quem prescreve.",
+          "O PVP sobe muitas vezes com a dosagem: ver preços e Infomed.",
         ],
       },
       {
@@ -1050,6 +1056,16 @@ export const articles: Article[] = [
         href: "/artigos/primeiras-semanas/",
         label: "Primeiras 4 semanas",
         blurb: "Expectativas iniciais.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços em Portugal",
+        blurb: "PVP muda com a dose.",
+      },
+      {
+        href: "/medicamentos/ozempic/",
+        label: "Ficha Ozempic",
+        blurb: "Semaglutida semanal.",
       },
       {
         href: "/artigos/se-eu-parar/",

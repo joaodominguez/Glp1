@@ -15,15 +15,16 @@ import {
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 const description =
-  "Preço Mounjaro, Ozempic, Wegovy e Rybelsus em Portugal: ordens de grandeza de PVP, comparticipação SNS e o que confirmar na Infomed antes de decidir.";
+  "Preço Mounjaro, Ozempic, Wegovy e Rybelsus em Portugal: ordens de grandeza de PVP por dose, comparticipação SNS e o que confirmar na Infomed — a dosagem muda o recibo.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Preço Mounjaro, Ozempic e Wegovy em Portugal",
+  title: "Preço Mounjaro e Ozempic em Portugal (PVP por dose)",
   description,
   path: "/precos",
   keywords: [
     "mounjaro preço portugal",
     "ozempic preço portugal",
+    "ozempic dosagem",
     "preço Wegovy Portugal",
     "rybelsus preço",
     "trulicity preço",
@@ -65,11 +66,11 @@ export default function PrecosPage() {
         ]}
       />
       <p className="eyebrow">Portugal · dinheiro</p>
-      <h1>Preço Mounjaro, Ozempic e Wegovy em Portugal</h1>
+      <h1>Preço Mounjaro e Ozempic em Portugal (PVP por dose)</h1>
       <p className="lede">
         A pergunta mais frequente depois de «isto é para mim?» é «quanto custa?».
-        Aqui vai a ordem de grandeza de PVP — e o que a muda (dose, indicação,
-        comparticipação).
+        Aqui vai a ordem de grandeza de PVP — e o que a muda: dose/titulação,
+        indicação e comparticipação.
       </p>
 
       <div className="disclaimer">
@@ -131,6 +132,16 @@ export default function PrecosPage() {
           INFARMED / Ministério da Saúde.
         </p>
 
+        <h2>Dose e titulação mudam o recibo</h2>
+        <p>
+          Em Ozempic, Mounjaro ou Wegovy, o PVP típico sobe quando a caneta
+          passa de dose de arranque para doses de manutenção. Isso não é um
+          esquema de «dosagem» para seguir sozinho — é o motivo pelo qual a
+          tabela acima é faixa, não preço fixo. Para o <em>porquê</em> da
+          subida gradual (e o que não inventar), leia{" "}
+          <Link href="/artigos/titulacao-doses/">titulação e doses</Link>.
+        </p>
+
         <h2>O que entra na conta real</h2>
         <ul className="plain-list">
           <li>Preço da caneta / embalagem (sobe com a dose).</li>
@@ -172,6 +183,12 @@ export default function PrecosPage() {
               <Link href="/artigos/comparticipacao-sns/">
                 <strong>Comparticipação SNS</strong>
                 <span>O que verificar além do PVP.</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/artigos/titulacao-doses/">
+                <strong>Titulação e doses</strong>
+                <span>Porque o PVP sobe com a caneta.</span>
               </Link>
             </li>
             <li>
