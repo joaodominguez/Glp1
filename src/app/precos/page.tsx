@@ -137,7 +137,7 @@ export default function PrecosPage() {
           Em Ozempic, Mounjaro ou Wegovy, o PVP típico sobe quando a caneta
           passa de dose de arranque para doses de manutenção. Isso não é um
           esquema de «dosagem» para seguir sozinho — é o motivo pelo qual a
-          tabela abaixo é faixa, não preço fixo. Para o <em>porquê</em> da
+          tabela acima é faixa, não preço fixo. Para o <em>porquê</em> da
           subida gradual (e o que não inventar), leia{" "}
           <Link href="/artigos/titulacao-doses/">titulação e doses</Link>.
         </p>
