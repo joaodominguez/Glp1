@@ -58,19 +58,21 @@ export const priceBands: PriceBand[] = [
     slug: "rybelsus",
     brandName: "Rybelsus",
     substance: "semaglutida oral",
-    monthlyBandEur: "Variável",
-    packNote: "Comprimidos diários para diabetes tipo 2.",
-    comparticipacao: "Confirme na Infomed / receita se há comparticipação aplicável.",
-    caveat: "Não é «Ozempic em pastilha» sem regras de toma.",
+    monthlyBandEur: "≈ 100 – 130 €",
+    packNote: "Embalagem típica ~30 comprimidos (≈ 1 mês).",
+    comparticipacao:
+      "Em diabetes tipo 2 pode haver comparticipação sob regras oficiais — confirme Infomed, Portaria aplicável e a receita. Não assuma o % do vizinho.",
+    caveat: "Não é «Ozempic em pastilha» sem regras de toma. PVP muda com a apresentação.",
   },
   {
     slug: "trulicity",
     brandName: "Trulicity",
     substance: "dulaglutida",
-    monthlyBandEur: "Variável",
-    packNote: "Caneta semanal; tipicamente diabetes tipo 2.",
+    monthlyBandEur: "Variável (ver Infomed)",
+    packNote:
+      "Caneta semanal; embalagens de várias canetas (ex. 1,5 mg) — o preço «por 4 canetas» não é o mesmo que «por dose».",
     comparticipacao: "Confirme comparticipação como antidiabético nos critérios atuais.",
-    caveat: "Não é intercambiável com Mounjaro ou Wegovy.",
+    caveat: "Não é intercambiável com Mounjaro ou Wegovy. Confirme dose e nº de canetas no ticket.",
   },
 ];
 
@@ -80,5 +82,6 @@ export const pricePageDisclaimer =
 export const comparticipacaoNotes = [
   "Para obesidade / gestão de peso, Mounjaro, Wegovy e Saxenda têm sido pagos a 100% pelo utente — sem comparticipação SNS — à data da revisão editorial deste guia.",
   "O Ozempic pode ser comparticipado em contextos de diabetes tipo 2 quando a prescrição cumpre os critérios oficiais (que podem incluir obesidade ou risco cardiovascular elevado). Isso não é o mesmo que comparticipação «para emagrecer».",
+  "Rybelsus e Trulicity, como antidiabéticos, podem ter estatuto de comparticipação diferente do das canetas «só para peso» — o número exacto (e se aplica ao seu caso) só vale na Infomed + receita.",
   "O Governo / INFARMED têm tido em estudo modelos de comparticipação para fármacos da obesidade, com restrições clínicas e equipas multidisciplinares. Qualquer mudança deve ser confirmada em fontes oficiais — não em anúncios de clínicas.",
 ];

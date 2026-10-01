@@ -52,6 +52,10 @@ const PAIR_ARTICLES: Record<string, { href: string; label: string }> = {
     href: "/artigos/saxenda-vs-wegovy/",
     label: "Artigo: Saxenda vs Wegovy",
   },
+  "saxenda|victoza": {
+    href: "/artigos/victoza-vs-saxenda/",
+    label: "Artigo: Victoza vs Saxenda",
+  },
 };
 
 function pairKey(a: string, b: string) {

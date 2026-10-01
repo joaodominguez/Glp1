@@ -221,10 +221,10 @@ export const medications: Medication[] = [
     practicalNotes: [
       "Seguir à letra as instruções de toma do folheto: timing e líquidos importam.",
       "Fale com o médico ou farmacêutico antes de combinar com outros comprimidos da manhã.",
-      "Confirme PVP e estatuto na Infomed; leia o artigo «Rybelsus em Portugal» para o contexto local.",
+      "Confirme PVP e estatuto na Infomed; leia o artigo «Rybelsus em Portugal» para preço, rotina e contexto local.",
     ],
     relatedSlugs: ["ozempic", "wegovy"],
-    alsoKnownAs: ["semaglutida oral", "Rybelsus Portugal"],
+    alsoKnownAs: ["semaglutida oral", "Rybelsus Portugal", "rybelsus"],
     availabilityNote:
       "Confirme no INFARMED a informação atual para Portugal.",
     order: 5,
@@ -330,8 +330,9 @@ export const medications: Medication[] = [
     practicalNotes: [
       "Útil conhecer a diferença se o médico discutir alternativas dentro da classe.",
       "Efeitos digestivos e titulação (quando aplicável) seguem a lógica da classe GLP-1.",
+      "Embalagens com várias canetas (ex. 1,5 mg × 4): confirme dose e quantidade no ticket — ver artigo «Trulicity em Portugal».",
     ],
-    alsoKnownAs: ["dulaglutida"],
+    alsoKnownAs: ["dulaglutida", "Trulicity preço"],
     availabilityNote:
       "Verifique autorização e informação atual no INFARMED / EMA.",
     order: 8,

@@ -291,11 +291,11 @@ export const articles: Article[] = [
   },
   {
     slug: "rybelsus-portugal",
-    title: "Rybelsus em Portugal: o que saber antes da receita",
+    title: "Rybelsus Portugal: preço, toma e o que não é Ozempic",
     lede:
       "É semaglutida — mas em comprimido. Em Portugal a pergunta certa não é «é o Ozempic em pastilha?»; é «a rotina de toma e a indicação fazem sentido para mim?»",
     summary:
-      "Rybelsus em Portugal: o que é, em que difere do Ozempic, regras de toma, preço/comparticipação e o que confirmar na Infomed e na farmácia.",
+      "Rybelsus em Portugal: o que é, preço/PVP, comparticipação, regras de toma em jejum e diferenças face ao Ozempic — confirme sempre Infomed.",
     eyebrow: "Portugal",
     readMinutes: 7,
     publishedAt: "2026-09-14",
@@ -328,8 +328,13 @@ export const articles: Article[] = [
       {
         heading: "Preço, comparticipação e farmácia",
         paragraphs: [
-          "Como nos outros da classe, o PVP muda e a comparticipação depende da indicação e das regras em vigor — não do que o vizinho pagou. Para obesidade/peso, muitos agonistas têm sido pagos a 100% pelo utente; em diabetes tipo 2 pode haver critérios diferentes. Confirme Infomed + ticket da farmácia.",
-          "Compre só com receita em farmácia licenciada. Preço baixo online sem cold chain / sem farmácia identificada continua a ser um risco clássico — mesmo em comprimidos.",
+          "Em listagens públicas portuguesas, o PVP de apresentações orais típicas de Rybelsus anda muitas vezes na casa dos ~100–130 € por embalagem mensal — mas isto é ordem de grandeza, não cotação. A comparticipação (quando existe) depende da indicação e das regras oficiais em vigor. Confirme Infomed + ticket da farmácia.",
+          "Compre só com receita em farmácia licenciada. Preço baixo online sem farmácia identificada continua a ser um risco clássico — mesmo em comprimidos.",
+        ],
+        bullets: [
+          "Ver também a página de preços do guia.",
+          "Não misture PVP bruto com «o que o vizinho pagou» após comparticipação.",
+          "Embalagens e dosagens mudam — o nome comercial sozinho não basta.",
         ],
       },
       {
@@ -1201,6 +1206,204 @@ export const articles: Article[] = [
         href: "/artigos/comparticipacao-sns/",
         label: "Comparticipação",
         blurb: "O que verificar no SNS.",
+      },
+    ],
+  },
+  {
+    slug: "trulicity-portugal",
+    title: "Trulicity em Portugal: preço, canetas e o que não confundir",
+    lede:
+      "Dulaglutida semanal — da mesma empresa do Mounjaro, mas não é tirzepatida. Em Portugal a pergunta útil é PVP + indicação, não o anúncio da embalagem.",
+    summary:
+      "Trulicity preço Portugal: o que é a dulaglutida, embalagens com várias canetas (ex. 1,5 mg), comparticipação e diferenças face ao Mounjaro — confirme Infomed.",
+    eyebrow: "Portugal",
+    readMinutes: 6,
+    publishedAt: "2026-10-01",
+    illustration: {
+      brandName: "Trulicity",
+      substance: "dulaglutida",
+      mechanism: "glp1",
+      slug: "trulicity",
+    },
+    sections: [
+      {
+        heading: "O que é",
+        paragraphs: [
+          "Trulicity é o nome comercial da dulaglutida, agonista de GLP-1 injectável semanal (Eli Lilly). Indicação típica: diabetes tipo 2, segundo a bula. Não é Mounjaro: a substância e o mecanismo são diferentes, mesmo quando a embalagem vem da mesma empresa.",
+        ],
+      },
+      {
+        heading: "Preço e «4 canetas»",
+        paragraphs: [
+          "Pesquisas do tipo «Trulicity 1,5 preço 4 canetas» misturam dose, apresentação e quantidade. O PVP no ticket depende da dose (ex. 0,75 / 1,5 / doses mais altas conforme o regime) e do número de canetas na caixa. Uma embalagem de 4 canetas semanais cobre cerca de um mês — mas só se for essa a apresentação prescrita.",
+          "Este guia não publica uma cotação fixa: o valor muda. Use a página de preços para a ordem de grandeza e a Infomed + farmácia para o número exacto.",
+        ],
+        bullets: [
+          "Confirme dose e nº de canetas no rótulo e na receita.",
+          "Comparticipação (se existir) depende da indicação e das regras oficiais.",
+          "Não compare o preço de uma caixa com o de uma dose isolada sem converter.",
+        ],
+      },
+      {
+        heading: "O que não confundir",
+        paragraphs: [
+          "Trulicity ≠ Mounjaro (dulaglutida ≠ tirzepatida). Trulicity ≠ Ozempic/Wegovy (semaglutida). Trocar nomes na farmácia ou em grupos sem indicação médica é um erro clássico.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Dúvida se a embalagem/dose da receita coincide com o que a farmácia tem.",
+      "Efeitos digestivos intensos ao iniciar ou subir dose.",
+    ],
+    related: [
+      {
+        href: "/medicamentos/trulicity/",
+        label: "Ficha Trulicity",
+        blurb: "Dulaglutida semanal.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços",
+        blurb: "Ordens de grandeza PVP.",
+      },
+      {
+        href: "/medicamentos/mounjaro/",
+        label: "Ficha Mounjaro",
+        blurb: "Tirzepatida — outra substância.",
+      },
+      {
+        href: "/artigos/como-ler-infomed/",
+        label: "Ler Infomed",
+        blurb: "PVP e estatuto oficiais.",
+      },
+    ],
+  },
+  {
+    slug: "victoza-vs-saxenda",
+    title: "Victoza vs Saxenda: a mesma liraglutida?",
+    lede:
+      "Partilham a substância. Não partilham a indicação nem o regime de dose. Comparar «qual emagrece mais» na internet não é a sua bula.",
+    summary:
+      "Victoza e Saxenda (liraglutida): diferenças de indicação (diabetes vs peso), dose e o que perguntar na consulta em Portugal.",
+    eyebrow: "Comparar",
+    readMinutes: 5,
+    publishedAt: "2026-10-01",
+    illustration: {
+      brandName: "Saxenda",
+      substance: "liraglutida",
+      mechanism: "glp1",
+      slug: "saxenda",
+    },
+    sections: [
+      {
+        heading: "O que partilham",
+        paragraphs: [
+          "Ambos são liraglutida injectável diária da Novo Nordisk, agonistas de GLP-1. Náuseas, titulação e conservação seguem a lógica da classe — com nuances de dose.",
+        ],
+      },
+      {
+        heading: "O que muda",
+        paragraphs: [
+          "Victoza está tipicamente no contexto de diabetes tipo 2; Saxenda no de gestão de peso, com doses e critérios próprios. Não são intercambiáveis «à vontade». Em Portugal, confirme indicação, PVP e estatuto na Infomed.",
+        ],
+        bullets: [
+          "Mesma substância ≠ mesma receita.",
+          "O custo mensal da Saxenda depende da dose diária e das embalagens.",
+          "Se já usa um, trocar só com plano médico.",
+        ],
+      },
+      {
+        heading: "E o Wegovy?",
+        paragraphs: [
+          "Wegovy é semaglutida semanal para peso — outra substância e outra rotina. O artigo Saxenda vs Wegovy aprofunda esse par.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Confusão entre Victoza e Saxenda na farmácia ou na receita.",
+      "Hipoglicemia ou outros antidiabéticos em combinação.",
+    ],
+    related: [
+      {
+        href: "/medicamentos/victoza/",
+        label: "Ficha Victoza",
+        blurb: "Liraglutida — diabetes.",
+      },
+      {
+        href: "/medicamentos/saxenda/",
+        label: "Ficha Saxenda",
+        blurb: "Liraglutida — peso.",
+      },
+      {
+        href: "/artigos/saxenda-vs-wegovy/",
+        label: "Saxenda vs Wegovy",
+        blurb: "Diário vs semanal.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços",
+        blurb: "Ordens de grandeza.",
+      },
+    ],
+  },
+  {
+    slug: "registo-ema-infomed",
+    title: "Registo EMA vs Infomed: o que cada um responde",
+    lede:
+      "«Está registado na EMA» não diz o preço na sua farmácia. Infomed e EMA respondem a perguntas diferentes — e ambas importam.",
+    summary:
+      "Registo de medicamento na EMA vs Infomed/INFARMED em Portugal: autorização europeia, PVP local e o que verificar antes de decidir.",
+    eyebrow: "Portugal",
+    readMinutes: 4,
+    publishedAt: "2026-10-01",
+    illustration: {
+      brandName: "Mounjaro",
+      substance: "tirzepatida",
+      mechanism: "gip-glp1",
+      slug: "mounjaro",
+    },
+    sections: [
+      {
+        heading: "O que a EMA faz",
+        paragraphs: [
+          "A Agência Europeia de Medicamentos avalia e autoriza medicamentos a nível da UE. Um registo EMA (ou parecer positivo) fala de qualidade, segurança e eficácia no contexto europeu — não do PVP na farmácia de Lisboa ou do Porto.",
+        ],
+      },
+      {
+        heading: "O que a Infomed faz",
+        paragraphs: [
+          "A Infomed (INFARMED) é a base portuguesa: apresentações, estatutos e informação de preço relevante para Portugal. Para «quanto custa?» e «está comparticipado no meu caso?», comece aqui — e confirme no ticket e na receita.",
+        ],
+      },
+      {
+        heading: "Checklist prática",
+        paragraphs: ["Antes de partilhar um print de um site estrangeiro:"],
+        bullets: [
+          "Nome comercial + substância + dose na Infomed.",
+          "Autorização / informação EMA se quiser o enquadramento europeu.",
+          "PVP e comparticipação no contexto português — não no de outro país.",
+          "Este site (meuglp1.pt) é guia educativo, não a Infomed.",
+        ],
+      },
+    ],
+    whenToCall: [
+      "Discrepância entre o que leu online e o que a farmácia ou o médico disseram.",
+    ],
+    related: [
+      {
+        href: "/artigos/como-ler-infomed/",
+        label: "Como ler a Infomed",
+        blurb: "Checklist PVP.",
+      },
+      {
+        href: "/fontes/",
+        label: "Fontes",
+        blurb: "EMA, Infomed, SNS 24.",
+      },
+      {
+        href: "/precos/",
+        label: "Preços",
+        blurb: "Ordens de grandeza PT.",
       },
     ],
   },

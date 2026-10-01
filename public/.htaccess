@@ -1,13 +1,21 @@
 ErrorDocument 404 /404.html
 
-# Prefer HTTPS (Cloudflare may already force this; keep as belt-and-braces).
 RewriteEngine On
+
+# Prefer HTTPS (Cloudflare may already force this; keep as belt-and-braces).
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Canonical trailing slash (Next export + GSC). Surgical: /precos without slash.
-RewriteRule ^precos$ /precos/ [R=301,L]
+# Canonical host: www (GSC still shows bare http://meuglp1.pt/ in places).
+RewriteCond %{HTTP_HOST} ^meuglp1\.pt$ [NC]
+RewriteRule ^ https://www.meuglp1.pt%{REQUEST_URI} [L,R=301]
+
+# Soft-404 cleanup: old Brazil hub removed (Portugal-only).
+RewriteRule ^brasil(/.*)?$ /medicos/ [R=301,L]
+
+# Canonical trailing slash for high-impression paths (Next export).
+RewriteRule ^(precos|clinicas|medicamentos|artigos|perguntas|glossario|medicos|onde-comprar|comparar|pesquisa|fontes|sobre)$ /$1/ [R=301,L]
 
 <FilesMatch "\.html$">
   Header set Cache-Control "public, max-age=0, must-revalidate"

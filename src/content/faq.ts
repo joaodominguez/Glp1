@@ -246,6 +246,51 @@ export const faqItems: FaqItem[] = [
     relatedLabel: "Artigo: Rybelsus vs Ozempic",
   },
   {
+    id: "rybelsus-preco",
+    category: "basico",
+    question: "Quanto custa o Rybelsus em Portugal?",
+    answer:
+      "O PVP de apresentações orais típicas anda muitas vezes na ordem dos ~100–130 € por embalagem mensal em listagens públicas — mas muda com a apresentação e a data. Pode haver comparticipação em diabetes tipo 2 sob regras oficiais. Confirme Infomed e o ticket da farmácia; a página de preços dá a faixa, não uma cotação.",
+    relatedHref: "/artigos/rybelsus-portugal/",
+    relatedLabel: "Rybelsus em Portugal",
+  },
+  {
+    id: "ozempic-dosagem",
+    category: "uso",
+    question: "Qual é a dosagem do Ozempic?",
+    answer:
+      "A dose inicial e a máxima constam da bula e da ficha do medicamento neste guia — mas a sua dose é a que o médico e o folheto da embalagem indicam. A titulação sobe aos poucos (muitas vezes de 4 em 4 semanas) para o aparelho digestivo acompanhar. Este site não prescreve nem recomenda saltar degraus.",
+    relatedHref: "/artigos/titulacao-doses/",
+    relatedLabel: "Artigo: titulação e doses",
+  },
+  {
+    id: "trulicity-preco",
+    category: "basico",
+    question: "Quanto custa o Trulicity (ex. 1,5 mg, 4 canetas)?",
+    answer:
+      "Depende da dose e do número de canetas na embalagem. «Preço de 4 canetas» não é o mesmo que preço por dose. Confirme Infomed + ticket; o artigo Trulicity em Portugal e a página de preços explicam o que verificar.",
+    relatedHref: "/artigos/trulicity-portugal/",
+    relatedLabel: "Trulicity em Portugal",
+  },
+  {
+    id: "ema-vs-infomed",
+    category: "basico",
+    question: "O que significa o registo na EMA?",
+    answer:
+      "A EMA autoriza a nível europeu. Isso não responde sozinho ao PVP nem à comparticipação em Portugal — aí manda a Infomed/INFARMED, a receita e a farmácia.",
+    relatedHref: "/artigos/registo-ema-infomed/",
+    relatedLabel: "EMA vs Infomed",
+  },
+  {
+    id: "meuglp1-dominio",
+    category: "mitos",
+    question: "Este site é meuglp1.com.br?",
+    answer:
+      "Não. O guia oficial deste projecto é meuglp1.pt (Portugal). Não vendemos medicamentos. Se viu outro domínio semelhante, confirme o endereço na barra do browser.",
+    relatedHref: "/sobre/",
+    relatedLabel: "Sobre o Guia GLP-1",
+  },
+  {
     id: "tiroide",
     category: "seguranca",
     question: "É verdade que dá cancro da tiroide?",
