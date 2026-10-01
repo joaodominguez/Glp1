@@ -21,6 +21,8 @@
 
 **Diagnóstico:** há descoberta (impressões sobem), mas posição ~pág. 3–4 e snippets fracos matam cliques. Prioridade = CTR nas URLs que já impressam + conteúdo exact-match das queries + limpeza técnica (www, /brasil 404).
 
+**Auditoria profunda (design · IA · schemas):** ver `docs/auditoria-profunda.md` (01/10/2026). Conclusão: template correcto, não guia com presença; schemas poluídos; conteúdo amplo e fino.
+
 ---
 
 ## 0. Onde estamos (inventário)
