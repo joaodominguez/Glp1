@@ -182,6 +182,29 @@ img {
 }
 
 /* Hero home — full-bleed visual plane (image is the stage, not a side panel) */
+/* Desktop: hero inside shell. Mobile: full-bleed (break out of shell). */
+.hero-stage.shell {
+  padding-block: 0;
+}
+
+@media (max-width: 899px) {
+  .hero-stage.shell {
+    max-width: none;
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-stage.shell {
+    padding-top: 1.15rem;
+  }
+
+  .hero-stage .hero-bleed {
+    border-radius: calc(var(--radius) + 6px);
+    min-height: min(72vh, 38rem);
+  }
+}
+
 .hero-bleed {
   position: relative;
   display: grid;
@@ -231,10 +254,11 @@ img {
   justify-content: flex-end;
   gap: 0;
   padding-block: clamp(3.2rem, 12vh, 6.5rem) clamp(2.4rem, 7vh, 3.8rem);
+  padding-inline: clamp(1.15rem, 4vw, 2.5rem);
   position: relative;
   z-index: 2;
-  max-width: var(--shell);
   width: 100%;
+  max-width: 40rem;
 }
 
 .brand-hero {
@@ -1045,18 +1069,28 @@ img {
   font-size: 0.95rem;
 }
 
+/* Tailwind Preflight: ul{list-style:none}. Minifier dropa "disc" no shorthand — usar type. */
 .plain-list {
   margin: 0.6rem 0 0;
-  padding-left: 1.15rem;
+  padding-left: 1.35rem;
   color: var(--ink-soft);
+  list-style-type: disc;
+  list-style-position: outside;
 }
 
 .plain-list.numbered {
-  list-style: decimal;
+  list-style-type: decimal;
+  list-style-position: outside;
 }
 
 .plain-list li {
-  margin: 0.35rem 0;
+  margin: 0.4rem 0;
+  padding-left: 0.15rem;
+  display: list-item;
+}
+
+.plain-list li::marker {
+  color: var(--accent);
 }
 
 .ink {
@@ -1164,7 +1198,8 @@ img {
 }
 
 .profile-list ul {
-  list-style: disc;
+  list-style-type: disc;
+  list-style-position: outside;
   margin: 0.45rem 0 0;
   padding-left: 1.25rem;
   color: var(--ink-soft);
@@ -1172,6 +1207,7 @@ img {
 }
 
 .profile-list ul li {
+  display: list-item;
   margin: 0.28rem 0;
   padding-left: 0.15rem;
 }
