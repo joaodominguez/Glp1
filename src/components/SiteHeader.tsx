@@ -13,7 +13,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell header-inner">
         <Link href="/" className="brand" onClick={() => setOpen(false)}>
-          <img src="/brand-mark.svg" alt="" width={28} height={28} />
+          <img src="/brand-mark.svg" alt="" width={26} height={26} />
           <span>{SITE_NAME}</span>
         </Link>
 

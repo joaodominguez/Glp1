@@ -85,7 +85,7 @@ export default function HomePage() {
       />
 
       <section className="hero-stage shell" aria-label="Guia GLP-1">
-        <div className="hero-bleed">
+        <div className="hero-bleed hero-anim-stage">
           <figure className="hero-bleed-media" aria-hidden="true">
             <Image
               src="/illustrations/pens/mounjaro.png?v=20260914"
@@ -99,11 +99,11 @@ export default function HomePage() {
           </figure>
           <div className="hero-bleed-scrim" aria-hidden="true" />
           <div className="hero-bleed-copy">
-            <p className="eyebrow hero-anim">Portugal · meuglp1.pt</p>
+            <p className="eyebrow hero-anim">Portugal · informação clara</p>
             <h1 className="brand-hero hero-anim">Guia GLP-1</h1>
             <p className="lede hero-anim hero-anim-delay">
               Preços, fichas e o que perguntar na consulta — Rybelsus, Mounjaro,
-              Ozempic e Wegovy em português claro. Sem venda de medicamentos.
+              Ozempic e Wegovy. Sem venda de medicamentos.
             </p>
             <div className="cta-row hero-anim hero-anim-delay-2">
               <AnalyticsLink
@@ -111,7 +111,7 @@ export default function HomePage() {
                 href="/precos/"
                 event="cta_precos"
               >
-                Ver preços em Portugal
+                Preços
               </AnalyticsLink>
               <AnalyticsLink
                 className="btn btn-ghost"
@@ -123,6 +123,14 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="section shell intro-band">
+        <p className="intro-band-text">
+          Somos um guia informativo em português sobre medicamentos GLP-1 e
+          afins — para ler com calma antes da consulta, não para substituir o
+          médico.
+        </p>
       </section>
 
       <section className="section shell">

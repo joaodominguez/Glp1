@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Fraunces } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -13,16 +13,11 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-const display = Fraunces({
+/* Clinic-grade geometric sans (Tramedico-adjacent: Nunito Sans). */
+const sans = Nunito_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-display",
-  weight: ["500", "600", "700"],
-});
-
-const body = Figtree({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const ogImage = {
@@ -83,7 +78,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-PT" className={`${display.variable} ${body.variable}`}>
+    <html lang="pt-PT" className={sans.variable}>
       <body>
         <Analytics />
         <JsonLd data={siteGraphLd()} />
