@@ -55,7 +55,7 @@ const journeys = [
 
 export default function HomePage() {
   const pillars = PILLAR_MED_SLUGS.map((slug) => getMedication(slug)).filter(
-    Boolean,
+    (med): med is NonNullable<typeof med> => Boolean(med),
   );
   const posts = articlesSorted().slice(0, 6);
   const medCount = medicationsSorted().length;
@@ -77,8 +77,8 @@ export default function HomePage() {
             itemListElement: pillars.map((med, index) => ({
               "@type": "ListItem",
               position: index + 1,
-              name: med!.brandName,
-              url: absoluteUrl(`/medicamentos/${med!.slug}/`),
+              name: med.brandName,
+              url: absoluteUrl(`/medicamentos/${med.slug}/`),
             })),
           },
         ]}
@@ -155,16 +155,16 @@ export default function HomePage() {
         </div>
         <ul className="pillar-list">
           {pillars.map((med) => (
-            <li key={med!.slug}>
+            <li key={med.slug}>
               <Link
                 className="pillar-link"
-                href={`/medicamentos/${med!.slug}/`}
+                href={`/medicamentos/${med.slug}/`}
               >
-                <strong>{med!.brandName}</strong>
+                <strong>{med.brandName}</strong>
                 <span className="meta">
-                  {med!.substance} · {med!.frequency}
+                  {med.substance} · {med.frequency}
                 </span>
-                <span className="blurb">{med!.summary}</span>
+                <span className="blurb">{med.summary}</span>
               </Link>
             </li>
           ))}
