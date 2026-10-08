@@ -16,9 +16,15 @@ type PageSeoInput = {
   absoluteTitle?: boolean;
 };
 
+const ASSET_EXT = /\.(?:svg|png|jpe?g|webp|gif|ico|pdf|txt|xml|json|woff2?)$/i;
+
 export function absoluteUrl(path = "/"): string {
   if (!path || path === "/") return `${SITE_URL}/`;
   const normalized = path.startsWith("/") ? path : `/${path}`;
+  // Static assets must not get trailingSlash — Apache serves the file, not a folder.
+  if (ASSET_EXT.test(normalized)) {
+    return `${SITE_URL}${normalized.replace(/\/+$/, "")}`;
+  }
   const withSlash = normalized.endsWith("/") ? normalized : `${normalized}/`;
   return `${SITE_URL}${withSlash}`;
 }
