@@ -85,6 +85,18 @@ export default function HomePage() {
       />
 
       <section className="hero-bleed" aria-label="Guia GLP-1">
+        <figure className="hero-bleed-media" aria-hidden="true">
+          <Image
+            src="/illustrations/pens/mounjaro.png?v=20260914"
+            alt=""
+            width={1376}
+            height={768}
+            className="hero-bleed-img"
+            priority
+            sizes="100vw"
+          />
+        </figure>
+        <div className="hero-bleed-scrim" aria-hidden="true" />
         <div className="hero-bleed-copy shell">
           <p className="eyebrow hero-anim">Portugal · meuglp1.pt</p>
           <h1 className="brand-hero hero-anim">Guia GLP-1</h1>
@@ -109,19 +121,6 @@ export default function HomePage() {
             </AnalyticsLink>
           </div>
         </div>
-        <figure className="hero-stage hero-anim-stage">
-          <Image
-            src="/illustrations/pens/mounjaro.png?v=20260914"
-            alt="Ilustração editorial de caneta injectável da classe GLP-1"
-            width={1376}
-            height={768}
-            className="hero-stage-img"
-            priority
-          />
-          <figcaption className="hero-stage-cap">
-            Ilustração editorial — caneta identificada
-          </figcaption>
-        </figure>
       </section>
 
       <section className="section shell">
