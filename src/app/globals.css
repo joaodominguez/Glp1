@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* Clinical European clinic — white paper, soft stone, teal accent (Tramedico-inspired) */
-  --ground: #f3f5f7;
-  --paper: #ffffff;
-  --ink: #0f1419;
-  --ink-soft: #4a5560;
-  --ink-faint: #8a949e;
-  --line: rgba(15, 20, 25, 0.09);
-  --accent: #0d6e6a;
-  --accent-h: #0a5754;
-  --accent-soft: #e8f4f3;
-  --radius: 16px;
-  --radius-sm: 10px;
-  --radius-cta: 999px;
+  /* Cool mist + bottle green — not cream/terracotta, not purple SaaS */
+  --ground: #e4e8e3;
+  --paper: #f7f8f5;
+  --ink: #14201c;
+  --ink-soft: #4a5852;
+  --ink-faint: #7a8781;
+  --line: rgba(20, 32, 28, 0.12);
+  --accent: #1f5c45;
+  --accent-h: #164734;
+  --accent-soft: #d6e8de;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-cta: 8px;
   --shell: 1180px;
   --read: 42rem;
-  --header-h: 4rem;
-  --font: var(--font-sans), "Nunito Sans", ui-sans-serif, sans-serif;
-  --display: var(--font-sans), "Nunito Sans", ui-sans-serif, sans-serif;
+  --header-h: 3.6rem;
+  --font: var(--font-body), system-ui, sans-serif;
+  --display: var(--font-display), Georgia, "Times New Roman", serif;
 }
 
 *,
@@ -34,12 +34,16 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background: var(--ground);
+  background:
+    radial-gradient(ellipse 90% 55% at 8% -10%, rgba(31, 92, 69, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, rgba(20, 32, 28, 0.05), transparent 50%),
+    var(--ground);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font);
   font-size: 1.0625rem;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  line-height: 1.55;
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -105,9 +109,9 @@ img {
   text-decoration: none;
   color: var(--ink);
   font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  font-size: 1.12rem;
+  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
@@ -125,11 +129,11 @@ img {
 .nav-desktop a {
   text-decoration: none;
   color: var(--ink-soft);
-  font-size: 0.92rem;
-  font-weight: 600;
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-cta);
-  transition: color 0.2s ease, background 0.2s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
 .nav-desktop a:hover,
@@ -141,13 +145,13 @@ img {
 .menu-btn {
   margin-left: auto;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 0.88rem;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-cta);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -181,38 +185,15 @@ img {
   }
 }
 
-/* Hero — photo-led clinic stage; contained on desktop, full-bleed on mobile */
-.hero-stage.shell {
-  padding-block: 0;
-}
-
-@media (max-width: 899px) {
-  .hero-stage.shell {
-    max-width: none;
-    padding-inline: 0;
-  }
-}
-
-@media (min-width: 900px) {
-  .hero-stage.shell {
-    padding-top: 1.35rem;
-  }
-
-  .hero-stage .hero-bleed {
-    border-radius: calc(var(--radius) + 8px);
-    min-height: min(68vh, 36rem);
-    box-shadow: 0 1px 0 rgba(15, 20, 25, 0.04), 0 24px 48px -28px rgba(15, 20, 25, 0.28);
-  }
-}
-
+/* Hero home — edge-to-edge visual plane (not an inset card) */
 .hero-bleed {
   position: relative;
   display: grid;
   align-items: end;
-  min-height: min(86vh, 42rem);
+  min-height: min(88vh, 44rem);
   overflow: clip;
-  background: #1a2428;
-  color: #f8fafb;
+  background: #1a2220;
+  color: #f3f5f1;
 }
 
 .hero-bleed-media {
@@ -220,7 +201,7 @@ img {
   position: absolute;
   inset: 0;
   z-index: 0;
-  animation: fade-in 1.15s ease both;
+  animation: fade-in 1.1s ease both;
 }
 
 .hero-bleed-img {
@@ -228,10 +209,10 @@ img {
   height: 100% !important;
   max-width: none !important;
   object-fit: cover;
-  object-position: 58% 40%;
+  object-position: 62% 42%;
   display: block;
-  transform: scale(1.04);
-  animation: hero-ken 14s ease-out both;
+  transform: scale(1.03);
+  animation: hero-ken 16s ease-out both;
 }
 
 @keyframes hero-ken {
@@ -248,16 +229,15 @@ img {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  /* Light clinic overlay — photo stays the story (Tramedico ~0.2 black) */
   background:
     linear-gradient(
       105deg,
-      rgba(10, 16, 20, 0.62) 0%,
-      rgba(10, 16, 20, 0.42) 42%,
-      rgba(10, 16, 20, 0.18) 72%,
-      rgba(10, 16, 20, 0.1) 100%
+      rgba(12, 20, 17, 0.88) 0%,
+      rgba(12, 20, 17, 0.72) 38%,
+      rgba(12, 20, 17, 0.28) 68%,
+      rgba(12, 20, 17, 0.12) 100%
     ),
-    linear-gradient(to top, rgba(10, 16, 20, 0.45) 0%, transparent 48%);
+    linear-gradient(to top, rgba(12, 20, 17, 0.55) 0%, transparent 42%);
 }
 
 .hero-bleed-copy {
@@ -265,56 +245,42 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   gap: 0;
-  padding-block: clamp(3rem, 11vh, 5.8rem) clamp(2.2rem, 6vh, 3.4rem);
-  padding-inline: clamp(1.25rem, 4vw, 2.75rem);
+  padding-block: clamp(3.2rem, 12vh, 6.5rem) clamp(2.4rem, 7vh, 3.8rem);
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 38rem;
+  max-width: var(--shell);
 }
 
 .brand-hero {
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2.85rem, 8vw, 4.75rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  font-weight: 800;
-  max-width: 11ch;
-  color: #ffffff;
-  text-shadow: 0 1px 24px rgba(10, 16, 20, 0.25);
+  font-size: clamp(3.1rem, 9vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  font-weight: 650;
+  max-width: 10ch;
+  color: #f7f8f5;
 }
 
 .hero-bleed .eyebrow {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(247, 248, 245, 0.72);
 }
 
 .hero-bleed .lede {
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 30rem;
-  font-weight: 500;
-}
-
-.hero-bleed .btn-primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 8px 24px -10px rgba(13, 110, 106, 0.55);
-}
-
-.hero-bleed .btn-primary:hover {
-  background: var(--accent-h);
-  color: #fff;
+  color: rgba(247, 248, 245, 0.88);
+  max-width: 32rem;
 }
 
 .hero-bleed .btn-ghost {
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: none;
+  color: #f7f8f5;
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px rgba(247, 248, 245, 0.42);
 }
 
 .hero-bleed .btn-ghost:hover {
-  background: #fff;
-  color: var(--ink);
+  background: rgba(247, 248, 245, 0.12);
+  color: #fff;
 }
 
 @keyframes rise-in {
@@ -387,21 +353,6 @@ img {
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--line);
-}
-
-.intro-band {
-  padding-block: clamp(2rem, 5vh, 3rem) clamp(1.2rem, 3vh, 1.8rem);
-}
-
-.intro-band-text {
-  margin: 0;
-  max-width: 40rem;
-  font-family: var(--display);
-  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.35;
-  color: var(--ink);
 }
 
 .journey-link,

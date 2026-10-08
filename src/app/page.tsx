@@ -84,53 +84,43 @@ export default function HomePage() {
         ]}
       />
 
-      <section className="hero-stage shell" aria-label="Guia GLP-1">
-        <div className="hero-bleed hero-anim-stage">
-          <figure className="hero-bleed-media" aria-hidden="true">
-            <Image
-              src="/illustrations/pens/mounjaro.png?v=20260914"
-              alt=""
-              width={1376}
-              height={768}
-              className="hero-bleed-img"
-              priority
-              sizes="(min-width: 900px) 1180px, 100vw"
-            />
-          </figure>
-          <div className="hero-bleed-scrim" aria-hidden="true" />
-          <div className="hero-bleed-copy">
-            <p className="eyebrow hero-anim">Portugal · informação clara</p>
-            <h1 className="brand-hero hero-anim">Guia GLP-1</h1>
-            <p className="lede hero-anim hero-anim-delay">
-              Preços, fichas e o que perguntar na consulta — Rybelsus, Mounjaro,
-              Ozempic e Wegovy. Sem venda de medicamentos.
-            </p>
-            <div className="cta-row hero-anim hero-anim-delay-2">
-              <AnalyticsLink
-                className="btn btn-primary"
-                href="/precos/"
-                event="cta_precos"
-              >
-                Preços
-              </AnalyticsLink>
-              <AnalyticsLink
-                className="btn btn-ghost"
-                href="/artigos/rybelsus-portugal/"
-                event="cta_rybelsus"
-              >
-                Rybelsus
-              </AnalyticsLink>
-            </div>
+      <section className="hero-bleed" aria-label="Guia GLP-1">
+        <figure className="hero-bleed-media" aria-hidden="true">
+          <Image
+            src="/illustrations/pens/mounjaro.png?v=20260914"
+            alt=""
+            width={1376}
+            height={768}
+            className="hero-bleed-img"
+            priority
+            sizes="100vw"
+          />
+        </figure>
+        <div className="hero-bleed-scrim" aria-hidden="true" />
+        <div className="hero-bleed-copy shell">
+          <p className="eyebrow hero-anim">Portugal · meuglp1.pt</p>
+          <h1 className="brand-hero hero-anim">Guia GLP-1</h1>
+          <p className="lede hero-anim hero-anim-delay">
+            Preços, fichas e o que perguntar na consulta — Rybelsus, Mounjaro,
+            Ozempic e Wegovy em português claro. Sem venda de medicamentos.
+          </p>
+          <div className="cta-row hero-anim hero-anim-delay-2">
+            <AnalyticsLink
+              className="btn btn-primary"
+              href="/precos/"
+              event="cta_precos"
+            >
+              Ver preços em Portugal
+            </AnalyticsLink>
+            <AnalyticsLink
+              className="btn btn-ghost"
+              href="/artigos/rybelsus-portugal/"
+              event="cta_rybelsus"
+            >
+              Rybelsus
+            </AnalyticsLink>
           </div>
         </div>
-      </section>
-
-      <section className="section shell intro-band">
-        <p className="intro-band-text">
-          Somos um guia informativo em português sobre medicamentos GLP-1 e
-          afins — para ler com calma antes da consulta, não para substituir o
-          médico.
-        </p>
       </section>
 
       <section className="section shell">
