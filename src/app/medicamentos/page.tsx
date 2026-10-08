@@ -8,26 +8,39 @@ import {
   pageMetadata,
   webPageLd,
 } from "@/lib/seo";
+import { PILLAR_MED_SLUGS } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Medicamentos GLP-1",
+  title: "Medicamentos GLP-1 em Portugal",
   description:
-    "Os 11 nomes comerciais da classe GLP-1 e afins: Mounjaro, Ozempic, Wegovy, Saxenda e outros — lado a lado.",
+    "Rybelsus, Mounjaro, Ozempic, Wegovy, Trulicity e Saxenda em Portugal — fichas no mesmo formato. Outros nomes da classe em baixo.",
   path: "/medicamentos",
-  keywords: ["medicamentos GLP-1", "Mounjaro", "Ozempic", "Wegovy", "lista"],
+  keywords: [
+    "medicamentos GLP-1",
+    "Rybelsus Portugal",
+    "Mounjaro",
+    "Ozempic",
+    "Wegovy",
+    "Trulicity",
+  ],
 });
 
 export default function MedicamentosPage() {
   const meds = medicationsSorted();
+  const pillarSet = new Set<string>(PILLAR_MED_SLUGS);
+  const pillars = PILLAR_MED_SLUGS.map((slug) =>
+    meds.find((m) => m.slug === slug),
+  ).filter(Boolean);
+  const others = meds.filter((m) => !pillarSet.has(m.slug));
 
   return (
     <>
       <JsonLd
         data={[
           webPageLd({
-            name: "Medicamentos GLP-1",
+            name: "Medicamentos GLP-1 em Portugal",
             description:
-              "Lista dos 11 nomes comerciais da classe GLP-1 e afins em português.",
+              "Lista dos nomes comerciais da classe GLP-1 com foco em Portugal.",
             path: "/medicamentos",
             type: "CollectionPage",
           }),
@@ -52,26 +65,35 @@ export default function MedicamentosPage() {
       <div className="shell section">
         <div className="section-head">
           <p className="eyebrow">Medicamentos</p>
-          <h1
-            style={{
-              margin: 0,
-              fontSize: "clamp(2rem, 4vw, 2.8rem)",
-              letterSpacing: "-0.035em",
-              lineHeight: 1.08,
-              fontWeight: 650,
-            }}
-          >
-            Os 11, no mesmo formato
-          </h1>
+          <h1 className="page-title">Os que mais se procura em Portugal</h1>
           <p className="lede">
-            Cada página tem a mesma estrutura: o que é, em que difere, ficha e o
-            que ler a seguir. Assim compara-se sem saltar entre sites.
+            Mesma estrutura em cada ficha: o que é, em que difere, dados da bula
+            e o que ler a seguir. Confirme sempre Infomed.
           </p>
         </div>
-        <ul className="med-grid">
-          {meds.map((med) => (
+
+        <ul className="pillar-list">
+          {pillars.map((med) => (
+            <li key={med!.slug}>
+              <Link className="pillar-link" href={`/medicamentos/${med!.slug}/`}>
+                <strong>{med!.brandName}</strong>
+                <span className="meta">
+                  {med!.substance} · {med!.frequency}
+                </span>
+                <span className="blurb">{med!.summary}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="section-head" style={{ marginTop: "2.8rem" }}>
+          <h2>Outros nomes da classe</h2>
+          <p>Úteis para o mapa — menos procura em Portugal neste momento.</p>
+        </div>
+        <ul className="story-list">
+          {others.map((med) => (
             <li key={med.slug}>
-              <Link className="med-card" href={`/medicamentos/${med.slug}/`}>
+              <Link className="story-link" href={`/medicamentos/${med.slug}/`}>
                 <strong>{med.brandName}</strong>
                 <span className="meta">
                   {med.substance} · {med.frequency}

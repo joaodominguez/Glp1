@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   CONTENT_REVIEWED_AT,
+  OG_IMAGE_PATH,
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
@@ -15,9 +16,15 @@ type PageSeoInput = {
   absoluteTitle?: boolean;
 };
 
+const ASSET_EXT = /\.(?:svg|png|jpe?g|webp|gif|ico|pdf|txt|xml|json|woff2?)$/i;
+
 export function absoluteUrl(path = "/"): string {
   if (!path || path === "/") return `${SITE_URL}/`;
   const normalized = path.startsWith("/") ? path : `/${path}`;
+  // Static assets must not get trailingSlash — Apache serves the file, not a folder.
+  if (ASSET_EXT.test(normalized)) {
+    return `${SITE_URL}${normalized.replace(/\/+$/, "")}`;
+  }
   const withSlash = normalized.endsWith("/") ? normalized : `${normalized}/`;
   return `${SITE_URL}${withSlash}`;
 }
@@ -32,6 +39,12 @@ export function pageMetadata({
 }: PageSeoInput): Metadata {
   const url = absoluteUrl(path);
   const ogTitle = absoluteTitle ? title : `${title} — ${SITE_NAME}`;
+  const image = {
+    url: absoluteUrl(OG_IMAGE_PATH),
+    width: 1200,
+    height: 630,
+    alt: ogTitle,
+  };
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -46,11 +59,13 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: "pt_PT",
       type,
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: ogTitle,
       description,
+      images: [image.url],
     },
   };
 }
@@ -83,6 +98,7 @@ export function webPageLd({
       "@type": "Organization",
       name: SITE_NAME,
       url: absoluteUrl("/"),
+      logo: absoluteUrl("/brand-mark.svg"),
     },
   };
 }
@@ -102,6 +118,7 @@ export function breadcrumbLd(
   };
 }
 
+/** Sitewide graph — no MedicalWebPage here (avoids polluting every URL). */
 export function siteGraphLd() {
   return {
     "@context": "https://schema.org",
@@ -129,29 +146,13 @@ export function siteGraphLd() {
         name: SITE_NAME,
         alternateName: ["meuglp1.pt", "Meu GLP-1", "Guia GLP1 Portugal"],
         url: absoluteUrl("/"),
+        logo: absoluteUrl("/brand-mark.svg"),
+        areaServed: {
+          "@type": "Country",
+          name: "Portugal",
+        },
         description:
           "Guia informativo em português (Portugal) sobre medicamentos GLP-1 e afins. Domínio meuglp1.pt — não vende medicamentos nem substitui consulta médica.",
-      },
-      {
-        "@type": "MedicalWebPage",
-        "@id": `${SITE_URL}/#medical`,
-        url: absoluteUrl("/"),
-        name: SITE_NAME,
-        description: SITE_TAGLINE,
-        inLanguage: "pt-PT",
-        isPartOf: { "@id": `${SITE_URL}/#website` },
-        about: {
-          "@type": "MedicalCondition",
-          name: "Diabetes mellitus tipo 2 e gestão de peso com agonistas de GLP-1",
-        },
-        lastReviewed: CONTENT_REVIEWED_AT,
-        audience: {
-          "@type": "PeopleAudience",
-          geographicArea: {
-            "@type": "Country",
-            name: "Portugal",
-          },
-        },
       },
     ],
   };
