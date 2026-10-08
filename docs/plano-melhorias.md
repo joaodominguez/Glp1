@@ -1,8 +1,27 @@
 # Plano de melhorias — meuglp1.pt
 
-**Data:** 20 de setembro de 2026  
-**Base:** site live (~40 URLs), Guia GLP-1 pt-PT, YMYL educativo  
+**Data:** 1 de outubro de 2026  
+**Base:** site live (~50 URLs), Guia GLP-1 pt-PT, YMYL educativo  
 **Princípio:** clareza e confiança acima de volume ou marketing
+
+---
+
+## 0a. Baseline GSC (3 meses · actualizado 01/10/2026)
+
+| Métrica | Valor |
+|---------|--------|
+| Cliques | 11 |
+| Impressões | 625 |
+| CTR média | 1,8 % |
+| Posição média | 34,8 |
+
+**Top consultas (impressões):** rybelsus · meuglp1.com.br · ozempic dosagem · mounjaro preço portugal · rybelsus portugal · trulicity preço/canetas · registo EMA · byetta · saxenda  
+
+**Top páginas:** `/precos/` (4/203) · `/clinicas/` (4/52) · fichas Trulicity/Rybelsus/Mounjaro/Ozempic com impressões e CTR ≈ 0 · artigo rybelsus-vs-ozempic (0/58)
+
+**Diagnóstico:** há descoberta (impressões sobem), mas posição ~pág. 3–4 e snippets fracos matam cliques. Prioridade = CTR nas URLs que já impressam + conteúdo exact-match das queries + limpeza técnica (www, /brasil 404).
+
+**Auditoria profunda (design · IA · schemas):** ver `docs/auditoria-profunda.md` (01/10/2026). Conclusão: template correcto, não guia com presença; schemas poluídos; conteúdo amplo e fino.
 
 ---
 
@@ -184,13 +203,16 @@ Ver `docs/ymyl-checklist.md`. Em resumo: sem dose, sem ranking, fonte oficial, i
 
 ---
 
-## 9. Próximos 5 movimentos concretos
+## 9. Próximos movimentos (pós 01/10)
 
-1. **Auditoria GSC** (queries → acções de SEO)  
-2. **Reforço Rybelsus** (malha de links + FAQ)  
-3. **Artigos obstipação + titulação**  
-4. **GA4 nas ferramentas** (pesquisa, comparar, checklist)  
-5. **Deploy por chave SSH** (secret no ambiente)
+**Feito neste ciclo:** titles/H1 das fichas com impressões; home brand-first; artigos Trulicity PT, Victoza vs Saxenda, EMA vs Infomed; FAQ long-tail; 301 /brasil + www; preços Rybelsus/Trulicity.
+
+**A seguir (ordem):**
+1. Rever GSC 14–28 dias após deploy (CTR Rybelsus, Ozempic dosagem, Trulicity)  
+2. Deploy por chave SSH (deixar de usar password root)  
+3. Conteúdo P1 restante: cirurgia/exames; saúde mental (tom cuidadoso)  
+4. UX: pesquisa na header + filtros no hub Artigos  
+5. Pedir indexação / remoção de URL `/brasil/*` no GSC se ainda impressar
 
 ---
 

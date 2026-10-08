@@ -114,14 +114,23 @@ export function siteGraphLd() {
         description: SITE_TAGLINE,
         inLanguage: "pt-PT",
         publisher: { "@id": `${SITE_URL}/#organization` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${SITE_URL}/pesquisa/?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
       {
         "@type": "Organization",
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
+        alternateName: ["meuglp1.pt", "Meu GLP-1", "Guia GLP1 Portugal"],
         url: absoluteUrl("/"),
         description:
-          "Guia informativo em português sobre medicamentos GLP-1 e afins. Não vende medicamentos nem substitui consulta médica.",
+          "Guia informativo em português (Portugal) sobre medicamentos GLP-1 e afins. Domínio meuglp1.pt — não vende medicamentos nem substitui consulta médica.",
       },
       {
         "@type": "MedicalWebPage",

@@ -13,6 +13,11 @@ const kindLabel: Record<string, string> = {
   pagina: "Página",
 };
 
+function readQueryFromUrl() {
+  if (typeof window === "undefined") return "";
+  return new URLSearchParams(window.location.search).get("q")?.trim() ?? "";
+}
+
 export function SiteSearch({
   id = "pesquisa-site",
   autofocus = false,
@@ -24,12 +29,22 @@ export function SiteSearch({
   const hits = useMemo(() => searchHits(query), [query]);
 
   useEffect(() => {
+    const fromUrl = readQueryFromUrl();
+    if (fromUrl) setQuery(fromUrl);
+  }, []);
+
+  useEffect(() => {
     if (query.trim().length < 2) return;
     const t = window.setTimeout(() => {
       trackEvent("search_query", {
         search_term: query.trim().slice(0, 80),
         result_count: hits.length,
       });
+      const url = new URL(window.location.href);
+      if (url.pathname.includes("/pesquisa")) {
+        url.searchParams.set("q", query.trim());
+        window.history.replaceState({}, "", url.toString());
+      }
     }, 600);
     return () => window.clearTimeout(t);
   }, [query, hits.length]);

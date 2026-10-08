@@ -31,34 +31,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const seoBySlug: Record<
     string,
-    { title: string; description: string; keywords: string[] }
+    { title: string; description: string; keywords: string[]; h1?: string }
   > = {
     rybelsus: {
-      title: "Rybelsus Portugal — semaglutida oral (comprimido)",
+      title: "Rybelsus em Portugal: o que é, preço e como se toma",
       description:
-        "Rybelsus em Portugal: o que é, rotina de toma em jejum, diferenças face ao Ozempic, preço/Infomed e o que levar à consulta.",
+        "Rybelsus (semaglutida oral) em Portugal: comprimido diário, rotina de jejum, diferenças face ao Ozempic, ordem de grandeza de PVP na Infomed.",
       keywords: [
         "rybelsus",
         "rybelsus portugal",
         "semaglutida oral",
         "rybelsus preço",
+        "rybelsus preço portugal",
       ],
+      h1: "Rybelsus em Portugal",
     },
     mounjaro: {
-      title: "Mounjaro (tirzepatida) em Portugal — ficha e preço",
+      title: "Mounjaro preço Portugal — ficha (tirzepatida)",
       description:
-        "Mounjaro em Portugal: o que é a tirzepatida, em que difere do Ozempic, conservação e onde ver ordens de grandeza de preço.",
+        "Mounjaro em Portugal: o que é a tirzepatida, diferença face ao Ozempic, conservação e ordens de grandeza de PVP — confirme sempre a Infomed.",
       keywords: [
         "mounjaro",
         "mounjaro preço portugal",
         "tirzepatida",
         "Mounjaro Portugal",
       ],
+      h1: "Mounjaro (tirzepatida)",
     },
     ozempic: {
-      title: "Ozempic (semaglutida) — ficha e preço em Portugal",
+      title: "Ozempic dosagem e preço em Portugal — ficha",
       description:
-        "Ozempic em Portugal: semaglutida semanal, titulação/doses segundo a bula, diferenças face ao Wegovy e Rybelsus, e PVP na Infomed.",
+        "Ozempic em Portugal: semaglutida semanal, titulação segundo a bula (não invente doses), diferenças face ao Wegovy/Rybelsus e PVP na Infomed.",
       keywords: [
         "ozempic",
         "ozempic preço portugal",
@@ -66,24 +69,54 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "semaglutida",
         "Ozempic Portugal",
       ],
+      h1: "Ozempic em Portugal",
     },
     trulicity: {
-      title: "Trulicity (dulaglutida) — ficha e contexto de preço",
+      title: "Trulicity preço Portugal — dulaglutida (ficha)",
       description:
-        "Trulicity em Portugal: dulaglutida semanal, indicação típica e onde ver ordens de grandeza de PVP na página de preços.",
-      keywords: ["trulicity", "trulicity preço", "dulaglutida", "GLP-1"],
+        "Trulicity em Portugal: dulaglutida semanal, embalagens/canetas, indicação típica e onde ver PVP — não confundir com Mounjaro.",
+      keywords: [
+        "trulicity",
+        "trulicity preço",
+        "trulicity 1 5 preço",
+        "dulaglutida",
+        "GLP-1",
+      ],
+      h1: "Trulicity em Portugal",
     },
     saxenda: {
-      title: "Saxenda (liraglutida) — ficha em Portugal",
+      title: "Saxenda preço Portugal — liraglutida diária (ficha)",
       description:
-        "Saxenda em Portugal: liraglutida diária para gestão de peso, diferenças face ao Wegovy e o que confirmar na Infomed.",
+        "Saxenda em Portugal: liraglutida diária para gestão de peso, diferenças face ao Wegovy e Victoza, e o que confirmar na Infomed.",
       keywords: ["saxenda", "saxenda preço", "liraglutida", "Wegovy"],
+      h1: "Saxenda em Portugal",
     },
     byetta: {
-      title: "Byetta (exenatida) — ficha GLP-1",
+      title: "Byetta (exenatida) — para que serve? Ficha GLP-1",
       description:
-        "Byetta: exenatida, agonista de GLP-1 mais antigo — o que é e em que difere das canetas semanais actuais.",
-      keywords: ["byetta", "exenatida", "exenatida diabetes", "GLP-1"],
+        "Byetta: exenatida, agonista de GLP-1 mais antigo — para que serve, em que difere das canetas semanais actuais e o que confirmar na bula.",
+      keywords: [
+        "byetta",
+        "byetta para que sirve",
+        "exenatida",
+        "exenatida diabetes",
+        "GLP-1",
+      ],
+      h1: "Byetta (exenatida)",
+    },
+    wegovy: {
+      title: "Wegovy preço Portugal — semaglutida para peso (ficha)",
+      description:
+        "Wegovy em Portugal: semaglutida semanal para gestão de peso, diferenças face ao Ozempic e ordens de grandeza de PVP na Infomed.",
+      keywords: ["wegovy", "wegovy preço portugal", "semaglutida", "Ozempic"],
+      h1: "Wegovy em Portugal",
+    },
+    victoza: {
+      title: "Victoza vs Saxenda — liraglutida (ficha Portugal)",
+      description:
+        "Victoza em Portugal: liraglutida diária para diabetes tipo 2 — em que difere da Saxenda e o que confirmar na Infomed.",
+      keywords: ["victoza", "victoza vs saxenda", "liraglutida", "Saxenda"],
+      h1: "Victoza em Portugal",
     },
   };
 
@@ -105,6 +138,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
+const seoH1BySlug: Record<string, string> = {
+  rybelsus: "Rybelsus em Portugal",
+  mounjaro: "Mounjaro (tirzepatida)",
+  ozempic: "Ozempic em Portugal",
+  trulicity: "Trulicity em Portugal",
+  saxenda: "Saxenda em Portugal",
+  byetta: "Byetta (exenatida)",
+  wegovy: "Wegovy em Portugal",
+  victoza: "Victoza em Portugal",
+};
+
 export default async function MedicationPage({ params }: Props) {
   const { slug } = await params;
   const med = getMedication(slug);
@@ -113,10 +157,11 @@ export default async function MedicationPage({ params }: Props) {
   const ficha = getFicha(slug);
   const related = relatedMedications(med);
   const url = absoluteUrl(`/medicamentos/${med.slug}/`);
+  const h1 = seoH1BySlug[med.slug] ?? med.brandName;
 
   const schemas = [
     webPageLd({
-      name: `${med.brandName} (${med.substance})`,
+      name: h1,
       description: med.summary,
       path: `/medicamentos/${med.slug}`,
       type: "MedicalWebPage",
@@ -162,9 +207,9 @@ export default async function MedicationPage({ params }: Props) {
 
       <header className="med-hero">
         <div>
-          <h1>{med.brandName}</h1>
+          <h1>{h1}</h1>
           <p className="substance">
-            {med.substance} · {med.frequency}
+            {med.brandName} · {med.substance} · {med.frequency}
           </p>
           <p className="lede">{med.lede}</p>
         </div>
@@ -319,16 +364,41 @@ export default async function MedicationPage({ params }: Props) {
             </li>
             <li>
               <Link href="/precos/">
-                <strong>Preços</strong>
-                <span>Ordens de grandeza e o que verificar</span>
+                <strong>Preços em Portugal</strong>
+                <span>PVP por dose e comparticipação</span>
               </Link>
             </li>
-            <li>
-              <Link href="/artigos/titulacao-doses/">
-                <strong>Titulação e doses</strong>
-                <span>Porque a caneta sobe aos poucos</span>
-              </Link>
-            </li>
+            {med.slug === "rybelsus" ? (
+              <li>
+                <Link href="/artigos/rybelsus-portugal/">
+                  <strong>Rybelsus em Portugal</strong>
+                  <span>Rotina, Infomed e consulta</span>
+                </Link>
+              </li>
+            ) : null}
+            {med.slug === "trulicity" ? (
+              <li>
+                <Link href="/artigos/trulicity-portugal/">
+                  <strong>Trulicity em Portugal</strong>
+                  <span>Preço, canetas e o que não confundir</span>
+                </Link>
+              </li>
+            ) : null}
+            {med.slug === "ozempic" || med.slug === "mounjaro" || med.slug === "wegovy" ? (
+              <li>
+                <Link href="/artigos/titulacao-doses/">
+                  <strong>Titulação e doses</strong>
+                  <span>Porque a caneta sobe aos poucos</span>
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link href="/artigos/titulacao-doses/">
+                  <strong>Titulação e doses</strong>
+                  <span>Porque a dose sobe aos poucos</span>
+                </Link>
+              </li>
+            )}
             <li>
               <Link href="/medicos/#checklist">
                 <strong>Checklist</strong>

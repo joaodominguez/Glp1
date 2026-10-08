@@ -15,10 +15,10 @@ import {
 import { CONTENT_REVIEWED_AT, CONTENT_REVIEWED_LABEL } from "@/lib/site";
 
 const description =
-  "Preço Mounjaro, Ozempic, Wegovy e Rybelsus em Portugal: ordens de grandeza de PVP por dose, comparticipação SNS e o que confirmar na Infomed — a dosagem muda o recibo.";
+  "Preço Mounjaro, Ozempic, Wegovy, Rybelsus e Trulicity em Portugal: PVP por dose, comparticipação SNS e Infomed — a dosagem e o nº de canetas mudam o recibo.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Preço Mounjaro e Ozempic em Portugal (PVP por dose)",
+  title: "Preço Mounjaro, Ozempic e Rybelsus em Portugal",
   description,
   path: "/precos",
   keywords: [
@@ -27,7 +27,9 @@ export const metadata: Metadata = pageMetadata({
     "ozempic dosagem",
     "preço Wegovy Portugal",
     "rybelsus preço",
+    "rybelsus preço portugal",
     "trulicity preço",
+    "trulicity 1 5 preço 4 canetas",
     "GLP-1 comparticipação",
     "INFARMED Infomed",
   ],
@@ -66,7 +68,7 @@ export default function PrecosPage() {
         ]}
       />
       <p className="eyebrow">Portugal · dinheiro</p>
-      <h1>Preço Mounjaro e Ozempic em Portugal (PVP por dose)</h1>
+      <h1>Preço Mounjaro, Ozempic e Rybelsus em Portugal</h1>
       <p className="lede">
         A pergunta mais frequente depois de «isto é para mim?» é «quanto custa?».
         Aqui vai a ordem de grandeza de PVP — e o que a muda: dose/titulação,
@@ -194,7 +196,13 @@ export default function PrecosPage() {
             <li>
               <Link href="/artigos/rybelsus-portugal/">
                 <strong>Rybelsus em Portugal</strong>
-                <span>Contexto local do comprimido.</span>
+                <span>Preço, toma e Infomed.</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/artigos/trulicity-portugal/">
+                <strong>Trulicity em Portugal</strong>
+                <span>Canetas, dose e PVP.</span>
               </Link>
             </li>
             <li>

@@ -9,13 +9,15 @@ import { absoluteUrl, pageMetadata, webPageLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: `${SITE_NAME} — Mounjaro, Ozempic, Wegovy, Rybelsus`,
+  title: `${SITE_NAME} — Rybelsus, Mounjaro, Ozempic e Wegovy em Portugal`,
   description:
-    "Guia em português sobre medicamentos GLP-1: fichas, preços em Portugal, médicos, FAQ e artigos práticos. Sem venda de medicamentos.",
+    "Guia GLP-1 (meuglp1.pt): fichas, preços em Portugal, titulação, médicos e FAQ em português. Sem venda de medicamentos.",
   path: "/",
   type: "website",
   absoluteTitle: true,
   keywords: [
+    "Guia GLP-1",
+    "meuglp1.pt",
     "Mounjaro",
     "Ozempic",
     "Wegovy",
@@ -58,19 +60,20 @@ export default function HomePage() {
       <section className="hero shell">
         <div className="hero-grid">
           <div>
-            <p className="eyebrow">Guia GLP-1</p>
-            <h1>Vais começar Mounjaro. Começa por perceber o que é.</h1>
+            <p className="eyebrow">meuglp1.pt · Portugal</p>
+            <h1>Guia GLP-1</h1>
             <p className="lede">
-              Onze nomes comerciais, seis substâncias. Preços, onde comprar com
-              segurança e que médico consultar — em português claro.
+              Rybelsus, Mounjaro, Ozempic, Wegovy e mais — fichas, preços e o
+              que perguntar na consulta. Em português claro. Sem venda de
+              medicamentos.
             </p>
             <div className="cta-row">
               <AnalyticsLink
                 className="btn btn-primary"
-                href="/medicamentos/mounjaro/"
-                event="cta_mounjaro"
+                href="/precos/"
+                event="cta_precos"
               >
-                Ver Mounjaro
+                Ver preços
               </AnalyticsLink>
               <AnalyticsLink
                 className="btn btn-ghost"
@@ -104,11 +107,11 @@ export default function HomePage() {
           <li>
             <AnalyticsLink
               className="path-card"
-              href="/medicamentos/mounjaro/"
-              event="path_medicamento"
+              href="/precos/"
+              event="path_precos"
             >
-              <strong>O medicamento</strong>
-              <span>O que é a tirzepatida e em que difere do Ozempic.</span>
+              <strong>Preços</strong>
+              <span>PVP por dose em Portugal — Infomed manda.</span>
             </AnalyticsLink>
           </li>
           <li>
@@ -124,21 +127,21 @@ export default function HomePage() {
           <li>
             <AnalyticsLink
               className="path-card"
-              href="/medicos/#checklist"
-              event="path_checklist"
+              href="/artigos/titulacao-doses/"
+              event="path_titulacao"
             >
-              <strong>Checklist</strong>
-              <span>O que levar à consulta — com vistos no browser.</span>
+              <strong>Dosagem / titulação</strong>
+              <span>Porque a caneta sobe aos poucos.</span>
             </AnalyticsLink>
           </li>
           <li>
             <AnalyticsLink
               className="path-card"
-              href="/pesquisa/"
-              event="path_pesquisa"
+              href="/clinicas/"
+              event="path_clinicas"
             >
-              <strong>Pesquisar</strong>
-              <span>Medicamentos, artigos, FAQ e glossário.</span>
+              <strong>Clínicas</strong>
+              <span>Critério — sem ranking nem anúncios.</span>
             </AnalyticsLink>
           </li>
         </ul>

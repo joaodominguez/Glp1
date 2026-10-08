@@ -10,13 +10,15 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Artigos — boas práticas com GLP-1",
+  title: "Artigos — Rybelsus, preços, titulação e comparações",
   description:
-    "Guias práticos: Rybelsus Portugal, preços, titulação, obstipação, comparações (Mounjaro, Ozempic, Wegovy, Saxenda) e alarmes.",
+    "Guias práticos em Portugal: Rybelsus, Trulicity, preços, titulação/dosagem, obstipação, comparações (Mounjaro, Ozempic, Wegovy, Saxenda) e Infomed.",
   path: "/artigos",
   keywords: [
     "rybelsus portugal",
     "mounjaro preço",
+    "ozempic dosagem",
+    "trulicity preço",
     "artigos GLP-1",
     "titulação",
     "obstipação Ozempic",
