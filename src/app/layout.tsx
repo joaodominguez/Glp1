@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Figtree, Fraunces } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -13,11 +13,16 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-/* Soft grotesk — Apfel-adjacent presence (Projet Bulles), not Inter/Roboto. */
-const sans = Outfit({
+const display = Fraunces({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-sans",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
+});
+
+const body = Figtree({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
 });
 
 const ogImage = {
@@ -78,7 +83,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-PT" className={sans.variable}>
+    <html lang="pt-PT" className={`${display.variable} ${body.variable}`}>
       <body>
         <Analytics />
         <JsonLd data={siteGraphLd()} />

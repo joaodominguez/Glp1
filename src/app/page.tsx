@@ -84,55 +84,46 @@ export default function HomePage() {
         ]}
       />
 
-      <section className="hero-stage shell" aria-label="Guia GLP-1">
-        <div className="hero-bleed hero-anim-stage">
-          <figure className="hero-bleed-media" aria-hidden="true">
-            <Image
-              src="/illustrations/pens/mounjaro.png?v=20260914"
-              alt=""
-              width={1376}
-              height={768}
-              className="hero-bleed-img"
-              priority
-              sizes="(min-width: 900px) 1180px, 100vw"
-            />
-          </figure>
-          <div className="hero-bleed-scrim" aria-hidden="true" />
-          <div className="hero-bleed-copy">
-            <p className="eyebrow hero-anim">Portugal · informação clara</p>
-            <h1 className="brand-hero hero-anim">Guia GLP-1</h1>
-            <p className="lede hero-anim hero-anim-delay">
-              Preços, fichas e o que perguntar na consulta — Rybelsus, Mounjaro,
-              Ozempic e Wegovy. Sem venda de medicamentos.
-            </p>
-            <div className="cta-row hero-anim hero-anim-delay-2">
-              <AnalyticsLink
-                className="btn btn-primary"
-                href="/precos/"
-                event="cta_precos"
-              >
-                Preços
-              </AnalyticsLink>
-              <AnalyticsLink
-                className="btn btn-ghost"
-                href="/artigos/rybelsus-portugal/"
-                event="cta_rybelsus"
-              >
-                Rybelsus
-              </AnalyticsLink>
-            </div>
+      <section className="hero-bleed" aria-label="Guia GLP-1">
+        <figure className="hero-bleed-media" aria-hidden="true">
+          <Image
+            src="/illustrations/pens/mounjaro.png?v=20260914"
+            alt=""
+            width={1376}
+            height={768}
+            className="hero-bleed-img"
+            priority
+            sizes="100vw"
+          />
+        </figure>
+        <div className="hero-bleed-scrim" aria-hidden="true" />
+        <div className="hero-bleed-copy shell">
+          <p className="eyebrow hero-anim">Portugal · meuglp1.pt</p>
+          <h1 className="brand-hero hero-anim">Guia GLP-1</h1>
+          <p className="lede hero-anim hero-anim-delay">
+            Preços, fichas e o que perguntar na consulta — Rybelsus, Mounjaro,
+            Ozempic e Wegovy em português claro. Sem venda de medicamentos.
+          </p>
+          <div className="cta-row hero-anim hero-anim-delay-2">
+            <AnalyticsLink
+              className="btn btn-primary"
+              href="/precos/"
+              event="cta_precos"
+            >
+              Ver preços em Portugal
+            </AnalyticsLink>
+            <AnalyticsLink
+              className="btn btn-ghost"
+              href="/artigos/rybelsus-portugal/"
+              event="cta_rybelsus"
+            >
+              Rybelsus
+            </AnalyticsLink>
           </div>
         </div>
       </section>
 
-      <section className="section shell intro-band reveal-section">
-        <p className="intro-band-text">
-          Um espaço calmo para ler sobre GLP-1 em português — antes da consulta,
-          sem substituir o médico.
-        </p>
-      </section>
-
-      <section className="section shell reveal-section">
+      <section className="section shell">
         <div className="section-head">
           <h2>Por onde começar</h2>
           <p>Quatro caminhos alinhados ao que as pessoas procuram.</p>
@@ -153,18 +144,21 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="section shell reveal-section" id="medicamentos">
+      <section className="section shell" id="medicamentos">
         <div className="section-head">
           <h2>Medicamentos em Portugal</h2>
           <p>
-            Os nomes com procura real primeiro. Os outros{" "}
-            {medCount - pillars.length} estão no hub completo.
+            Os nomes com procura real primeiro. Os outros {medCount - pillars.length}{" "}
+            estão no hub completo.
           </p>
         </div>
         <ul className="pillar-list">
           {pillars.map((med) => (
             <li key={med.slug}>
-              <Link className="pillar-link" href={`/medicamentos/${med.slug}/`}>
+              <Link
+                className="pillar-link"
+                href={`/medicamentos/${med.slug}/`}
+              >
                 <strong>{med.brandName}</strong>
                 <span className="meta">
                   {med.substance} · {med.frequency}
@@ -181,7 +175,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="section shell reveal-section">
+      <section className="section shell">
         <div className="section-head">
           <h2>Artigos</h2>
           <p>Prática, comparações e Portugal — sem promessas de redes.</p>
