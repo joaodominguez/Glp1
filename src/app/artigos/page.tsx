@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Artigos — Rybelsus, preços, titulação e comparações",
   description:
-    "Guias práticos em Portugal: Rybelsus, Trulicity, preços, titulação/dosagem, obstipação, comparações (Mounjaro, Ozempic, Wegovy, Saxenda) e Infomed.",
+    "Guias práticos em Portugal: Rybelsus, Trulicity, preços, titulação/dosagem, obstipação, comparações e Infomed.",
   path: "/artigos",
   keywords: [
     "rybelsus portugal",
@@ -21,9 +21,15 @@ export const metadata: Metadata = pageMetadata({
     "trulicity preço",
     "artigos GLP-1",
     "titulação",
-    "obstipação Ozempic",
   ],
 });
+
+const groups = [
+  { id: "portugal", label: "Portugal", match: "Portugal" },
+  { id: "comparar", label: "Comparar", match: "Comparar" },
+  { id: "pratica", label: "Na prática", match: "Na prática" },
+  { id: "seguranca", label: "Segurança", match: "Segurança" },
+] as const;
 
 export default function ArtigosPage() {
   const list = articlesSorted();
@@ -35,7 +41,7 @@ export default function ArtigosPage() {
           webPageLd({
             name: "Artigos — boas práticas com GLP-1",
             description:
-              "Série Na prática: primeiros passos, efeitos, logística e alimentação.",
+              "Série prática: Portugal, comparações, primeiras semanas e alarmes.",
             path: "/artigos",
             type: "CollectionPage",
           }),
@@ -59,25 +65,43 @@ export default function ArtigosPage() {
       />
       <div className="shell page-simple">
         <p className="eyebrow">Na prática</p>
-        <h1>Artigos e boas práticas</h1>
+        <h1>Artigos</h1>
         <p className="lede">
-          Truques do dia a dia, sem protocolo DIY nem promessas de redes
-          sociais. Quatro guias para quem começa — ou já está a meio.
+          Sem protocolo DIY nem promessas de redes. Agrupados pelo momento da
+          jornada.
         </p>
 
-        <ul className="article-grid">
-          {list.map((article) => (
-            <li key={article.slug}>
-              <Link className="article-card" href={`/artigos/${article.slug}/`}>
-                <span className="meta">
-                  {article.eyebrow} · {article.readMinutes} min
-                </span>
-                <strong>{article.title}</strong>
-                <span className="blurb">{article.summary}</span>
-              </Link>
-            </li>
+        <nav className="filter-row" aria-label="Grupos de artigos">
+          {groups.map((g) => (
+            <a key={g.id} href={`#${g.id}`}>
+              {g.label}
+            </a>
           ))}
-        </ul>
+        </nav>
+
+        {groups.map((g) => {
+          const items = list.filter((a) => a.eyebrow === g.match);
+          if (items.length === 0) return null;
+          return (
+            <section key={g.id} id={g.id} className="article-group">
+              <h2>{g.label}</h2>
+              <ul className="story-list">
+                {items.map((article) => (
+                  <li key={article.slug}>
+                    <Link
+                      className="story-link"
+                      href={`/artigos/${article.slug}/`}
+                    >
+                      <span className="meta">{article.readMinutes} min</span>
+                      <strong>{article.title}</strong>
+                      <span className="blurb">{article.summary}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
       </div>
     </>
   );

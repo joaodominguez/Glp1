@@ -1,8 +1,8 @@
 # Auditoria profunda — meuglp1.pt
 
-**Data:** 1 de outubro de 2026  
+**Data:** 1 de outubro de 2026 (baseline GSC actualizado 08/10: 13 cliques · 824 impressões · CTR 1,6% · posição 35,2)  
 **Âmbito:** design / UX · organização de conteúdo · SEO técnico · schemas  
-**Sinal do produto:** GSC 3 meses ≈ 11 cliques · 625 impressões · CTR 1,8% · posição 34,8  
+**Sinal do produto:** impressões sobem; CTR/posição estagnados — titles sozinhos não bastam  
 **Sinal do dono:** «vou ao site e não gosto»
 
 ---

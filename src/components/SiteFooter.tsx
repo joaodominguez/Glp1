@@ -5,30 +5,39 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="shell footer-inner">
-        <div>
+        <div className="footer-brand-block">
           <p className="footer-brand">{SITE_NAME}</p>
           <p className="footer-note">
-            Conteúdo informativo. Não substitui consulta, diagnóstico nem
-            prescrição. Não vendemos medicamentos.
+            meuglp1.pt · Portugal. Conteúdo informativo — não substitui
+            consulta, diagnóstico nem prescrição. Não vendemos medicamentos.
           </p>
         </div>
-        <nav className="footer-links" aria-label="Rodapé">
-          <Link href="/medicamentos/">Medicamentos</Link>
-          <Link href="/artigos/">Artigos</Link>
-          <Link href="/precos/">Preços</Link>
-          <Link href="/medicos/">Médicos</Link>
-          <Link href="/clinicas/">Clínicas</Link>
-          <Link href="/onde-comprar/">Onde comprar</Link>
-          <Link href="/perguntas/">Perguntas</Link>
-          <Link href="/comparar/">Comparar</Link>
-          <Link href="/pesquisa/">Pesquisar</Link>
-          <Link href="/glossario/">Glossário</Link>
-          <Link href="/fontes/">Fontes</Link>
-          <Link href="/sobre/">Sobre</Link>
-          <Link href="/sugerir/">Sugerir</Link>
-          <Link href="/privacidade/">Privacidade</Link>
-          <Link href="/aviso/">Aviso médico</Link>
-        </nav>
+        <div className="footer-cols">
+          <nav aria-label="Guia">
+            <p className="footer-col-title">Guia</p>
+            <Link href="/precos/">Preços</Link>
+            <Link href="/medicamentos/">Medicamentos</Link>
+            <Link href="/artigos/">Artigos</Link>
+            <Link href="/perguntas/">Perguntas</Link>
+            <Link href="/comparar/">Comparar</Link>
+          </nav>
+          <nav aria-label="Portugal">
+            <p className="footer-col-title">Portugal</p>
+            <Link href="/clinicas/">Clínicas</Link>
+            <Link href="/medicos/">Médicos</Link>
+            <Link href="/onde-comprar/">Onde comprar</Link>
+            <Link href="/artigos/como-ler-infomed/">Infomed</Link>
+            <Link href="/fontes/">Fontes</Link>
+          </nav>
+          <nav aria-label="Confiança">
+            <p className="footer-col-title">Confiança</p>
+            <Link href="/sobre/">Sobre</Link>
+            <Link href="/aviso/">Aviso médico</Link>
+            <Link href="/privacidade/">Privacidade</Link>
+            <Link href="/sugerir/">Sugerir</Link>
+            <Link href="/pesquisa/">Pesquisar</Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

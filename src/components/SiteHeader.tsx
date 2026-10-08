@@ -31,6 +31,9 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <Link href="/pesquisa/" className="nav-search">
+            Pesquisar
+          </Link>
         </nav>
 
         <button
@@ -55,6 +58,9 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <Link href="/pesquisa/" onClick={() => setOpen(false)}>
+            Pesquisar
+          </Link>
         </nav>
       ) : null}
     </header>
