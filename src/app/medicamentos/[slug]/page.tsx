@@ -55,6 +55,9 @@ export default async function MedicationPage({ params }: Props) {
   const images = getMedicationImages(med.slug);
   const manufacturer = getManufacturer(manufacturerIdForCompany(med.company));
 
+  // Informational YMYL page — never add offers / AggregateOffer / Product,
+  // aggregateRating or review. Those trigger Google "Product snippet" and
+  // inventing ratings would be misleading (we do not sell medicines).
   const jsonLd = [
     {
       "@context": "https://schema.org",
